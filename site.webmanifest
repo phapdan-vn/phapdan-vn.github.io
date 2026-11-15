@@ -1,0 +1,29 @@
+{
+  "name": "Pháp Dẫn",
+  "short_name": "Pháp Dẫn",
+  "description": "Hỗ trợ công tác tiếp nhận và xử lý đơn thư",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1B2A44",
+  "theme_color": "#1B2A44",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
