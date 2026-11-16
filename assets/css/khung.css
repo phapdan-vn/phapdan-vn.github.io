@@ -1,0 +1,272 @@
+/* Khung đầu/chân dùng riêng cho trang Bài viết. TỆP SINH TỰ ĐỘNG từ dung.py (màu từ bang_mau.py, quy tắc từ site.css), không sửa tay.
+   Mọi quy tắc nằm dưới .pd-khung để không làm đổi giao diện của bài viết. */
+/* Bộ màu A: navy + vàng. TỆP SINH TỰ ĐỘNG từ nguon/bang_mau.py, không sửa tay.
+   Tỷ lệ tương phản của từng cặp: bang-chung/do-tuong-phan.md */
+.pd-khung {
+  /* Bảng màu gốc */
+  --sang-paper: #FBF9F4;
+  --sang-paper-2: #F4F0E6;
+  --sang-paper-3: #EAE4D6;
+  --sang-surface: #FFFFFF;
+  --sang-ink: #1B2A44;
+  --sang-ink-2: #37445E;
+  --sang-muted: #586278;
+  --sang-rule: #DCD5C5;
+  --sang-rule-2: #E9E3D6;
+  --sang-rule-ui: #8A8474;
+  --sang-brand: #1B2A44;
+  --sang-brand-2: #2B3D60;
+  --sang-on-brand: #FBF9F4;
+  --sang-on-brand-2: #C9D0DD;
+  --sang-accent: #C9A227;
+  --sang-accent-ink: #735900;
+  --sang-accent-soft: #F6ECC9;
+  --sang-accent-rule: #D9C06C;
+  --sang-ok-ink: #1D5A45;
+  --sang-ok-soft: #E0F0E8;
+  --sang-ok-rule: #9CCBB6;
+  --sang-out-ink: #8C2B20;
+  --sang-out-soft: #F9E6E1;
+  --sang-out-rule: #E0A79D;
+  --sang-btn-bg: #1B2A44;
+  --sang-btn-bg-hover: #2B3D60;
+  --sang-btn-ink: #FBF9F4;
+  --sang-focus: #1B2A44;
+  --sang-scrim: #0D1524;
+  --sang-shadow-rgb: 27 42 68;
+  --sang-brand-mark: #1B2A44;
+  --sang-logo-bg: #1B2A44;
+  --sang-logo-fg: #FBF9F4;
+  --toi-paper: #0E1726;
+  --toi-paper-2: #131E31;
+  --toi-paper-3: #1B2A44;
+  --toi-surface: #17233A;
+  --toi-ink: #F3EFE5;
+  --toi-ink-2: #CBD1DC;
+  --toi-muted: #9EA8BA;
+  --toi-rule: #2E3D5A;
+  --toi-rule-2: #223049;
+  --toi-rule-ui: #6F7C95;
+  --toi-brand: #1B2A44;
+  --toi-brand-2: #24365A;
+  --toi-on-brand: #F3EFE5;
+  --toi-on-brand-2: #C9D0DD;
+  --toi-accent: #C9A227;
+  --toi-accent-ink: #DDBE55;
+  --toi-accent-soft: #3A3010;
+  --toi-accent-rule: #6E5A16;
+  --toi-ok-ink: #8FD4B6;
+  --toi-ok-soft: #143A30;
+  --toi-ok-rule: #2C6A57;
+  --toi-out-ink: #F2AA9F;
+  --toi-out-soft: #48201B;
+  --toi-out-rule: #7F3A31;
+  --toi-btn-bg: #C9A227;
+  --toi-btn-bg-hover: #DDBE55;
+  --toi-btn-ink: #131E31;
+  --toi-focus: #DDBE55;
+  --toi-scrim: #05080F;
+  --toi-shadow-rgb: 0 0 0;
+  --toi-brand-mark: #8FA1C4;
+  --toi-logo-bg: #2B3D60;
+  --toi-logo-fg: #F3EFE5;
+  --khoi-paper: #1B2A44;
+  --khoi-paper-2: #20304D;
+  --khoi-paper-3: #2B3D60;
+  --khoi-surface: #22334F;
+  --khoi-ink: #F6F2E8;
+  --khoi-ink-2: #CFD5E0;
+  --khoi-muted: #A9B2C3;
+  --khoi-rule: #3A4B6B;
+  --khoi-rule-2: #2E3E5C;
+  --khoi-rule-ui: #8D99B0;
+  --khoi-accent: #C9A227;
+  --khoi-accent-ink: #DDBE55;
+  --khoi-accent-soft: #3F3514;
+  --khoi-accent-rule: #7A651B;
+  --khoi-ok-ink: #9ADBBE;
+  --khoi-ok-soft: #1C4338;
+  --khoi-ok-rule: #3A7A66;
+  --khoi-out-ink: #F4B3A9;
+  --khoi-out-soft: #532822;
+  --khoi-out-rule: #8E463C;
+  --khoi-btn-bg: #C9A227;
+  --khoi-btn-bg-hover: #DDBE55;
+  --khoi-btn-ink: #17233A;
+  --khoi-focus: #DDBE55;
+  /* Biến ngữ nghĩa, mặc định là giao diện sáng */
+  --paper: var(--sang-paper);
+  --paper-2: var(--sang-paper-2);
+  --paper-3: var(--sang-paper-3);
+  --surface: var(--sang-surface);
+  --ink: var(--sang-ink);
+  --ink-2: var(--sang-ink-2);
+  --muted: var(--sang-muted);
+  --rule: var(--sang-rule);
+  --rule-2: var(--sang-rule-2);
+  --rule-ui: var(--sang-rule-ui);
+  --brand: var(--sang-brand);
+  --brand-2: var(--sang-brand-2);
+  --on-brand: var(--sang-on-brand);
+  --on-brand-2: var(--sang-on-brand-2);
+  --accent: var(--sang-accent);
+  --accent-ink: var(--sang-accent-ink);
+  --accent-soft: var(--sang-accent-soft);
+  --accent-rule: var(--sang-accent-rule);
+  --ok-ink: var(--sang-ok-ink);
+  --ok-soft: var(--sang-ok-soft);
+  --ok-rule: var(--sang-ok-rule);
+  --out-ink: var(--sang-out-ink);
+  --out-soft: var(--sang-out-soft);
+  --out-rule: var(--sang-out-rule);
+  --btn-bg: var(--sang-btn-bg);
+  --btn-bg-hover: var(--sang-btn-bg-hover);
+  --btn-ink: var(--sang-btn-ink);
+  --focus: var(--sang-focus);
+  --scrim: var(--sang-scrim);
+  --shadow-rgb: var(--sang-shadow-rgb);
+  --brand-mark: var(--sang-brand-mark);
+  --logo-bg: var(--sang-logo-bg);
+  --logo-fg: var(--sang-logo-fg);
+}
+/* Giao diện tối: theo cài đặt của máy. Thuộc tính data-giao-dien chỉ để xem thử. */
+@media (prefers-color-scheme: dark) {
+  .pd-khung {
+    --paper: var(--toi-paper);
+    --paper-2: var(--toi-paper-2);
+    --paper-3: var(--toi-paper-3);
+    --surface: var(--toi-surface);
+    --ink: var(--toi-ink);
+    --ink-2: var(--toi-ink-2);
+    --muted: var(--toi-muted);
+    --rule: var(--toi-rule);
+    --rule-2: var(--toi-rule-2);
+    --rule-ui: var(--toi-rule-ui);
+    --brand: var(--toi-brand);
+    --brand-2: var(--toi-brand-2);
+    --on-brand: var(--toi-on-brand);
+    --on-brand-2: var(--toi-on-brand-2);
+    --accent: var(--toi-accent);
+    --accent-ink: var(--toi-accent-ink);
+    --accent-soft: var(--toi-accent-soft);
+    --accent-rule: var(--toi-accent-rule);
+    --ok-ink: var(--toi-ok-ink);
+    --ok-soft: var(--toi-ok-soft);
+    --ok-rule: var(--toi-ok-rule);
+    --out-ink: var(--toi-out-ink);
+    --out-soft: var(--toi-out-soft);
+    --out-rule: var(--toi-out-rule);
+    --btn-bg: var(--toi-btn-bg);
+    --btn-bg-hover: var(--toi-btn-bg-hover);
+    --btn-ink: var(--toi-btn-ink);
+    --focus: var(--toi-focus);
+    --scrim: var(--toi-scrim);
+    --shadow-rgb: var(--toi-shadow-rgb);
+    --brand-mark: var(--toi-brand-mark);
+    --logo-bg: var(--toi-logo-bg);
+    --logo-fg: var(--toi-logo-fg);
+  }
+}
+/* Khối tối có chọn lọc (phần Khóa trích dẫn): cùng một bộ biến ở cả giao diện sáng và tối */
+
+.pd-khung {
+  --sans: "Be Vietnam Pro", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --serif: "Noto Serif", "Times New Roman", serif;
+
+  
+  --t-display: clamp(2.375rem, 1.2rem + 4.4vw, 4.25rem);   
+  --t-h1: clamp(2.125rem, 1.4rem + 2.9vw, 3.25rem);        
+  --t-h2: clamp(1.75rem, 1.25rem + 2vw, 2.625rem);         
+  --t-thesis: clamp(1.625rem, 1.1rem + 2.2vw, 2.5rem);     
+  --t-h3: 1.25rem;                                         
+  --t-lede: clamp(1.125rem, 1.02rem + 0.42vw, 1.3125rem);  
+  --t-body: 1.0625rem;                                     
+  --t-small: 0.9375rem;                                    
+  --t-note: 0.875rem;                                      
+  --t-cite: 1.1875rem;                                     
+
+  
+  --s-1: 4px;  --s-2: 8px;  --s-3: 12px; --s-4: 16px; --s-5: 24px;
+  --s-6: 32px; --s-7: 48px; --s-8: 64px; --s-9: 96px; --s-10: 128px;
+  --sec: clamp(64px, 9vw, 128px);        
+
+  
+  --r-1: 6px;   
+  --r-2: 10px;  
+  --r-3: 14px;  
+
+  
+  --wrap: 1200px;
+  --gutter: 24px;
+  --edge: clamp(20px, 5vw, 64px);
+
+  
+  --shadow: 0 2px 4px rgb(var(--shadow-rgb) / 0.08), 0 28px 56px -24px rgb(var(--shadow-rgb) / 0.4);
+}
+.pd-khung { font-family: var(--sans); font-size: 1rem; font-weight: 400; line-height: 1.5; text-align: left; color: var(--ink); background: var(--paper); -webkit-font-smoothing: antialiased; }
+.pd-khung *, .pd-khung *::before, .pd-khung *::after { box-sizing: border-box; }
+.pd-khung p { margin: 0; max-width: none; font-size: inherit; line-height: inherit; color: inherit; }
+.pd-khung a { color: inherit; text-decoration-line: underline; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
+.pd-khung a:hover { text-decoration-thickness: 2px; text-decoration-color: var(--accent); }
+.pd-khung a:focus-visible, .pd-khung button:focus-visible, .pd-khung summary:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: var(--r-1); }
+.pd-khung img { display: block; max-width: 100%; height: auto; }
+.pd-khung footer { border: 0; margin: 0; padding: 0; font-size: inherit; color: inherit; }
+.pd-khung .wrap { max-width: calc(var(--wrap) + 2 * var(--edge)); margin-inline: auto; padding-inline: var(--edge); }
+.pd-khung .btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 48px; padding: 0 var(--s-5); border-radius: var(--r-2); border: 1px solid transparent;
+  font: inherit; font-weight: 600; font-size: 1rem; line-height: 1.2; text-decoration: none; white-space: nowrap;
+  cursor: pointer; transition: background-color 0.12s ease-out, border-color 0.12s ease-out;
+}
+.pd-khung .btn--primary { background: var(--btn-bg); color: var(--btn-ink); }
+.pd-khung .btn--primary:hover { background: var(--btn-bg-hover); }
+.pd-khung .btn--line { background: transparent; color: var(--ink); border-color: var(--rule-ui); }
+.pd-khung .btn--line:hover { background: var(--paper-2); border-color: var(--ink); }
+.pd-khung .btn--sm { min-height: 44px; padding: 0 20px; font-size: var(--t-small); }
+.pd-khung .btn:active { transform: translateY(1px); }
+.pd-khung .btn:disabled { opacity: 0.55; cursor: not-allowed; }
+.pd-khung .site-head { border-bottom: 1px solid var(--rule-2); background: var(--paper); }
+.pd-khung .site-head__in { display: flex; align-items: center; gap: var(--s-3) var(--s-4); min-height: 92px; padding-block: var(--s-3); }
+.pd-khung .brand { display: inline-flex; align-items: center; gap: 16px; min-height: 56px; text-decoration: none; margin-right: auto; min-width: 0; }
+.pd-khung .brand img { flex: none; display: block; width: 56px; height: 56px; border-radius: 12px; }
+.pd-khung .brand__name { font-weight: 600; font-size: 1.75rem; line-height: 1.15; letter-spacing: -0.015em; white-space: nowrap; }
+.pd-khung .brand__sub { font-weight: 500; font-size: 1.0625rem; color: var(--muted); white-space: nowrap; }
+.pd-khung .nav { display: none; align-items: center; gap: 24px; }
+.pd-khung .nav a { text-decoration: none; font-weight: 500; font-size: var(--t-small); color: var(--ink-2); white-space: nowrap; padding-block: 12px; }
+.pd-khung .nav a:hover { color: var(--ink); text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: 8px; }
+.pd-khung .nav a[aria-current] { color: var(--ink); font-weight: 600; text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: 8px; }
+.pd-khung .mnav { position: relative; }
+.pd-khung .mnav summary {
+  list-style: none; cursor: pointer; min-height: 44px; display: inline-flex; align-items: center; padding: 0 16px;
+  border-radius: var(--r-2); border: 1px solid var(--rule-ui); font-weight: 600; font-size: var(--t-small); white-space: nowrap;
+}
+.pd-khung .mnav summary::-webkit-details-marker { display: none; }
+.pd-khung .mnav nav {
+  position: absolute; right: 0; top: 52px; z-index: 10; min-width: 232px; max-width: calc(100vw - 2 * var(--edge));
+  display: flex; flex-direction: column; padding: 4px;
+  background: var(--surface); border: 1px solid var(--rule-ui); border-radius: var(--r-2);
+}
+.pd-khung .mnav nav a { display: flex; align-items: center; min-height: 44px; padding: 0 12px; border-radius: var(--r-1); text-decoration: none; font-size: 1rem; }
+.pd-khung .mnav nav a:hover { background: var(--paper-2); }
+@media (min-width: 1200px) {
+  .pd-khung .nav { display: flex; }
+  .pd-khung .mnav { display: none; }
+}
+@media (max-width: 639px) {
+  .pd-khung .brand { display: grid; grid-template-columns: auto 1fr; gap: 0 10px; min-height: 48px; }
+  .pd-khung .brand picture { grid-row: 1 / span 2; }
+  .pd-khung .brand img { width: 48px; height: 48px; border-radius: 10px; }
+  .pd-khung .brand__name { font-size: 1.375rem; line-height: 1.15; align-self: end; }
+  .pd-khung .brand__sub { font-size: var(--t-small); line-height: 1.2; align-self: start; }
+  .pd-khung .site-head__in { gap: var(--s-2); min-height: 80px; }
+}
+@media (max-width: 439px) {
+  .pd-khung .site-head .btn--sm { display: none; }
+}
+.pd-khung .site-foot { border-top: 1px solid var(--rule-2); padding-block: var(--s-7); }
+.pd-khung .site-foot__in { display: flex; flex-wrap: wrap; gap: var(--s-5) var(--s-7); justify-content: space-between; align-items: flex-start; }
+.pd-khung .site-foot__brand { font-weight: 600; font-size: 1.1875rem; }
+.pd-khung .site-foot__tag { margin-top: var(--s-1); font-size: var(--t-small); color: var(--muted); }
+.pd-khung .site-foot nav { display: flex; flex-wrap: wrap; gap: var(--s-1) 28px; font-size: var(--t-small); }
+.pd-khung .site-foot nav a { display: inline-flex; align-items: center; min-height: 44px; }
+.pd-khung .site-foot__legal { flex-basis: 100%; font-size: var(--t-note); color: var(--muted); }
