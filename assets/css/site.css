@@ -116,11 +116,11 @@ a:focus-visible, button:focus-visible, summary:focus-visible, [tabindex]:focus-v
 
 /* ---------- Đầu trang ---------- */
 .site-head { border-bottom: 1px solid var(--rule-2); background: var(--paper); }
-.site-head__in { display: flex; align-items: center; gap: var(--s-3) var(--s-4); min-height: 72px; padding-block: var(--s-3); }
-.brand { display: inline-flex; align-items: center; gap: 12px; min-height: 44px; text-decoration: none; margin-right: auto; min-width: 0; }
-.brand img { flex: none; display: block; width: 36px; height: 36px; border-radius: 8px; }  /* logo bản gọn 33–64 px; không dùng nhỏ hơn 33 px */
-.brand__name { font-weight: 600; font-size: 1.3125rem; letter-spacing: -0.01em; white-space: nowrap; }
-.brand__sub { font-weight: 500; font-size: var(--t-small); color: var(--muted); white-space: nowrap; }
+.site-head__in { display: flex; align-items: center; gap: var(--s-3) var(--s-4); min-height: 92px; padding-block: var(--s-3); }
+.brand { display: inline-flex; align-items: center; gap: 16px; min-height: 56px; text-decoration: none; margin-right: auto; min-width: 0; }
+.brand img { flex: none; display: block; width: 56px; height: 56px; border-radius: 12px; }  /* logo bản gọn 33–64 px (bản 5.1: 56 px máy tính, 48 px điện thoại); không dùng nhỏ hơn 33 px */
+.brand__name { font-weight: 600; font-size: 1.75rem; line-height: 1.15; letter-spacing: -0.015em; white-space: nowrap; }
+.brand__sub { font-weight: 500; font-size: 1.0625rem; color: var(--muted); white-space: nowrap; }
 .nav { display: none; align-items: center; gap: 24px; }
 .nav a { text-decoration: none; font-weight: 500; font-size: var(--t-small); color: var(--ink-2); white-space: nowrap; padding-block: 12px; }
 .nav a:hover { color: var(--ink); text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: 8px; }
@@ -138,16 +138,22 @@ a:focus-visible, button:focus-visible, summary:focus-visible, [tabindex]:focus-v
 }
 .mnav nav a { display: flex; align-items: center; min-height: 44px; padding: 0 12px; border-radius: var(--r-1); text-decoration: none; font-size: 1rem; }
 .mnav nav a:hover { background: var(--paper-2); }
-@media (min-width: 1120px) { .nav { display: flex; } .mnav { display: none; } }
-@media (max-width: 519px) {
+@media (min-width: 1200px) { .nav { display: flex; } .mnav { display: none; } }  /* bản 5.1: thương hiệu to hơn nên thực đơn đầy đủ chỉ hiện từ 1200 px */
+@media (max-width: 639px) {
   /* Màn hình hẹp: "(LegalFlow)" xuống dòng dưới tên để không đè lên nút */
-  .brand { display: grid; grid-template-columns: auto 1fr; gap: 0 8px; }
+  .brand { display: grid; grid-template-columns: auto 1fr; gap: 0 10px; min-height: 48px; }
   .brand picture { grid-row: 1 / span 2; }
-  .brand__name { font-size: 1.125rem; line-height: 1.2; align-self: end; }
-  .brand__sub { font-size: var(--t-note); line-height: 1.2; align-self: start; }
-  .site-head__in { gap: var(--s-2); }
+  .brand img { width: 48px; height: 48px; border-radius: 10px; }
+  .brand__name { font-size: 1.375rem; line-height: 1.15; align-self: end; }
+  .brand__sub { font-size: var(--t-small); line-height: 1.2; align-self: start; }
+  .site-head__in { gap: var(--s-2); min-height: 80px; }
 }
-@media (max-width: 379px) { .site-head .btn--sm { display: none; } } /* "Liên hệ" có trong Mục lục */
+@media (max-width: 439px) { .site-head .btn--sm { display: none; } } /* "Liên hệ" có trong Mục lục */
+
+.slogan { display: flex; align-items: center; gap: 14px; font-family: var(--serif); font-weight: 400; font-size: clamp(1.125rem, 1rem + 0.5vw, 1.4rem); line-height: 1.35; color: var(--accent-ink); }
+.slogan::before { content: ""; flex: none; width: 40px; height: 2px; background: var(--accent); }  /* nét vàng chỉ để trang trí; chữ dùng màu mực vàng đã đo tương phản */
+@media (max-width: 639px) { .slogan { font-size: 1.0625rem; gap: 10px; } .slogan::before { width: 24px; } }
+@media (max-width: 359px) { .slogan::before { display: none; } }
 
 /* ---------- Phần trang ---------- */
 .sec { padding-block: var(--sec); }
