@@ -369,6 +369,18 @@ a:focus-visible, button:focus-visible, summary:focus-visible, [tabindex]:focus-v
 .doc li { margin-bottom: var(--s-2); }
 .doc strong { color: var(--ink); }
 .doc a { overflow-wrap: anywhere; }
+/* bản 5.5a: trang hướng dẫn cho cán bộ */
+.doc ol { margin: 0 0 var(--s-4); padding-left: var(--s-5); list-style: decimal; }
+.doc h3 { margin: var(--s-5) 0 var(--s-2); font-size: var(--t-h3); font-weight: 600; line-height: 1.35; color: var(--ink); }
+.doc .callout { margin: var(--s-5) 0; }
+.doc dl { margin: 0 0 var(--s-4); }
+.doc dt { margin-top: var(--s-4); font-weight: 600; color: var(--ink); }
+.doc dd { margin: var(--s-1) 0 0; color: var(--ink-2); line-height: 1.7; }
+.doc details { margin: 0 0 var(--s-5); border: 1px solid var(--rule); border-radius: var(--r-2); padding: 0 var(--s-4); }
+.doc summary { cursor: pointer; display: flex; align-items: center; min-height: 48px; font-weight: 600; color: var(--accent-ink); }
+.doc details[open] { padding-bottom: var(--s-2); }
+.doc details[open] summary { border-bottom: 1px solid var(--rule-2); margin-bottom: var(--s-3); }
+.card .h3 a { display: inline-flex; align-items: center; min-height: 44px; text-decoration-thickness: 1px; }
 @media (min-width: 960px) {
   .policy { grid-template-columns: repeat(12, minmax(0, 1fr)); align-items: start; }
   .toc { grid-column: 1 / span 4; margin-right: var(--s-7); position: sticky; top: var(--s-5); }
