@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#1B2A44">
+    <meta name="description" content="AI đã chuyển từ chatbot sang Agent tự làm chuỗi việc. Gemini 4 Argon, GPT-6.1 Sol, Claude 5.5 có thật không, Viettel dùng AI thế nào, và cán bộ xã cần học ba kỹ năng gì để làm chủ AI?" />
+    <title>AI vào công vụ: từ trả lời câu hỏi tới tự làm việc — và cán bộ cần học gì</title>
+<link rel="stylesheet" href="/assets/css/khung.css">
+<link rel="canonical" href="https://phapdan.vn/bai-viet/ai-vao-cong-vu-tu-tra-loi-toi-tu-lam-viec">
+<meta property="og:title" content="AI vào công vụ: từ trả lời câu hỏi tới tự làm việc — và cán bộ cần học gì">
+<meta property="og:description" content="AI đã chuyển từ chatbot sang Agent tự làm chuỗi việc. Gemini 4 Argon, GPT-6.1 Sol, Claude 5.5 có thật không, Viettel dùng AI thế nào, và cán bộ xã cần học ba kỹ năng gì để làm chủ AI?">
+<meta property="og:url" content="https://phapdan.vn/bai-viet/ai-vao-cong-vu-tu-tra-loi-toi-tu-lam-viec">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2026-11-24">
+<meta property="og:image" content="https://phapdan.vn/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Logo Pháp Dẫn (LegalFlow): sách mở dưới vòm">
+<meta name="twitter:card" content="summary_large_image">
+    <style>
+@font-face{font-family:'Be Vietnam Pro';font-style:normal;font-weight:400;font-display:swap;src:url('/assets/fonts/be-vietnam-pro-vietnamese-400-normal.woff2') format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:'Be Vietnam Pro';font-style:normal;font-weight:400;font-display:swap;src:url('/assets/fonts/be-vietnam-pro-latin-400-normal.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Be Vietnam Pro';font-style:normal;font-weight:500;font-display:swap;src:url('/assets/fonts/be-vietnam-pro-vietnamese-500-normal.woff2') format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:'Be Vietnam Pro';font-style:normal;font-weight:500;font-display:swap;src:url('/assets/fonts/be-vietnam-pro-latin-500-normal.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Be Vietnam Pro';font-style:normal;font-weight:600;font-display:swap;src:url('/assets/fonts/be-vietnam-pro-vietnamese-600-normal.woff2') format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:'Be Vietnam Pro';font-style:normal;font-weight:600;font-display:swap;src:url('/assets/fonts/be-vietnam-pro-latin-600-normal.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Be Vietnam Pro';font-style:normal;font-weight:700;font-display:swap;src:url('/assets/fonts/be-vietnam-pro-vietnamese-700-normal.woff2') format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:'Be Vietnam Pro';font-style:normal;font-weight:700;font-display:swap;src:url('/assets/fonts/be-vietnam-pro-latin-700-normal.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Noto Serif';font-style:normal;font-weight:400;font-display:swap;src:url('/assets/fonts/noto-serif-400-normal-vietnamese.woff2') format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:'Noto Serif';font-style:normal;font-weight:400;font-display:swap;src:url('/assets/fonts/noto-serif-400-normal-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+
+      :root {
+        color-scheme: light dark;
+        --navy: #1b2a44;
+        --navy-deep: #121d31;
+        --gold: #c9a227;
+        --gold-soft: #a9861d;
+        --bg: #f6f5f1;
+        --surface: #ffffff;
+        --surface-2: #efede6;
+        --ink: #1c2330;
+        --ink-2: #455064;
+        --ink-3: #6d7688;
+        --line: #ddd8cc;
+        --line-strong: #c6bfa9;
+        --good: #2e6b4f;
+        --warn: #9a6a12;
+        --bad: #a03d2a;
+        --chip-bg: #eceadf;
+        --hero-bg: #1b2a44;
+        --hero-ink: #f2eee1;
+        --hero-ink-2: #c3cbdd;
+        --shadow: 0 1px 2px rgba(27, 42, 68, .06), 0 8px 28px rgba(27, 42, 68, .07);
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #0e1420;
+          --surface: #16202f;
+          --surface-2: #1b2839;
+          --ink: #e9e6da;
+          --ink-2: #b7bdca;
+          --ink-3: #8d96a8;
+          --line: #2b3a4f;
+          --line-strong: #3d5069;
+          --good: #6fc49b;
+          --warn: #e0b558;
+          --bad: #e08a76;
+          --chip-bg: #223048;
+          --hero-bg: #0a111d;
+          --hero-ink: #f2eee1;
+          --hero-ink-2: #aeb8cc;
+          --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 28px rgba(0,0,0,.35);
+        }
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: "Be Vietnam Pro", system-ui, sans-serif;
+        font-size: 16.5px;
+        line-height: 1.72;
+        -webkit-font-smoothing: antialiased;
+      }
+      ::selection { background: var(--gold); color: #141414; }
+
+      /* ---------- Hero ---------- */
+      .hero {
+        background: var(--hero-bg);
+        color: var(--hero-ink);
+        padding: 64px 20px 56px;
+        border-bottom: 4px solid var(--gold);
+      }
+      .hero-inner { max-width: 920px; margin: 0 auto; }
+      .hero .brandline {
+        font-size: 12.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+        color: var(--gold); margin: 0 0 22px;
+      }
+      .hero h1 {
+        font-family: "Noto Serif", Georgia, serif;
+        font-weight: 600; font-size: clamp(30px, 5.4vw, 46px);
+        line-height: 1.18; margin: 0 0 20px; letter-spacing: -.01em;
+      }
+      .hero .lede { font-size: clamp(16.5px, 2.4vw, 19px); color: var(--hero-ink-2); line-height: 1.65; margin: 0 0 30px; max-width: 760px; }
+      .hero .lede strong { color: var(--hero-ink); }
+      .hero-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+      .hero-stat {
+        border: 1px solid rgba(201,162,39,.45); border-radius: 10px; padding: 16px 18px;
+        background: rgba(255,255,255,.03);
+      }
+      .hero-stat .num { font-family: "Noto Serif", serif; font-size: clamp(24px, 3.6vw, 34px); font-weight: 700; color: #fff; line-height: 1.1; }
+      .hero-stat .num .arr { color: var(--gold); }
+      .hero-stat .cap { font-size: 13px; color: var(--hero-ink-2); line-height: 1.5; margin-top: 6px; }
+      .hero .meta { margin: 26px 0 0; font-size: 13px; color: var(--hero-ink-2); }
+      .hero .meta a { color: var(--gold); }
+      @media (max-width: 640px) { .hero-stats { grid-template-columns: 1fr; } .hero { padding: 44px 18px 40px; } }
+
+      /* ---------- Nav ---------- */
+      .toc {
+        position: sticky; top: 0; z-index: 20;
+        background: var(--surface); border-bottom: 1px solid var(--line);
+      }
+      .toc-inner { max-width: 920px; margin: 0 auto; padding: 0 20px; display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; }
+      .toc-inner::-webkit-scrollbar { display: none; }
+      .toc a {
+        white-space: nowrap; font-size: 13.5px; font-weight: 600; color: var(--ink-2);
+        text-decoration: none; padding: 12px 10px; border-bottom: 2px solid transparent;
+      }
+      .toc a:hover { color: var(--ink); border-bottom-color: var(--gold); }
+
+      /* ---------- Layout ---------- */
+      main { max-width: 920px; margin: 0 auto; padding: 0 20px 80px; }
+      section { padding-top: 58px; scroll-margin-top: 58px; }
+      @media (max-width: 640px) {
+        /* Mục lục xuống hàng thay vì cuộn ngang: mọi mục đều thấy và bấm được trên điện thoại */
+        .toc-inner { flex-wrap: wrap; overflow-x: visible; row-gap: 0; }
+        .toc a { padding: 9px 8px; }
+        section { scroll-margin-top: 104px; }
+      }
+      .sec-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 8px; }
+      .sec-num {
+        font-family: "Noto Serif", serif; font-size: 15px; font-weight: 700; color: var(--gold-soft);
+        border: 1.5px solid var(--gold); border-radius: 999px; width: 34px; height: 34px;
+        display: inline-flex; align-items: center; justify-content: center; flex: none; transform: translateY(6px);
+      }
+      h2 {
+        font-family: "Noto Serif", Georgia, serif; font-weight: 600;
+        font-size: clamp(24px, 4vw, 32px); line-height: 1.25; margin: 0; letter-spacing: -.01em;
+      }
+      h3 { font-size: 18.5px; font-weight: 700; margin: 34px 0 8px; line-height: 1.4; }
+      h4 { font-size: 16px; font-weight: 700; margin: 22px 0 6px; }
+      p { margin: 0 0 14px; }
+      .sec-intro { color: var(--ink-2); font-size: 17px; margin-bottom: 20px; }
+      ul, ol { margin: 0 0 16px; padding-left: 22px; }
+      li { margin-bottom: 7px; }
+      li::marker { color: var(--gold-soft); font-weight: 700; }
+      a { color: var(--gold-soft); text-underline-offset: 3px; }
+      @media (prefers-color-scheme: dark) { a { color: var(--gold); } }
+      strong { font-weight: 700; }
+      .small { font-size: 13.5px; color: var(--ink-3); line-height: 1.6; }
+
+      /* ---------- Components ---------- */
+      .thesis {
+        background: var(--surface); border: 1px solid var(--line); border-top: 4px solid var(--gold);
+        border-radius: 12px; padding: 26px 28px; box-shadow: var(--shadow); margin: 22px 0;
+      }
+      .thesis p:last-child { margin-bottom: 0; }
+      .thesis .big {
+        font-family: "Noto Serif", serif; font-size: clamp(19px, 3vw, 23px); line-height: 1.5; font-weight: 500; margin-bottom: 14px;
+      }
+      .split3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 20px 0; }
+      .split3 .cell { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px; box-shadow: var(--shadow); }
+      .split3 .cell .k { font-size: 12px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--gold-soft); margin-bottom: 8px; }
+      .split3 .cell p { font-size: 15px; margin: 0; line-height: 1.6; }
+      @media (max-width: 720px) { .split3 { grid-template-columns: 1fr; } }
+
+      .chip {
+        display: inline-block; font-size: 11.5px; font-weight: 700; letter-spacing: .03em;
+        padding: 2px 9px; border-radius: 999px; background: var(--chip-bg); color: var(--ink-2);
+        vertical-align: 2px; margin-right: 6px;
+      }
+      .chip.verified { background: rgba(46,107,79,.14); color: var(--good); }
+      .chip.reported { background: rgba(154,106,18,.14); color: var(--warn); }
+      .chip.opinion { background: rgba(160,61,42,.12); color: var(--bad); }
+      .caveat {
+        border: 1px dashed var(--line-strong); border-radius: 10px; padding: 14px 18px;
+        font-size: 14.5px; color: var(--ink-2); background: var(--surface-2); margin: 16px 0;
+      }
+      .caveat strong { color: var(--ink); }
+      blockquote {
+        margin: 20px 0; padding: 4px 0 4px 20px; border-left: 3px solid var(--gold);
+        font-family: "Noto Serif", serif; font-style: italic; font-size: 18px; line-height: 1.6; color: var(--ink);
+      }
+      blockquote .attrib { display: block; font-family: "Be Vietnam Pro", sans-serif; font-style: normal; font-size: 13px; color: var(--ink-3); margin-top: 8px; }
+
+      .tablewrap { overflow-x: auto; margin: 18px 0 22px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); box-shadow: var(--shadow); }
+      table { border-collapse: collapse; width: 100%; font-size: 14.5px; min-width: 620px; }
+      th { text-align: left; font-size: 12.5px; letter-spacing: .05em; text-transform: uppercase; color: var(--ink-2); background: var(--surface-2); padding: 12px 16px; border-bottom: 1px solid var(--line); }
+      td { padding: 13px 16px; border-bottom: 1px solid var(--line); vertical-align: top; line-height: 1.55; }
+      tr:last-child td { border-bottom: none; }
+      td .num { font-family: "Noto Serif", serif; font-weight: 700; font-size: 16px; white-space: nowrap; }
+      @media (max-width: 640px) {
+        .tablewrap { border: none; box-shadow: none; background: transparent; overflow: visible; }
+        table { min-width: 0; }
+        table, tbody, tr, td { display: block; width: 100%; }
+        thead { display: none; }
+        tr { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 8px 4px; margin-bottom: 12px; box-shadow: var(--shadow); }
+        td { border-bottom: none; padding: 7px 16px; }
+        td::before { content: attr(data-th); display: block; font-size: 11.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 2px; }
+      }
+
+      .chart-card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 24px 26px; box-shadow: var(--shadow); margin: 20px 0; }
+      .chart-card h4 { margin-top: 0; }
+      .chart-card .src { font-size: 12.5px; color: var(--ink-3); margin-top: 12px; }
+      .bar-row { display: grid; grid-template-columns: 190px 1fr 52px; align-items: center; gap: 12px; margin: 10px 0; font-size: 14px; }
+      .bar-track { background: var(--surface-2); border-radius: 6px; height: 22px; overflow: hidden; }
+      .bar-fill { height: 100%; border-radius: 6px; background: var(--navy); }
+      .bar-fill.gold { background: var(--gold); }
+      .bar-fill.bad { background: var(--bad); }
+      .bar-val { font-family: "Noto Serif", serif; font-weight: 700; text-align: right; }
+      @media (prefers-color-scheme: dark) { .bar-fill { background: #7e97c4; } .bar-fill.gold { background: var(--gold); } .bar-fill.bad { background: #c96a55; } }
+      @media (max-width: 560px) { .bar-row { grid-template-columns: 118px 1fr 46px; gap: 8px; font-size: 13px; } }
+
+      .statgrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin: 20px 0; }
+      .stat { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px; box-shadow: var(--shadow); }
+      .stat .v { font-family: "Noto Serif", serif; font-size: 27px; font-weight: 700; line-height: 1.15; }
+      .stat .v .to { color: var(--bad); }
+      .stat .d { font-size: 14px; color: var(--ink-2); margin-top: 6px; line-height: 1.55; }
+      @media (max-width: 640px) { .statgrid { grid-template-columns: 1fr; } }
+
+      .role-card { background: var(--navy); color: #eef0f5; border-radius: 14px; padding: 28px 30px; margin: 22px 0; }
+      @media (prefers-color-scheme: dark) { .role-card { background: #0a111d; border: 1px solid var(--line); } }
+      .role-card h3 { color: #fff; margin-top: 0; font-family: "Noto Serif", serif; font-size: 22px; }
+      .role-card .sub { color: #c3cbdd; font-size: 14.5px; margin-bottom: 18px; }
+      .role-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+      .role-cols h5 { margin: 0 0 8px; font-size: 12.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); }
+      .role-cols ul { padding-left: 18px; margin: 0; font-size: 14.5px; }
+      .role-cols li { margin-bottom: 6px; }
+      .role-cols li::marker { color: var(--gold); }
+      @media (max-width: 720px) { .role-cols { grid-template-columns: 1fr; } }
+
+      .steps { counter-reset: step; margin: 20px 0; }
+      .step { display: flex; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--line); }
+      .step:last-child { border-bottom: none; }
+      .step .n {
+        counter-increment: step; flex: none; width: 38px; height: 38px; border-radius: 50%;
+        background: var(--navy); color: #fff; font-family: "Noto Serif", serif; font-weight: 700;
+        display: flex; align-items: center; justify-content: center; font-size: 17px; margin-top: 2px;
+      }
+      @media (prefers-color-scheme: dark) { .step .n { background: var(--gold); color: #141414; } }
+      .step h4 { margin: 2px 0 4px; }
+      .step p { font-size: 15px; color: var(--ink-2); margin: 0; }
+
+      /* ---------- Planner ---------- */
+      .planner { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; box-shadow: var(--shadow); padding: 26px 28px; margin: 22px 0; }
+      .planner h3 { margin-top: 0; }
+      .planner .ctl { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin: 16px 0 6px; }
+      .planner label { font-weight: 600; font-size: 15px; }
+      .planner input[type="range"] { flex: 1 1 220px; accent-color: var(--gold-soft); height: 28px; }
+      .planner .hours-out { font-family: "Noto Serif", serif; font-size: 26px; font-weight: 700; min-width: 128px; }
+      .alloc-row { display: grid; grid-template-columns: 200px 1fr 128px; gap: 12px; align-items: center; margin: 12px 0; font-size: 14.5px; }
+      .alloc-row .a-name { font-weight: 600; }
+      .alloc-row .a-name span { display: block; font-weight: 400; font-size: 12.5px; color: var(--ink-3); }
+      .alloc-row .a-val { text-align: right; font-family: "Noto Serif", serif; font-weight: 700; line-height: 1.35; }
+      .alloc-row .a-val span { display: block; font-family: "Be Vietnam Pro", sans-serif; font-weight: 500; font-size: 12.5px; color: var(--ink-3); }
+      @media (max-width: 560px) { .alloc-row { grid-template-columns: 1fr 108px; } .alloc-row .bar-track { display: none; } }
+
+      /* ---------- Audience tabs ---------- */
+      .tabs { display: flex; gap: 8px; flex-wrap: wrap; margin: 18px 0 0; }
+      .tabs button {
+        font: inherit; font-size: 14.5px; font-weight: 600; cursor: pointer;
+        padding: 9px 18px; border-radius: 999px; border: 1.5px solid var(--line-strong);
+        background: var(--surface); color: var(--ink-2);
+      }
+      .tabs button[aria-selected="true"] { background: var(--navy); border-color: var(--navy); color: #fff; }
+      @media (prefers-color-scheme: dark) { .tabs button[aria-selected="true"] { background: var(--gold); border-color: var(--gold); color: #141414; } }
+      .tab-panel { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 22px 26px; margin-top: 14px; box-shadow: var(--shadow); }
+      .tab-panel[hidden] { display: none; }
+      .tab-panel p:last-child { margin-bottom: 0; }
+
+      .openq { background: var(--surface-2); border-radius: 12px; padding: 22px 26px; margin: 20px 0; }
+      .openq ol { margin-bottom: 0; }
+      .sources { font-size: 14px; color: var(--ink-2); }
+      .sources h4 { color: var(--ink); }
+      .sources li { margin-bottom: 5px; word-break: break-word; }
+      footer { border-top: 1px solid var(--line); margin-top: 60px; padding-top: 22px; font-size: 13.5px; color: var(--ink-3); }
+      .guarantee {
+        border: 2px solid var(--gold); border-radius: 12px; padding: 22px 26px; margin: 20px 0;
+        font-family: "Noto Serif", serif; font-size: clamp(17px, 2.6vw, 20px); line-height: 1.6; background: var(--surface);
+      }
+      .guarantee .who { display: block; font-family: "Be Vietnam Pro", sans-serif; font-size: 12.5px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--gold-soft); margin-bottom: 10px; }
+    </style>
+<style>.art p{max-width:68ch} .art-meta{font-size:13px;color:var(--hero-ink-2);margin:22px 0 0} .art .intro p{font-size:18px}</style>
+  </head>
+  <body>
+    <!-- khung:dau -->
+<div class="pd-khung">
+<header class="site-head">
+<div class="wrap site-head__in">
+<a class="brand" href="/" aria-label="Pháp Dẫn (LegalFlow), về trang chủ">
+<picture><source srcset="/assets/logo-phap-dan-bieu-tuong-nen-toi.svg" media="(prefers-color-scheme: dark)"><img src="/assets/logo-phap-dan-bieu-tuong.svg" width="56" height="56" alt=""></picture>
+<span class="brand__name">Pháp Dẫn</span><span class="brand__sub">(LegalFlow)</span>
+</a>
+<nav class="nav" aria-label="Điều hướng chính">
+<a href="/#mot-ho-so">Theo một hồ sơ</a>
+<a href="/#thu-dem-han">Thử đếm hạn</a>
+<a href="/#khoa-trich-dan">Khóa trích dẫn</a>
+<a href="/#dang-co-gi">Hiện có gì</a>
+<a href="/bai-viet/" aria-current="page">Bài viết</a>
+<a href="/chinh-sach-du-lieu.html">Chính sách dữ liệu</a>
+</nav>
+<details class="mnav"><summary>Mục lục</summary>
+<nav aria-label="Mục lục trên điện thoại">
+<a href="/#mot-ho-so">Theo một hồ sơ</a>
+<a href="/#thu-dem-han">Thử đếm hạn</a>
+<a href="/#khoa-trich-dan">Khóa trích dẫn</a>
+<a href="/#dang-co-gi">Hiện có gì</a>
+<a href="/bai-viet/" aria-current="page">Bài viết</a>
+<a href="/chinh-sach-du-lieu.html">Chính sách dữ liệu</a>
+<a href="/lien-he.html">Liên hệ</a>
+</nav></details>
+<a class="btn btn--primary btn--sm" href="/lien-he.html">Liên hệ</a>
+</div>
+</header>
+</div>
+<!-- /khung:dau -->
+<header class="hero">
+      <div class="hero-inner">
+        <p class="brandline">Pháp Dẫn (LegalFlow) · Bài viết quan điểm</p>
+        <h1>AI vào công vụ: từ trả lời câu hỏi tới tự làm việc — và cán bộ cần học gì</h1>
+        <p class="lede">Trong ngày 23/11/2026, bốn diễn biến cùng lúc cho thấy AI trong công vụ đang chuyển sang một giai đoạn mới: không còn là chuyện "AI có trả lời được câu hỏi không", mà là "AI tự làm được chuỗi việc — và cán bộ phải học gì để làm chủ nó".</p>
+        <p class="art-meta">Đăng ngày 24/11/2026 · Nguồn truy cập ngày 24/11/2026</p>
+      </div>
+    </header>
+    <main class="art">
+      <section class="intro" style="padding-top:34px">
+<p>Bốn diễn biến đó là: một video tổng hợp về làn sóng model AI mới và xu hướng AI Agent; phóng sự VTV1 về Viettel dùng AI tối ưu mạng viễn thông; một cuốn cẩm nang ứng dụng AI hành chính với 104 tình huống thực chiến; và một lớp tập huấn AI cho hơn 100 cán bộ tại Thốt Nốt, Cần Thơ.</p>
+<p>Bài viết này phân biệt rõ ba mức độ kiểm chứng, và độc giả nên đọc theo đúng ba mức đó:</p>
+<ol>
+<li><strong>Đã kiểm chứng qua nguồn chính thống hoặc báo chí chính thống</strong> — thông tin đối chiếu được với thông báo của hãng, báo cáo của doanh nghiệp hoặc bài báo.</li>
+<li><strong>Đã kiểm chứng qua chính nguồn đăng tải</strong> — nội dung bài đăng, video trên mạng xã hội được đọc trực tiếp, nhưng chưa có xác nhận độc lập từ nguồn thứ hai.</li>
+<li><strong>Chỉ xuất hiện trong video trên mạng, chưa đối chiếu được</strong> — ghi lại đúng như vậy, không trích dẫn tên model hay con số cụ thể vào tài liệu chính thức.</li>
+</ol>
+
+      </section>
+<section id="muc-1">
+<div class="sec-head"><span class="sec-num">1</span><h2>Xu hướng AI Agent: AI không chỉ trả lời mà tự làm chuỗi việc</h2></div>
+<p>Một video tổng hợp trên Instagram (17:28 giờ VN, 23/11) điểm lại các diễn biến AI lớn: Google ra mắt Gemini 4 Argon — được mô tả là model mạnh nhất của Google tới nay, có thể xử lý trọn vẹn một dự án từ nghiên cứu tới lập trình; OpenAI ra mắt GPT-6.1 Sol, được định vị là gần bằng GPT-6 Astra về trí tuệ nhưng rẻ hơn nhiều; Anthropic có họ Claude 5.5 với Opus 5.5, Sonnet 5.5, Haiku 5.5. Video cũng nhắc tới Nano Banana 2.1 cho chỉnh sửa ảnh chính xác và một model kế tiếp của Google tên Gemini 4 Carbon.</p>
+<p>Chủ đề xuyên suốt video: từ tháng 10, AI đã chuyển từ chatbot đơn thuần sang AI Agent — các hệ thống như ChatGPT Dots và Grok Bot có thể tự thực hiện chuỗi việc nhiều bước như nghiên cứu đối thủ, soạn đề xuất, đặt lịch họp, phân loại hộp thư theo thời gian thực.</p>
+<p>Phần lớn những cái tên trong video, kiểm tra lại, là có thật — và đó là điều đáng nói, vì chỉ cách đây vài tháng, một video tổng hợp kiểu này rất dễ chứa toàn tên model bịa. Cụ thể, tính đến 24/11:</p>
+<ul>
+<li><strong>Gemini 4 Argon là có thật.</strong> Google công bố ngày 30/9/2026, mở rộng cho người dùng API từ 13/10/2026, mã model <code>gemini-4-argon</code> trên Vertex AI và Gemini API, cửa sổ ngữ cảnh 1 triệu token. Giá API 2 USD đầu vào / 10 USD đầu ra cho 1 triệu token đến hết 30/11, rồi tăng gấp đôi lên 4 USD / 20 USD từ 1/12/2026.</li>
+<li><strong>GPT-6.1 Sol là có thật.</strong> OpenAI giới thiệu tại DevDay ngày 29/9/2026, được định vị gần bằng GPT-6 Astra (ra mắt 3/9/2026) với giá thấp hơn nhiều, cùng mức 2 USD / 10 USD. Ngày 17/11/2026, OpenAI đã ra tiếp GPT-6.2 Sol thay thế.</li>
+<li><strong>Họ Claude 5.5 là có thật.</strong> Opus 5.5 ra mắt 22/9, Sonnet 5.5 ngày 28/9, Haiku 5.5 ngày 7/10/2026. Theo Anthropic, Opus 5.5 đạt hiệu năng ngang Fable 5.1 trên phần lớn công việc với chi phí thấp hơn 40% so với Opus 5; Sonnet 5.5 nhanh hơn khoảng 30% và rẻ hơn tới 30% so với Sonnet 5.</li>
+<li><strong>Gemini 4 Carbon là có thật, nhưng chưa mở công khai.</strong> Google công bố ngày 28/10/2026, hiện chỉ dành cho một số đội an ninh mạng và đối tác được chọn, chưa có mã model công khai. Nói "đang thử nghiệm nội bộ" như video là chưa chính xác: Carbon đã được công bố, chỉ là chưa tới tay người dùng phổ thông.</li>
+<li><strong>ChatGPT Dots là có thật.</strong> OpenAI đưa Dots ra bản chính thức cho ChatGPT Enterprise từ 4/11/2026 — một hệ thống agent có thể tự thực hiện chuỗi việc nhiều bước.</li>
+</ul>
+<p>Còn những điểm sau <strong>vẫn chưa kiểm chứng được</strong>, và bài viết này giữ nguyên nhãn đó: "Fable 5.5 sắp ra" — tính đến 16/11, phiên bản Fable mới nhất được ghi nhận là Fable 5.2 (ra mắt 9/11); "Nano Banana 2.1" — chưa thấy thông báo chính thức; tỉ lệ "Sol rẻ bằng 1/5 Astra" — video nêu, nhưng các nguồn đã kiểm chỉ xác nhận "rẻ hơn nhiều", không có tỉ lệ cụ thể; và "Grok Bot" tự phân loại hộp thư — chưa có xác nhận độc lập.</p>
+<p>Hai điểm đáng ghi nhớ. Thứ nhất, cuộc đua giá đang nóng lên — ba model ở cùng một tầm giá (2 USD / 10 USD cho 1 triệu token) trong tháng 11, với Argon tăng gấp đôi từ 1/12, cho thấy các hãng đang cạnh tranh bằng hiệu quả chi phí, không chỉ điểm số; AI mạnh sẽ ngày càng rẻ, và rào cản dùng AI trong cơ quan nhà nước sẽ hạ xuống nhanh. Thứ hai, xu hướng Agent là thật — và điều đó đặt ra câu hỏi quản trị mới: khi AI tự đặt lịch, tự gửi thư, tự phân loại hồ sơ thì ai chịu trách nhiệm khi nó làm sai?</p>
+<p>Câu hỏi này không có đáp án chung cho mọi cơ quan. Nhưng có một hướng trả lời đã được thực tiễn chứng minh (xem ví dụ Viettel dưới đây): để AI làm phần giám sát, cảnh báo, chuẩn bị — còn quyết định cuối cùng thuộc về con người. Đó là hướng đi ngược với Agent tự hành hoàn toàn, và cũng là hướng an toàn hơn cho công vụ, nơi mỗi quyết định đều phải có người chịu trách nhiệm và căn cứ pháp lý rõ ràng.</p>
+</section>
+<section id="muc-2">
+<div class="sec-head"><span class="sec-num">2</span><h2>Viettel: AI giám sát thay vì AI thay thế con người</h2></div>
+<p>Một phóng sự VTV1 (đăng 09:22 giờ VN, 23/11) giới thiệu việc Viettel ứng dụng AI để tự động tối ưu hạ tầng viễn thông: hệ thống AI phát hiện sự cố mạng, dự báo vấn đề và đề xuất giải pháp — như điều chỉnh góc nghiêng ăng-ten — giúp rút thời gian tối ưu thủ công từ nhiều ngày xuống còn vài giờ, và tại các sự kiện đông người xuống khoảng hai phút, đồng thời cải thiện vùng phủ sóng và trải nghiệm người dùng. Phóng sự có phỏng vấn Phó Giám đốc Trung tâm Kỹ thuật Thuật toán Nguyễn Hoàng Minh, kỹ sư khoa học dữ liệu Nguyễn Thanh Luân và Phó Tổng Giám đốc Tổng Công ty Mạng lưới Viettel Lê Quang Hiếu.</p>
+<p>Cần sửa lại một chi tiết trong cách video được tóm tắt ban đầu: không phải mọi trường hợp đều "từ nhiều ngày xuống vài phút". Theo thông tin Viettel công bố, việc tối ưu vùng phủ sóng trước đây có thể kéo dài nhiều ngày vì phụ thuộc vào phản ánh của khách hàng và đo kiểm thủ công; nay hệ thống tự giám sát liên tục và điều chỉnh trong vài giờ — và chỉ tại các sự kiện tập trung đông người, thời gian tối ưu mới rút xuống khoảng hai phút. Nói đúng con số là quan trọng, vì chính sự phóng đại "vài phút cho mọi việc" là thứ khiến người dân nghi ngờ khi đối chiếu với thực tế.</p>
+<p>Bối cảnh của phóng sự cũng đã kiểm chứng được: ngày 19/11/2026, tại sự kiện Innovate Asia 2026 ở Bangkok, Tổng Công ty Mạng lưới Viettel (VTNet) được TM Forum xác nhận đạt cấp độ 4 về mạng tự trị đối với hai kịch bản — tối ưu chất lượng mạng vô tuyến và tối ưu hiệu quả năng lượng vô tuyến — và là nhà mạng đầu tiên tại Việt Nam đạt kết quả này. Chương trình đánh giá ANLAV (Autonomous Networks Level Assessment Validation) ghi nhận kịch bản tối ưu chất lượng mạng đạt điểm 4.0 với phạm vi đánh giá một phần.</p>
+<p>Cấp độ 4 nghĩa là gì? Mạng tự trị kết hợp AI, phân tích dữ liệu và tự động hóa để theo dõi trạng thái, dự báo, phát hiện bất thường và điều chỉnh hoạt động mạng. Ở cấp độ 4, hệ thống thực hiện nhiều quy trình theo mục tiêu và ngưỡng an toàn được thiết lập, <strong>dưới sự giám sát của con người</strong>. Kỹ sư không còn xử lý thủ công từng tác vụ lặp lại, mà tập trung xác định mục tiêu, kiểm soát rủi ro và giám sát.</p>
+<p>Một số con số khác từ thông tin Viettel công bố cũng đáng ghi nhận: giải pháp tối ưu chất lượng mạng vô tuyến do Viettel tự phát triển, chi phí khoảng 3 tỉ đồng so với 33,2 tỉ đồng nếu mua giải pháp tương đương từ đối tác quốc tế; giải pháp tối ưu năng lượng áp dụng trên khoảng 192.000 ô vô tuyến 4G, giúp tiết kiệm chi phí điện năng ước tính 18 tỉ đồng mỗi năm; tại Bắc Ninh, tiết kiệm năng lượng 10,3% trong khi vẫn đáp ứng tám chỉ tiêu chất lượng mạng; giải pháp giúp tăng hơn 3% năng lực phục vụ trên hạ tầng hiện có mà không cần mở rộng số lượng thiết bị phát sóng. Viettel đặt mục tiêu đến năm 2030 đưa toàn bộ mạng lưới đạt cấp độ tự trị 4, hướng tới cấp độ 5 ở những nghiệp vụ phù hợp. Lưu ý: các con số tiết kiệm là con số doanh nghiệp công bố, chưa phải con số được TM Forum xác nhận độc lập.</p>
+<p>Đây là ví dụ "AI trong vận hành hạ tầng" rất gọn và dễ hiểu: không phải AI viết văn hay vẽ tranh, mà AI giám sát hàng nghìn trạm phát sóng, phát hiện lỗi trước khi người dân kịp phàn nàn mất sóng. Mô hình này gần với điều một hệ thống xử lý đơn thư ở cấp xã cần nhất: AI giám sát hạn xử lý hồ sơ, cảnh báo trước khi quá hạn — thay vì chờ dân khiếu nại mới biết. AI tốt nhất trong công vụ là AI cảnh báo sớm, không phải AI tự quyết: AI phát hiện sớm, con người quyết định xử lý.</p>
+</section>
+<section id="muc-3">
+<div class="sec-head"><span class="sec-num">3</span><h2>Cẩm nang AI hành chính: 104 tình huống, riêng cấp xã có 15</h2></div>
+<p>Một bài đăng trên Facebook (11:03 giờ VN, 23/11) giới thiệu cuốn "Cẩm nang ứng dụng AI hành chính dành cho cán bộ, công chức, viên chức các cấp" của ThS. Ngô Hữu Thống (Công ty TNHH Giải pháp số DIGISO), được ghi là tài liệu lưu hành nội bộ. Cuốn sách gồm 3 phần: phần một là kiến thức nền trước khi dùng AI (công việc của cán bộ cuối 2026, làm quen giao diện, an toàn thông tin, viết prompt, thao tác công cụ); phần hai gồm 104 tình huống hướng dẫn từng bước, chia theo cấp — chính quyền xã, phường (tình huống 1–15), sở, ngành cấp tỉnh (16–27), bộ, ngành trung ương (28–36), cơ quan Đảng (38–50), Mặt trận Tổ quốc và đoàn thể (51–56), đơn vị sự nghiệp (64–75), tiếp công dân và thủ tục (76–88), nhiệm vụ chung cho mọi cán bộ (89–104); phần ba là phụ lục gồm checklist, lộ trình học và tài liệu tham khảo. Tác giả cũng chia sẻ miễn phí khóa chuyển đổi phương pháp làm việc với AI.</p>
+<p>Đã kiểm chứng qua chính bài đăng: ảnh bìa ghi rõ "TÀI LIỆU LƯU HÀNH NỘI BỘ", mục lục ba phần và các dãy tình huống đúng như mô tả ở trên. Đây là tài liệu thực dụng nhất về AI hành chính xuất hiện trong ngày — không nói chung chung về "AI thay đổi thế giới", mà chia đúng theo cấp làm việc, và riêng khối tiếp công dân, thủ tục có tới 13 tình huống (76–88). Với cán bộ xã, phường, 15 tình huống đầu tiên là thứ có thể thử ngay.</p>
+<p>Điểm cần lưu ý: đây là tài liệu của một công ty tư nhân, lưu hành nội bộ, chưa phải văn bản hướng dẫn chính thức của cơ quan nhà nước — nên dùng làm tài liệu tham khảo, đối chiếu với quy định về an toàn thông tin trước khi áp dụng. Bài đăng mang tính quảng bá cho sản phẩm và khóa học của tác giả (kèm đường dẫn đăng ký dùng thử, nhóm hỗ trợ), nên người đọc cần phân biệt phần tài liệu tham khảo hữu ích với phần tiếp thị. Và nội dung trực tiếp bên trong các tình huống — hướng dẫn từng bước viết như thế nào, có đúng quy định hiện hành không — vẫn cần đọc trực tiếp trước khi đưa vào tài liệu tập huấn chính thức.</p>
+</section>
+<section id="muc-4">
+<div class="sec-head"><span class="sec-num">4</span><h2>Tập huấn AI xuống tới cấp quận: hơn 100 cán bộ một lớp</h2></div>
+<p>Một bản tin truyền hình địa phương (12:56 giờ VN, 23/11) đưa tin về lớp tập huấn AI tại Thốt Nốt (Cần Thơ), do UBND Thốt Nốt tổ chức, với hơn 100 cán bộ địa phương tham dự. Hình ảnh cho thấy học viên ngồi làm việc với laptop, nghe giảng viên trình bày slide "Mục tiêu &amp; kỹ năng đạt được" gồm các nội dung: dùng AI trong công việc, kỹ thuật viết prompt và bảo mật dữ liệu. Học viên được ghi nhận là tích cực dùng laptop, ghi chép và tương tác trong buổi học.</p>
+<p>Đã kiểm chứng qua chính bản tin: chương trình "Chương trình 12h" của CanTho1, hơn 100 cán bộ, slide mục tiêu đúng như mô tả. Trước đó hai ngày, 21/11, UBND phường Thốt Nốt cũng đã tổ chức "Hội nghị tập huấn tối ưu hóa công việc với AI" một ngày cho hơn 100 cán bộ, công chức, viên chức, với nội dung dùng các công cụ như ChatGPT, Gemini để soạn thảo văn bản, phân tích dữ liệu và tối ưu quy trình làm việc.</p>
+<p>Tin nhỏ nhưng có ý nghĩa: tập huấn AI đang đi xuống tới cấp quận, huyện với quy mô hơn 100 người/lớp, và nội dung đã bao gồm cả bảo mật dữ liệu — không chỉ "dùng AI cho vui". Đây là dấu hiệu cho thấy nhu cầu học AI trong công vụ là thật và đang lan rộng. Bối cảnh rộng hơn: hội nghị tập huấn AI của TP. Cần Thơ năm 2025 đã kết nối trực tuyến tới 103 xã, phường, với định hướng đến năm 2030 có 100% cán bộ, công chức, viên chức sử dụng trợ lý ảo hỗ trợ công vụ.</p>
+<p>Câu hỏi tiếp theo là sau tập huấn, bao nhiêu cán bộ thực sự dùng AI vào việc hằng ngày, và ai hỗ trợ họ khi gặp khó. Một lớp học một ngày dạy được cách viết prompt; nhưng thói quen mới chỉ hình thành khi có người đồng hành sau lớp học — và khi cán bộ gặp tình huống thật đầu tiên mà AI trả lời sai, họ cần biết phải làm gì tiếp theo, thay vì bỏ luôn công cụ.</p>
+</section>
+<section id="muc-5">
+<div class="sec-head"><span class="sec-num">5</span><h2>Cán bộ xã cần học gì: ba kỹ năng, theo đúng thứ tự</h2></div>
+<p>Gộp bốn diễn biến trong ngày lại, bức tranh cho cán bộ xã, phường khá rõ. Không phải học để trở thành chuyên gia AI, mà học ba kỹ năng theo đúng thứ tự sau:</p>
+<p><strong>Thứ nhất, viết yêu cầu rõ ràng và kiểm chứng đầu ra.</strong> Kỹ thuật viết prompt đã có trong cả cẩm nang lẫn lớp tập huấn Thốt Nốt — và nó quan trọng vì AI chỉ tốt bằng yêu cầu mà cán bộ đưa ra. Nhưng kỹ năng đi kèm, quan trọng hơn, là kiểm chứng: mỗi căn cứ pháp lý AI đưa ra đều phải đối chiếu lại với văn bản gốc trước khi đưa vào dự thảo. Một trích dẫn điều luật sai còn tệ hơn không có trích dẫn, vì nó khiến người ký tin rằng mình đã có căn cứ.</p>
+<p><strong>Thứ hai, bảo mật dữ liệu.</strong> Nội dung này đã xuất hiện trong cả cẩm nang và lớp tập huấn — và cần trở thành phần bắt buộc, không phải phần thêm, trong mọi chương trình tập huấn AI cho cán bộ. Quy tắc thực tế: không dán nội dung hồ sơ thật, thông tin cá nhân của người dân hay tài liệu mật vào các công cụ AI công cộng; chỉ dùng AI với thông tin đã được ẩn danh hoặc với công cụ do cơ quan cung cấp và kiểm soát. Đây cũng là điểm mà các bài viết về AI trong công vụ thường nhắc sau cùng, trong khi lẽ ra phải nhắc đầu tiên.</p>
+<p><strong>Thứ ba, biết ranh giới: việc nào AI được tự làm, việc nào phải có người phê duyệt.</strong> Đây là bài học từ xu hướng Agent và từ ví dụ Viettel. AI được giao việc giám sát, cảnh báo, chuẩn bị dự thảo; con người giữ quyết định cuối cùng — ký ban hành, trả lời dân, giải quyết khiếu nại. Ranh giới này không tự hình thành: cơ quan cần viết ra, và cán bộ cần được tập huấn để giữ nó, nhất là khi các công cụ Agent ngày càng mặc định "tự làm luôn" thay vì "chờ phê duyệt".</p>
+</section>
+<section id="muc-6">
+<div class="sec-head"><span class="sec-num">6</span><h2>Điểm cần theo dõi</h2></div>
+<ul>
+<li><strong>AI Agent trong công vụ:</strong> khi AI tự làm chuỗi việc (phân loại hồ sơ, soạn dự thảo, đặt lịch), cơ quan nhà nước cần quy định rõ ranh giới: việc nào AI được tự làm, việc nào phải có người phê duyệt trước khi gửi đi.</li>
+<li><strong>Mô hình "AI giám sát, con người quyết định":</strong> ví dụ Viettel cho thấy hướng đi thực tế — AI cảnh báo sớm về hạn xử lý, về hồ sơ sắp quá hạn; con người quyết định xử lý. Đây là hướng phù hợp với nguyên tắc kiểm chứng trong công vụ.</li>
+<li><strong>Tập huấn AI cho cán bộ xã, phường:</strong> nhu cầu đã rõ (lớp hơn 100 người, cẩm nang 15 tình huống cấp xã). Điều còn thiếu là tài liệu tập huấn gắn với công việc thật của cán bộ xã — tiếp dân, xử lý đơn thư, tra cứu căn cứ pháp lý — và cơ chế hỗ trợ sau tập huấn.</li>
+<li><strong>Bảo mật dữ liệu trong tập huấn AI:</strong> nội dung này đã xuất hiện trong cả cẩm nang và lớp tập huấn Thốt Nốt — cần trở thành phần bắt buộc, không phải phần thêm, trong mọi chương trình tập huấn AI cho cán bộ.</li>
+<li><strong>Cuộc đua giá AI:</strong> ba model cùng mức 2 USD / 10 USD cho 1 triệu token trong tháng 11, Argon tăng gấp đôi từ 1/12/2026. Giá thay đổi nhanh — cơ quan nhà nước lập ngân sách dùng AI cần đối chiếu lại bảng giá chính thức trước khi quyết định, thay vì tin con số trong video.</li>
+</ul></section>
+
+      <section id="nguon" class="sources">
+<h4>Nguồn tham khảo chính (truy cập ngày 24/11/2026)</h4>
+<ul>
+<li><em>Instagram, @fixelsmediallc, 23/11 17:28 (giờ VN) — Gemini 4 Argon, GPT-6.1 Sol, họ Claude 5.5 và xu hướng AI Agent: <a href="https://www.instagram.com/reel/DgFKekLxbUg/" rel="noopener">https://www.instagram.com/reel/DgFKekLxbUg/</a></em></li>
+<li><em>Facebook, Viettel Post (phóng sự VTV1), 23/11 09:22 (giờ VN) — Viettel dùng AI tối ưu mạng viễn thông: <a href="https://www.facebook.com/reel/1727518045564147/" rel="noopener">https://www.facebook.com/reel/1727518045564147/</a></em></li>
+<li><em>vietnam.vn — Viettel làm chủ công nghệ mạng tự trị cấp độ 4 (TM Forum Innovate Asia 2026, Bangkok, 19/11/2026; hai kịch bản, điểm ANLAV 4.0; tiết kiệm năng lượng ước tính 18 tỉ đồng/năm trên ~192.000 ô 4G): <a href="https://www.vietnam.vn/viettel-lam-chu-cong-nghe-mang-tu-tri-cap-do-4-nang-cao-hieu-qua-van-hanh" rel="noopener">https://www.vietnam.vn/viettel-lam-chu-cong-nghe-mang-tu-tri-cap-do-4-nang-cao-hieu-qua-van-hanh</a></em></li>
+<li><em>doanhnhan.congly.vn — Viettel đạt chuẩn mạng tự trị cấp độ 4 (thời gian tối ưu từ nhiều ngày xuống vài giờ, tại sự kiện đông người khoảng hai phút; tăng hơn 3% năng lực phục vụ): <a href="https://doanhnhan.congly.vn/viettel-dat-chuan-mang-tu-tri-cao-nhat-the-gioi.html" rel="noopener">https://doanhnhan.congly.vn/viettel-dat-chuan-mang-tu-tri-cao-nhat-the-gioi.html</a></em></li>
+<li><em>Facebook, Ngô Hữu Thống, 23/11 11:03 (giờ VN) — "Cẩm nang ứng dụng AI hành chính", 104 tình huống: <a href="https://www.facebook.com/baphuuthong/posts/pfbid02uQkmRLBwxR9CeD3ZN3ZFLR5DTh7uvRiyntVAdro76Ht7HwLeA4QLc1ju8GtS1ac9l" rel="noopener">https://www.facebook.com/baphuuthong/posts/pfbid02uQkmRLBwxR9CeD3ZN3ZFLR5DTh7uvRiyntVAdro76Ht7HwLeA4QLc1ju8GtS1ac9l</a></em></li>
+<li><em>Facebook, Thốt Nốt Hôm Nay (Chương trình 12h, CanTho1), 23/11 12:56 (giờ VN) — lớp tập huấn AI tại Thốt Nốt: <a href="https://www.facebook.com/reel/1153469043826476/" rel="noopener">https://www.facebook.com/reel/1153469043826476/</a></em></li>
+<li><em>pdl.vn — GPT-6.1 Sol, Sonnet 5.5, Gemini 4 Argon: ngày ra mắt và bảng giá API chính thức (tra 28/10/2026): <a href="https://pdl.vn/gpt-6-1-sol-sonnet-5-5-gemini-4-argon-doanh-nghiep-nho-chon-mo-hinh.html" rel="noopener">https://pdl.vn/gpt-6-1-sol-sonnet-5-5-gemini-4-argon-doanh-nghiep-nho-chon-mo-hinh.html</a></em></li>
+<li><em>caacgo.cresclab.com — Gemini 4 Argon (mã model gemini-4-argon, công bố 28/10/2026 cho Carbon, giá tăng gấp đôi từ 01/12/2026): <a href="https://caacgo.cresclab.com/benchmark/november-2026" rel="noopener">https://caacgo.cresclab.com/benchmark/november-2026</a></em></li>
+<li><em>Cổng Chuyển đổi số TP. Cần Thơ — Hội nghị tập huấn AI cho cán bộ, công chức, viên chức TP. Cần Thơ năm 2025, kết nối trực tuyến tới 103 xã, phường: <a href="https://chuyendoiso.cantho.gov.vn/baiviet/hoi_nghi_tap_huan_ung_dung_tri_tue_nhan_tao_cho_can_bo_cong_chuc_vien_chuc_thanh_pho_can_tho_nam_2025" rel="noopener">https://chuyendoiso.cantho.gov.vn/baiviet/hoi_nghi_tap_huan_ung_dung_tri_tue_nhan_tao_cho_can_bo_cong_chuc_vien_chuc_thanh_pho_can_tho_nam_2025</a></em></li>
+</ul>
+        <footer><p><em>Pháp Dẫn (LegalFlow) — nền tảng vận hành và kiểm chứng pháp lý cho công tác xử lý đơn thư cấp xã, với nguyên tắc Evidence-First: mọi kết luận đều truy được về điều luật đã kiểm chứng, mọi thời hạn đều tính theo quy tắc xác định và hiển thị rõ căn cứ, và con người luôn là người quyết định cuối cùng.</em></p></footer>
+      </section>
+    </main>
+    <!-- khung:chan -->
+<div class="pd-khung">
+<footer class="site-foot">
+<div class="wrap site-foot__in">
+<div>
+<p class="site-foot__brand">Pháp Dẫn (LegalFlow)</p>
+<p class="site-foot__tag">Đúng luồng - Vững luật - Thấu tình</p>
+</div>
+<nav aria-label="Liên kết cuối trang">
+<a href="/">Trang chủ</a>
+<a href="/bai-viet/">Bài viết</a>
+<a href="/sau-cau-hoi-truoc-khi-ky.html">Sáu câu hỏi trước khi ký</a>
+<a href="/don-thu-theo-linh-vuc.html">Đơn thư theo lĩnh vực</a>
+<a href="/chinh-sach-du-lieu.html">Chính sách dữ liệu</a>
+<a href="/lien-he.html">Liên hệ</a>
+</nav>
+<p class="site-foot__legal">© 2026 Pháp Dẫn (LegalFlow). Dự án đang thử nghiệm.</p>
+</div>
+</footer>
+</div>
+<script>
+(function(){var m=document.querySelector('.pd-khung .mnav');if(!m)return;
+m.addEventListener('click',function(e){if(e.target.closest('nav a'))m.open=false;});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&m.open){m.open=false;m.querySelector('summary').focus();}});})();
+</script>
+<!-- /khung:chan -->
+  </body>
+</html>
