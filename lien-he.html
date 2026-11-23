@@ -35,17 +35,19 @@
 <span class="brand__name">Pháp Dẫn</span><span class="brand__sub">(LegalFlow)</span>
 </a>
 <nav class="nav" aria-label="Điều hướng chính">
-<a href="./#cach-lam">Cách làm việc</a>
+<a href="./#mot-ho-so">Theo một hồ sơ</a>
+<a href="./#thu-dem-han">Thử đếm hạn</a>
 <a href="./#khoa-trich-dan">Khóa trích dẫn</a>
-<a href="./#an-toan">An toàn dữ liệu</a>
+<a href="./#dang-co-gi">Hiện có gì</a>
 <a href="bai-viet/">Bài viết</a>
 <a href="chinh-sach-du-lieu.html">Chính sách dữ liệu</a>
 </nav>
 <details class="mnav"><summary>Mục lục</summary>
 <nav aria-label="Mục lục trên điện thoại">
-<a href="./#cach-lam">Cách làm việc</a>
+<a href="./#mot-ho-so">Theo một hồ sơ</a>
+<a href="./#thu-dem-han">Thử đếm hạn</a>
 <a href="./#khoa-trich-dan">Khóa trích dẫn</a>
-<a href="./#an-toan">An toàn dữ liệu</a>
+<a href="./#dang-co-gi">Hiện có gì</a>
 <a href="bai-viet/">Bài viết</a>
 <a href="chinh-sach-du-lieu.html">Chính sách dữ liệu</a>
 <a href="lien-he.html" aria-current="page">Liên hệ</a>
@@ -132,6 +134,48 @@ d.addEventListener('close',function(){a.focus();});})();
 (function(){var m=document.querySelector('.mnav');if(!m)return;
 m.addEventListener('click',function(e){if(e.target.closest('nav a'))m.open=false;});
 document.addEventListener('keydown',function(e){if(e.key==='Escape'&&m.open){m.open=false;m.querySelector('summary').focus();}});})();
+(function(){
+var w=document.querySelector('[data-dem]');if(!w)return;
+var inp=w.querySelector('.dem__in'),cal=w.querySelector('[data-cal]'),kq=w.querySelector('[data-kq]');
+if(!inp||!cal||!kq)return;
+/* Ngày nghỉ: NQ 28/2026/QH16 (24/11/2026, không hoán đổi); TB 11483/TB-BNV ngày 09/10/2026 (Tết 2027); khoảng đã đối chiếu: 01/11/2026 - 15/03/2027 */
+var LE={'2026-11-24':'Ngày Văn hóa Việt Nam','2027-01-01':'Tết Dương lịch','2027-02-04':'Tết Âm lịch','2027-02-05':'Tết Âm lịch','2027-02-06':'Tết Âm lịch','2027-02-07':'Tết Âm lịch','2027-02-08':'Tết Âm lịch','2027-02-09':'Tết Âm lịch','2027-02-10':'Tết Âm lịch'};
+var THU=['chủ nhật','thứ hai','thứ ba','thứ tư','thứ năm','thứ sáu','thứ bảy'];
+function p(s){var a=s.split('-');return new Date(Date.UTC(+a[0],+a[1]-1,+a[2]));}
+function k(d){var m=d.getUTCMonth()+1,n=d.getUTCDate();return d.getUTCFullYear()+'-'+(m<10?'0':'')+m+'-'+(n<10?'0':'')+n;}
+function dmy(d){var m=d.getUTCMonth()+1,n=d.getUTCDate();return (n<10?'0':'')+n+'/'+(m<10?'0':'')+m+'/'+d.getUTCFullYear();}
+function them(d,n){return new Date(d.getTime()+n*86400000);}
+function nghi(d){var t=d.getUTCDay();return t===0||t===6||!!LE[k(d)];}
+function ve(){
+ cal.textContent='';kq.textContent='';
+ var s=inp.value;if(!s||!/^\d{4}-\d{2}-\d{2}$/.test(s))return;
+ var g=p(s);if(isNaN(g.getTime()))return;
+ if((inp.min&&s<inp.min)||(inp.max&&s>inp.max)){kq.textContent='Ngày '+dmy(g)+' nằm ngoài khoảng đã đối chiếu lịch nghỉ lễ (01/11/2026 đến 04/03/2027). Trang không tính hạn cho ngày này.';return;}
+ if(nghi(g)){kq.textContent='Ngày '+dmy(g)+' là '+(LE[k(g)]?'ngày nghỉ lễ ('+LE[k(g)]+')':THU[g.getUTCDay()])+', không phải ngày làm việc. Hãy chọn đúng ngày ghi trên phiếu tiếp nhận của cơ quan; trang không tự đổi sang ngày khác.';return;}
+ var r=new Date(g);
+ var ds=[{d:new Date(r),t:'recv',nh:'Ngày nhận'}],cur=new Date(r),dem=0;
+ while(dem<7){cur=them(cur,1);
+  var t=LE[k(cur)]?'off':(nghi(cur)?'skip':'count'),nh='';
+  if(t==='count'){dem++;nh='Ngày '+dem;}else if(t==='off'){nh='Nghỉ lễ';}else{nh='Nghỉ';}
+  ds.push({d:new Date(cur),t:t,nh:nh});}
+ ds[ds.length-1].t='due';ds[ds.length-1].nh='Hạn';
+ var dau=new Date(ds[0].d);while(dau.getUTCDay()!==1){dau=them(dau,-1);}
+ var cuoi=new Date(ds[ds.length-1].d);while(cuoi.getUTCDay()!==0){cuoi=them(cuoi,1);}
+ var map={};for(var i=0;i<ds.length;i++){map[k(ds[i].d)]=ds[i];}
+ var hd=['T2','T3','T4','T5','T6','T7','CN'];
+ for(var j=0;j<7;j++){var h=document.createElement('div');h.className='dem__hd';h.textContent=hd[j];cal.appendChild(h);}
+ for(var d=new Date(dau);d<=cuoi;d=them(d,1)){
+  var o=map[k(d)],c=document.createElement('div');
+  if(!o){c.className='dem__d dem__d--blank';c.setAttribute('aria-hidden','true');
+   var sb=document.createElement('b');sb.textContent=d.getUTCDate();sb.style.opacity='.35';c.appendChild(sb);}
+  else{c.className='dem__d dem__d--'+o.t;
+   var b=document.createElement('b');b.textContent=d.getUTCDate();c.appendChild(b);
+   c.appendChild(document.createTextNode(o.nh));
+   c.setAttribute('aria-label',dmy(d)+', '+o.nh);}
+  cal.appendChild(c);}
+ var ht=ds[ds.length-1].d;
+ kq.textContent='Ngày nhận '+dmy(r)+' ('+THU[r.getUTCDay()]+'). Ngày cuối của thời hạn thụ lý: '+dmy(ht)+', '+THU[ht.getUTCDay()]+'.';}
+inp.addEventListener('change',ve);inp.addEventListener('input',ve);ve();})();
 </script>
 </body>
 </html>
