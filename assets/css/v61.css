@@ -556,26 +556,26 @@ input:focus-visible,
 
 /* ---------- 7. KHỐI 1 – HERO ---------- */
 .hero {
-  padding-block: clamp(32px, 5vw, 72px) clamp(48px, 6.5vw, 88px);
+  padding-block: clamp(20px, 4vw, 56px) clamp(40px, 6vw, 80px);
   position: relative;
 }
 .hero__grid {
   display: grid;
-  gap: clamp(32px, 5vw, 48px);
-  align-items: center;
+  gap: clamp(26px, 4.5vw, 44px);
+  align-items: start;
 }
 .hero__slogan {
   display: inline-flex;
   align-items: center;
   gap: 10px;
   font-family: var(--serif);
-  font-size: clamp(1rem, 0.94rem + 0.3vw, 1.1875rem);
+  font-size: clamp(0.95rem, 0.9rem + 0.28vw, 1.125rem);
   color: var(--gold-ink);
-  margin-bottom: 14px;
+  margin-bottom: 6px;
 }
 .hero__slogan::before {
   content: "";
-  width: 30px;
+  width: 28px;
   height: 2px;
   background: var(--gold);
   flex: none;
@@ -586,37 +586,113 @@ input:focus-visible,
 
 .hero__copy {
   display: grid;
-  gap: 18px;
+  gap: 12px;
 }
-.hero__explain {
-  font-size: var(--t-lede);
-  line-height: 1.6;
-  color: var(--ink-2);
-  max-width: 36em;
-}
-.hero__human {
-  padding-left: 14px;
-  border-left: 3px solid var(--gold);
-  font-size: var(--t-small);
-  line-height: 1.6;
-  color: var(--ink-2);
+.hero__story {
+  display: grid;
+  gap: 10px;
   max-width: 38em;
 }
+.hero__story p {
+  font-size: clamp(1rem, 0.96rem + 0.25vw, 1.125rem);
+  line-height: 1.56;
+  color: var(--ink-2);
+}
+.hero__story p strong {
+  color: var(--ink);
+}
+.hero__closing {
+  padding-left: 12px;
+  border-left: 3px solid var(--gold);
+  font-weight: 600;
+  font-size: var(--t-small);
+  line-height: 1.45;
+  color: var(--ink);
+}
 .hero__actions {
-  margin-top: 6px;
+  margin-top: 4px;
 }
 .hero__notice {
   display: flex;
   align-items: flex-start;
   gap: 10px;
-  padding: 12px 14px;
+  padding: 10px 14px;
   border-radius: var(--r-md);
   background: var(--surface);
   border: 1px solid var(--border);
   font-size: var(--t-note);
-  line-height: 1.52;
+  line-height: 1.5;
   color: var(--ink-2);
   max-width: 42em;
+}
+@media (max-width: 639px) {
+  .site-head__in { min-height: 66px; padding-block: 8px; }
+  .h1-hero { font-size: clamp(1.75rem, 1.2rem + 2.6vw, 2.25rem); line-height: 1.16; }
+  .hero__copy { gap: 10px; }
+  .hero__story { gap: 8px; }
+  .hero__story p { font-size: 0.96875rem; line-height: 1.5; }
+}
+
+/* Hộp phân biệt 3 tầng trong Khối 4 & Tóm tắt 3 câu hỏi trên trang Minh bạch */
+.scope-trio {
+  display: grid;
+  gap: 12px;
+}
+@media (min-width: 860px) {
+  .scope-trio {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+  }
+}
+.scope-item {
+  background: var(--surface-muted);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--gold);
+  border-radius: var(--r-md);
+  padding: 14px 16px;
+}
+.scope-item strong {
+  display: block;
+  font-size: var(--t-note);
+  color: var(--gold-ink);
+  margin-bottom: 4px;
+}
+.scope-item p {
+  font-size: var(--t-note);
+  line-height: 1.52;
+  color: var(--ink-2);
+}
+
+.mb-q3-grid {
+  display: grid;
+  gap: 18px;
+}
+@media (min-width: 900px) {
+  .mb-q3-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+  }
+}
+.mb-q3-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 4px solid var(--navy);
+  border-radius: var(--r-lg);
+  padding: 20px 22px;
+  display: grid;
+  gap: 10px;
+  align-content: start;
+}
+.mb-q3-card--warn { border-top-color: var(--gold); }
+.mb-q3-card--plan { border-top-color: var(--border-strong); }
+.mb-q3-card ul {
+  padding-left: 18px;
+  list-style: disc;
+  display: grid;
+  gap: 6px;
+  font-size: var(--t-small);
+  line-height: 1.55;
+  color: var(--ink-2);
 }
 .hero__notice-dot {
   flex: none;
