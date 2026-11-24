@@ -542,9 +542,18 @@ input:focus-visible,
 }
 .mnav nav a:hover { background: var(--bg-alt); }
 
-@media (min-width: 1180px) {
+@media (min-width: 1200px) {
   .nav { display: flex; }
   .mnav { display: none; }
+}
+@media (min-width: 1200px) and (max-width: 1340px) {
+  .site-head__in { gap: 8px 10px; }
+  .brand { gap: 10px; }
+  .brand img { width: 48px; height: 48px; }
+  .brand__name { font-size: 1.4rem; }
+  .nav { gap: 2px; }
+  .nav a { padding: 6px 7px; font-size: 0.9rem; }
+  .site-head__cta { padding: 8px 13px; font-size: 0.9rem; }
 }
 @media (max-width: 639px) {
   .site-head__in { min-height: 74px; gap: 8px; }
