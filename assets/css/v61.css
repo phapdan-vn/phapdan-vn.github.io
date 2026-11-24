@@ -651,11 +651,14 @@ input:focus-visible,
   border-radius: var(--r-md);
   padding: 14px 16px;
 }
-.scope-item strong {
+.scope-item > strong {
   display: block;
   font-size: var(--t-note);
   color: var(--gold-ink);
   margin-bottom: 4px;
+}
+.scope-item p strong {
+  color: var(--ink);
 }
 .scope-item p {
   font-size: var(--t-note);
