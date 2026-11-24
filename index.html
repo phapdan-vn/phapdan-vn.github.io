@@ -2,12 +2,12 @@
 <html lang="vi">
 <head>
 <meta charset="utf-8">
-<title>Pháp Dẫn (LegalFlow): theo dõi hạn đơn thư, kiểm tra điều luật cho xã, phường</title>
+<title>Pháp Dẫn (LegalFlow) – Phần mềm đang phát triển hỗ trợ cán bộ xã, phường quản lý đơn thư</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light dark">
-<meta name="description" content="Phần mềm được thiết kế để giúp cán bộ xã, phường biết đơn nào sắp đến hạn, ai đang giữ đơn và điều luật AI gợi ý có thật không. Đang thử nghiệm với dữ liệu mẫu.">
-<meta property="og:title" content="Pháp Dẫn (LegalFlow): theo dõi hạn đơn thư, kiểm tra điều luật cho xã, phường">
-<meta property="og:description" content="Phần mềm được thiết kế để giúp cán bộ xã, phường biết đơn nào sắp đến hạn, ai đang giữ đơn và điều luật AI gợi ý có thật không. Đang thử nghiệm với dữ liệu mẫu.">
+<meta name="description" content="Pháp Dẫn (LegalFlow) được phát triển để giúp cán bộ cấp xã, phường tiếp nhận, theo dõi thời hạn, phân công người phụ trách và kiểm tra căn cứ pháp luật trước khi trình ký đơn thư. Đang thử nghiệm với hồ sơ mẫu.">
+<meta property="og:title" content="Pháp Dẫn (LegalFlow) – Đúng luồng · Vững luật · Thấu tình">
+<meta property="og:description" content="Phần mềm đang phát triển nhằm hỗ trợ cán bộ xã, phường quản lý đơn thư trên cùng một nơi: dễ tìm, dễ kiểm tra căn cứ và dễ phối hợp hơn. Đang thử nghiệm với hồ sơ mẫu.">
 <link rel="canonical" href="https://phapdan.vn/">
 <meta property="og:url" content="https://phapdan.vn/">
 <meta property="og:locale" content="vi_VN">
@@ -18,551 +18,1352 @@
 <meta property="og:image:alt" content="Logo Pháp Dẫn (LegalFlow): sách mở dưới vòm">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#1B2A44">
-
 <link rel="icon" href="favicon.ico" sizes="32x32">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
-<link rel="stylesheet" href="assets/css/mau.css">
-<link rel="stylesheet" href="assets/css/site.css">
-
+<link rel="stylesheet" href="assets/css/v61.css">
+<script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
+<a class="skip-link" href="#main-content">Chuyển thẳng tới nội dung chính</a>
+
 <header class="site-head">
-<div class="wrap site-head__in">
-<a class="brand" href="./" aria-label="Pháp Dẫn (LegalFlow), về trang chủ">
-<picture><source srcset="assets/logo-phap-dan-bieu-tuong-nen-toi.svg" media="(prefers-color-scheme: dark)"><img src="assets/logo-phap-dan-bieu-tuong.svg" width="56" height="56" alt=""></picture>
-<span class="brand__name">Pháp Dẫn</span><span class="brand__sub">(LegalFlow)</span>
-</a>
-<nav class="nav" aria-label="Điều hướng chính">
-<a href="./#mot-ho-so">Theo một hồ sơ</a>
-<a href="./#thu-dem-han">Thử đếm hạn</a>
-<a href="./#khoa-trich-dan">Khóa trích dẫn</a>
-<a href="./#dang-co-gi">Hiện có gì</a>
-<a href="bai-viet/">Bài viết</a>
-<a href="chinh-sach-du-lieu.html">Chính sách dữ liệu</a>
-</nav>
-<details class="mnav"><summary>Mục lục</summary>
-<nav aria-label="Mục lục trên điện thoại">
-<a href="./#mot-ho-so">Theo một hồ sơ</a>
-<a href="./#thu-dem-han">Thử đếm hạn</a>
-<a href="./#khoa-trich-dan">Khóa trích dẫn</a>
-<a href="./#dang-co-gi">Hiện có gì</a>
-<a href="bai-viet/">Bài viết</a>
-<a href="chinh-sach-du-lieu.html">Chính sách dữ liệu</a>
-<a href="lien-he.html">Liên hệ</a>
-</nav></details>
-<a class="btn btn--primary btn--sm" href="lien-he.html">Liên hệ</a>
-</div>
+  <div class="wrap site-head__in">
+    <a class="brand" href="./" aria-label="Pháp Dẫn (LegalFlow), về đầu trang chủ">
+      <picture>
+        <source srcset="assets/logo-phap-dan-bieu-tuong-nen-toi.svg" media="(prefers-color-scheme: dark)">
+        <img src="assets/logo-phap-dan-bieu-tuong.svg" width="56" height="56" alt="">
+      </picture>
+      <span class="brand__text">
+        <span class="brand__name">Pháp Dẫn</span>
+        <span class="brand__sub">(LegalFlow)</span>
+      </span>
+    </a>
+
+    <nav class="nav" aria-label="Điều hướng chính">
+      <a href="#loi-ich">Ba lợi ích</a>
+      <a href="#thu-dem-han">Thử đếm hạn</a>
+      <a href="#khoa-trich-dan">Khóa trích dẫn</a>
+      <a href="#mot-ho-so">Một lá đơn</a>
+      <a href="#chuc-nang">Chức năng</a>
+      <a href="minh-bach.html">Minh bạch</a>
+      <a href="bai-viet/">Bài viết</a>
+    </nav>
+
+    <details class="mnav">
+      <summary>Mục lục</summary>
+      <nav aria-label="Mục lục trên điện thoại">
+        <a href="#loi-ich">Ba lợi ích chính</a>
+        <a href="#thu-dem-han">Thử đếm hạn thụ lý</a>
+        <a href="#khoa-trich-dan">Khóa trích dẫn</a>
+        <a href="#mot-ho-so">Câu chuyện một lá đơn</a>
+        <a href="#chuc-nang">Khám phá 14 chức năng</a>
+        <a href="minh-bach.html">Minh bạch sản phẩm</a>
+        <a href="sau-cau-hoi-truoc-khi-ky.html">Sáu câu hỏi trước khi ký</a>
+        <a href="don-thu-theo-linh-vuc.html">Đơn thư theo lĩnh vực</a>
+        <a href="bai-viet/">Bài viết</a>
+        <a href="lien-he.html">Liên hệ &amp; Đăng ký xem thử</a>
+      </nav>
+    </details>
+
+    <a class="btn btn--primary btn--sm site-head__cta" href="#xem-thu">Đăng ký xem thử</a>
+  </div>
 </header>
-<main>
-<section class="hero" aria-labelledby="hero-h">
-<div class="wrap">
-<div class="hero__top">
-<p class="slogan">Đúng luồng - Vững luật - Thấu tình</p>
-<ul class="trio" aria-label="Ba thứ Pháp Dẫn giữ cho mỗi lá đơn">
-<li>HẠN</li>
-<li>NGƯỜI</li>
-<li>CĂN CỨ</li>
-</ul>
-<h1 id="hero-h" class="display">Hồ sơ nào <span class="nb">sắp đến hạn?</span> Căn cứ nào <span class="nb">cần kiểm tra lại?</span></h1>
-<div class="hero__side">
-<p class="lede">Pháp Dẫn (LegalFlow) là phần mềm được thiết kế để giúp cán bộ xã, phường giữ ba thứ cho mỗi lá đơn: hạn xử lý, người đang giữ hồ sơ, và căn cứ pháp lý. Người có thẩm quyền vẫn là người quyết định.</p>
-<div class="actions">
-<a class="btn btn--line" href="https://www.youtube.com/watch?v=8iIWoQvFxrs" target="_blank" rel="noopener noreferrer">Xem video giới thiệu (4 phút 10 giây)</a>
-<a class="btn btn--primary" href="lien-he.html">Hẹn xem thử 20 phút</a>
 
-</div>
-<p class="note hero__who">Dành cho cán bộ xử lý đơn khiếu nại, tố cáo, kiến nghị, phản ánh. Đây không phải nơi người dân nộp đơn. Phần mềm đang ở giai đoạn thử nghiệm với hồ sơ mẫu, chưa dùng cho hồ sơ thật.</p>
-</div>
-</div>
-</div>
-</section>
+<main id="main-content">
 
-<section id="mot-ho-so" class="sec" aria-labelledby="ho-so-h">
-<div class="wrap">
-<div class="sec__head">
-<h2 id="ho-so-h" class="h2">Theo một hồ sơ, từ lúc nhận đến lúc đóng</h2>
-<p class="lede">Ông Minh không đồng ý với một quyết định của phường và gửi đơn khiếu nại. Chị Lan là cán bộ văn phòng. Cả hai là nhân vật minh họa, hồ sơ là hồ sơ mẫu.</p>
-</div>
-<ol class="scenes">
-<li class="scene">
-<span class="scene__no">1</span>
-<div class="scene__story">
-<h3 class="h3">Nhận đơn</h3>
-<p>Chị Lan nhập đơn, phần mềm cấp mã hồ sơ. Chị đọc đơn, đọc hồ sơ lưu, rồi chọn quy trình theo quy chế của đơn vị. Phần mềm không chọn thay.</p>
-</div>
-</li>
-<li class="scene">
-<span class="scene__no">2</span>
-<div class="scene__story">
-<h3 class="h3">Theo dõi</h3>
-<p>Ô thời hạn đếm 07 ngày làm việc, ghi rõ ngày nào được tính, ngày nào không và vì sao. Mỗi nhiệm vụ có người phụ trách và hiện trong hàng đợi việc của người đó.</p>
-<p class="note"><span class="tag tag--warn">Lưu ý</span> Bộ đếm trong phần mềm chưa nạp ngày nghỉ 24/11/2026 và lịch nghỉ lễ năm 2027, nên hạn đi qua những ngày này đang lệch. Ô đếm thử ở mục dưới đã nạp đủ.</p>
-</div>
-</li>
-<li class="scene">
-<span class="scene__no">3</span>
-<div class="scene__story">
-<h3 class="h3">Trước khi ký</h3>
-<p>Cán bộ kiểm tra căn cứ có thể đưa từng trích dẫn vào Khóa trích dẫn để đối chiếu với kho văn bản. Dự thảo đi qua kiểm soát, rồi người có thẩm quyền ký.</p>
-<p class="note"><span class="tag tag--warn">Lưu ý</span> Khóa trích dẫn hiện là công cụ dùng riêng, chưa gắn vào bước thẩm tra, nên phần mềm chưa bắt buộc kiểm mọi trích dẫn trước khi ký.</p>
-</div>
-</li>
-</ol>
+  <!-- =====================================================================
+       KHỐI 1 – HERO
+       ===================================================================== -->
+  <section id="gioi-thieu" class="hero" aria-labelledby="hero-h">
+    <div class="wrap hero__grid">
+      <div class="hero__copy">
+        <p class="hero__slogan">Đúng luồng – Vững luật – Thấu tình</p>
+        <h1 id="hero-h" class="h1-hero">Đơn đã nhận. Ai đang xử lý? Bao giờ phải trả lời?</h1>
 
-<figure class="shot" aria-labelledby="shot1-cap">
-<a class="shot__link" href="assets/img/han-thu-ly-ho-so-mau.png" data-zoom aria-label="Xem cỡ lớn ảnh khung thời hạn của hồ sơ mẫu"><img src="assets/img/han-thu-ly-ho-so-mau.png" width="900" height="410" fetchpriority="high" alt="Ảnh chụp bản thử nghiệm: khung thời hạn của hồ sơ mẫu nhận ngày 16/11/2026. Phần mềm ghi hạn xem xét thụ lý dự kiến là 25/11/2026, nêu căn cứ là khoản 1 Điều 27 Luật Khiếu nại, liệt kê bảy ngày được tính và hai ngày cuối tuần không được tính; ngày 24/11/2026 bị tính nhầm là ngày làm việc."></a>
-<figcaption id="shot1-cap">Ảnh chụp bản thử nghiệm ngày 21/11/2026, hồ sơ mẫu, dữ liệu giả định. Phần mềm tự ghi đây là ngày <strong>dự kiến</strong>, chưa phải hạn đã xác lập chính thức, và nói rõ thời hạn giải quyết sau khi thụ lý là giai đoạn khác. <strong>Kết quả trong ảnh còn sai một ngày:</strong> phần mềm chưa nạp ngày nghỉ 24/11/2026 (Ngày Văn hóa Việt Nam) nên ghi 25/11/2026; tính đúng là 26/11/2026. Nhấn vào ảnh để xem cỡ lớn.</figcaption>
-</figure>
-</div>
-</section>
+        <div class="hero__story">
+          <p>Một ngày, xã có thể tiếp nhận nhiều lá đơn. Mỗi đơn một nội dung, một thời hạn, có khi phải qua nhiều người xử lý.</p>
+          <p>Đến lúc cần tìm lại, cán bộ phải biết đơn đang ở đâu, ai đang phụ trách và còn bao lâu để giải quyết.</p>
+          <p id="hero-def"><strong>Pháp Dẫn được phát triển để giúp cán bộ xã, phường quản lý những công việc ấy trên cùng một phần mềm.</strong></p>
+          <p>Từ tiếp nhận đến theo dõi, phân công và kiểm tra căn cứ pháp luật trước khi trình ký, thông tin được tổ chức để dễ tìm, dễ kiểm tra và dễ phối hợp hơn.</p>
+        </div>
 
-<section id="hai-duong" class="sec band--soft" aria-labelledby="duong-h">
-<div class="wrap">
-<div class="sec__head">
-<h2 id="duong-h" class="h2">Hai quy trình, chọn theo quy chế của đơn vị</h2>
-<p class="lede">Một số nơi chia đơn thành hai quy trình ngay khi nhận. Cách chia nằm trong quy chế của từng địa phương, không phải quy định chung của luật.</p>
-</div>
-<div class="paths" role="group" aria-labelledby="duong-cap">
-<div class="paths__in">Đơn đến, được ghi lại và cấp mã hồ sơ</div>
-<div class="paths__ask">Cơ quan đã ban hành văn bản về chính việc này chưa?</div>
-<div class="paths__two">
-<article class="path path--new">
-<h3 class="h3">Chưa có: việc mới</h3>
-<p class="small">Trong phần mềm gọi là Luồng 2.</p>
-<p>Ví dụ: phản ánh, kiến nghị về việc dân sinh mới phát sinh.</p>
-<ul>
-<li>Phòng chuyên môn chủ trì về chuyên môn.</li>
-<li>Văn phòng tiếp nhận, phân loại và theo dõi tiến độ.</li>
-</ul>
-</article>
-<article class="path path--old">
-<h3 class="h3">Có rồi: việc đã có văn bản trước đó</h3>
-<p class="small">Trong phần mềm gọi là Luồng 1.</p>
-<p>Ví dụ: người dân không đồng ý với văn bản đã ban hành, đề nghị xem xét lại hoặc hủy bỏ.</p>
-<ul>
-<li>Văn phòng chủ trì toàn bộ hồ sơ.</li>
-<li>Dự thảo trả lời đi qua hai lớp kiểm soát trước khi người có thẩm quyền ký.</li>
-</ul>
-</article>
-</div>
-<p id="duong-cap" class="note paths__cap">Mô tả theo quy chế của một phường. Theo quy chế ấy, chỉ tính văn bản do chính cơ quan đó ban hành về cùng việc, ví dụ quyết định, thông báo kết quả, thông báo đang giải quyết hoặc không giải quyết; phiếu chuyển, biên bản hay văn bản của cơ quan khác thì không tính. Cán bộ tiếp nhận quyết định theo quy chế của đơn vị. Pháp Dẫn hiển thị hai quy trình để cán bộ chọn; phần mềm không tự xác định quy trình.</p>
-</div>
+        <p class="hero__closing">Công nghệ hỗ trợ. Người có thẩm quyền quyết định.</p>
 
-<div class="gate" aria-label="Thứ tự kiểm soát trước khi ký">
-<p class="gate__h3">Theo quy chế của đơn vị: ba vai riêng, kiểm lần một, kiểm lần hai, ký</p>
-<ol class="gate__steps">
-<li><span class="gate__n">Lớp 1</span> Chánh Văn phòng kiểm nội dung</li>
-<li><span class="gate__n">Lớp 2</span> Lãnh đạo phụ trách kiểm lần hai</li>
-<li><span class="gate__n gate__n--sign">Ký</span> Người có thẩm quyền ký ban hành</li>
-</ol>
-<p class="gate__that">Phần mềm hiện chưa làm được như vậy. Trên bản thử nghiệm chỉ có <strong>một bước duyệt, một nút bấm</strong>, mang tên "Kiểm soát 02 lớp", và cùng một tài khoản bấm được cả nút duyệt lẫn nút ban hành. Việc tách thành hai bước và chặn một người đảm nhận cả ba vai đang được làm.</p>
-<figure class="gate__fig"><img src="assets/img/mot-nut-duyet.png" width="360" height="260" alt="Ảnh chụp bản thử nghiệm: màn hình kiểm soát chỉ có một nhiệm vụ tên Kiểm soát 02 lớp và một nút chuyển tiếp duy nhất."><figcaption>Ảnh chụp bản thử nghiệm ngày 21/11/2026: cả hai lớp nằm trong một bước, một nút.</figcaption></figure>
-</div>
-</div>
-</section>
+        <div class="actions hero__actions">
+          <a class="btn btn--primary" href="#thu-dem-han">Xem Pháp Dẫn hoạt động</a>
+          <a class="btn btn--secondary" href="#chuc-nang">Khám phá các chức năng</a>
+        </div>
 
-<section id="thu-dem-han" class="sec" aria-labelledby="dem-h">
-<div class="wrap">
-<div class="sec__head">
-<h2 id="dem-h" class="h2">Thử đếm hạn thụ lý một đơn khiếu nại</h2>
-<p class="lede">Chọn một ngày nhận đơn. Trang này sẽ đếm 07 ngày làm việc và chỉ ra ngày cuối của thời hạn thụ lý, bỏ qua thứ bảy, chủ nhật và ngày nghỉ lễ.</p>
-</div>
+        <p class="hero__notice" role="note">
+          <span class="hero__notice-dot" aria-hidden="true"></span>
+          <span><strong>Lưu ý quan trọng:</strong> Dự án đang thử nghiệm với hồ sơ mẫu, chưa dùng cho hồ sơ thật. Website này chỉ giới thiệu dự án, không nhận đơn và không tra cứu hồ sơ công dân.</span>
+        </p>
+      </div>
 
-<div class="dem" data-dem>
-<p class="dem__note small">Ngày nhận là ngày ghi trên phiếu tiếp nhận của cơ quan, không phải ngày bạn gửi. Ô này minh họa cách đếm; hạn thật của một đơn do cơ quan thụ lý xác định.</p>
-<label class="dem__lb" for="ngay-nhan">Ngày nhận đơn</label>
-<input class="dem__in" type="date" id="ngay-nhan" value="2026-11-16" min="2026-11-01" max="2027-03-04">
-<p class="dem__note small">Chọn một ngày làm việc trong khoảng 01/11/2026 đến 04/3/2027, là khoảng đã đối chiếu lịch nghỉ lễ. Ngoài khoảng này hoặc chọn ngày nghỉ, trang sẽ báo và không tính. Đơn gửi vào ngày nghỉ được cơ quan ghi nhận theo quy định tiếp nhận của cơ quan; hỏi bộ phận tiếp công dân để biết ngày ghi trên phiếu tiếp nhận.</p>
-<div class="dem__cal" data-cal aria-live="polite"></div>
-<p class="dem__kq" data-kq aria-live="polite"></p>
-<p class="legend"><span><i class="i-recv"></i> Ngày nhận, không tính</span><span><i class="i-count"></i> Ngày làm việc được tính</span><span><i class="i-skip"></i> Thứ bảy, chủ nhật</span><span><i class="i-off"></i> Nghỉ lễ</span><span><i class="i-due"></i> Ngày cuối của thời hạn</span></p>
-<p class="note">Căn cứ: khoản 1 Điều 27 Luật Khiếu nại số 02/2011/QH13, được sửa đổi, bổ sung bởi Luật số 136/2025/QH15 có hiệu lực từ 01/7/2026. Ngày nghỉ: Điều 112 Bộ luật Lao động số 45/2019/QH14; khoản 1 Điều 2 Nghị quyết số 28/2026/QH16 (Ngày Văn hóa Việt Nam 24/11, năm 2026 nghỉ đúng thứ ba 24/11, không hoán đổi); Thông báo số 11483/TB-BNV ngày 09/10/2026 của Bộ Nội vụ (Tết 2027). Đã đối chiếu ngày 22/11/2026.</p>
-<p class="note note--where"><span class="tag tag--plain">Minh họa trên trang web</span> Ô đếm này chạy ngay trong máy của bạn, không gửi dữ liệu đi đâu.</p>
-<p class="note note--where"><span class="tag tag--warn">Trong phần mềm: đang hoàn thiện</span> Phần mềm đã đếm 07 ngày làm việc và nêu lý do từng ngày, nhưng chưa nạp ngày nghỉ 24/11/2026 và lịch nghỉ lễ năm 2027; hai lịch này hiện chỉ có trong ô đếm trên trang.</p>
-</div>
-</div>
-</section>
+      <div class="hero-board" aria-label="Sơ đồ minh họa cách Pháp Dẫn tổ chức thông tin giữa hồ sơ, cán bộ và bước kiểm tra">
+        <div class="hero-board__top">
+          <span class="hero-board__title">Cách tổ chức một hồ sơ đơn thư (Minh họa hồ sơ mẫu)</span>
+          <span class="hero-board__tag">Hồ sơ mẫu thử nghiệm</span>
+        </div>
 
-<section id="khoa-trich-dan" class="sec khoi-toi" aria-labelledby="lock-h">
-<div class="wrap">
-<div class="lock">
-<div class="lock__text">
-<h2 id="lock-h" class="h2">AI gợi ý. Cán bộ quyết. Căn cứ phải có thật.</h2>
-<p class="lede">AI có thể viết ra một điều luật nghe rất đúng nhưng không hề có thật. Khóa trích dẫn đối chiếu từng trích dẫn với kho văn bản đã nạp. Điều nào chưa có trong kho thì không được xác nhận, kể cả khi điều đó có thật ngoài đời.</p>
-</div>
-<figure class="shot" aria-labelledby="shot2-cap">
-<img src="assets/img/khoa-trich-dan-ba-ca.png" width="900" height="550" alt="Ảnh chụp bản thử nghiệm: ba lần dùng Khóa trích dẫn. Điều 24 Luật Tố cáo 2018 được khóa căn cứ. Điều 328 Bộ luật Dân sự 2015 báo ngoài kho căn cứ, không xác nhận. Điều 300 Luật Đất đai 2024 báo không tìm thấy điều khoản, không xác nhận.">
-<figcaption id="shot2-cap">Ảnh chụp bản thử nghiệm ngày 21/11/2026, chạy trên kho dữ liệu thử.</figcaption>
-</figure>
-</div>
+        <div class="hero-board__svg">
+          <svg viewBox="0 0 520 210" width="520" height="210" role="img" aria-label="Sơ đồ minh họa ba nhóm thông tin trên cùng một hồ sơ: ghi nhận đơn và thời hạn, theo dõi người phụ trách từng bước, và hỗ trợ kiểm tra căn cứ trước khi trình ký">
+            <rect width="520" height="210" fill="none"/>
+            <path d="M148 105 H202 M318 105 H372" stroke="#C9A227" stroke-width="3" stroke-dasharray="5 5"/>
+            <polygon points="200,99 210,105 200,111" fill="#C9A227"/>
+            <polygon points="370,99 380,105 370,111" fill="#C9A227"/>
 
-<div class="tests">
-<p class="tests__h">Thử đoán trước khi xem kết quả</p>
+            <rect x="20" y="34" width="128" height="142" rx="14" fill="#1B2A44"/>
+            <rect x="38" y="54" width="56" height="8" rx="4" fill="#C9A227"/>
+            <rect x="38" y="72" width="92" height="7" rx="3.5" fill="#D4DFEC"/>
+            <rect x="38" y="87" width="76" height="7" rx="3.5" fill="#9FB2CC"/>
+            <rect x="38" y="114" width="92" height="42" rx="8" fill="#263B5E" stroke="#C9A227" stroke-width="1.5"/>
+            <circle cx="54" cy="135" r="7" fill="#C9A227"/>
+            <rect x="68" y="128" width="50" height="6" rx="3" fill="#FFFFFF"/>
+            <rect x="68" y="139" width="38" height="5" rx="2.5" fill="#C9D6E8"/>
 
-<details class="tcd">
-<summary>Điều 24 Luật Tố cáo số 25/2018/QH14 — xử lý ban đầu thông tin tố cáo trong 07 ngày làm việc</summary>
-<div class="tcd__in">
-<p class="tcd__kq"><span class="tag tag--ok">Đã khóa căn cứ (trên kho dữ liệu thử)</span></p>
-<p>Điều này có thật và có trong kho dữ liệu thử, nên phần mềm xác nhận. Điều 24 Luật Tố cáo số 25/2018/QH14 còn cho phép kéo dài nhưng không quá 10 ngày làm việc khi phải xác minh ở nhiều nơi.</p>
-</div>
-</details>
+            <rect x="212" y="24" width="106" height="162" rx="14" fill="#FFFFFF" stroke="#7889A1" stroke-width="2"/>
+            <circle cx="265" cy="64" r="18" fill="#EEF5FA" stroke="#1B2A44" stroke-width="2.2"/>
+            <circle cx="265" cy="59" r="6" fill="#1B2A44"/>
+            <path d="M253 75 C255 68, 275 68, 277 75" stroke="#1B2A44" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+            <rect x="228" y="96" width="74" height="20" rx="6" fill="#E1F3EB" stroke="#8EC6B0"/>
+            <path d="M236 106 l4 4 l8 -8" stroke="#155740" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="253" y="103" width="40" height="6" rx="3" fill="#155740"/>
+            <rect x="228" y="124" width="74" height="20" rx="6" fill="#FBF3D5" stroke="#DFC36B"/>
+            <circle cx="240" cy="134" r="4" fill="#705600"/>
+            <rect x="250" y="131" width="43" height="6" rx="3" fill="#705600"/>
+            <rect x="228" y="152" width="74" height="18" rx="6" fill="#EEF5FA"/>
+            <rect x="240" y="158" width="50" height="6" rx="3" fill="#506079"/>
 
-<details class="tcd">
-<summary>Điều 328 Bộ luật Dân sự số 91/2015/QH13 — đặt cọc</summary>
-<div class="tcd__in">
-<p class="tcd__kq"><span class="tag tag--out">Ngoài kho căn cứ, không xác nhận</span></p>
-<p>Điều này có thật ngoài đời. Nhưng Bộ luật Dân sự không thuộc kho văn bản đang dùng cho việc này, nên phần mềm không đối chiếu được và không xác nhận. Không xác nhận không có nghĩa là điều luật không tồn tại.</p>
-</div>
-</details>
+            <rect x="382" y="34" width="118" height="142" rx="14" fill="#FFFFFF" stroke="#1B2A44" stroke-width="2"/>
+            <path d="M418 68 C418 56, 464 56, 464 68 V88 H418 Z" fill="#EEF5FA" stroke="#1B2A44" stroke-width="2"/>
+            <path d="M441 58 V88" stroke="#C9A227" stroke-width="2"/>
+            <rect x="398" y="102" width="86" height="24" rx="7" fill="#1B2A44"/>
+            <path d="M408 114 l4 4 l8 -8" stroke="#C9A227" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+            <rect x="426" y="111" width="48" height="6" rx="3" fill="#FFFFFF"/>
+            <rect x="398" y="134" width="86" height="26" rx="7" fill="#FBF3D5" stroke="#DFC36B"/>
+            <path d="M410 151 C418 143, 426 153, 436 144" stroke="#1B2A44" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <rect x="444" y="144" width="30" height="6" rx="3" fill="#705600"/>
+          </svg>
+        </div>
 
-<details class="tcd">
-<summary>Điều 300 Luật Đất đai số 31/2024/QH15</summary>
-<div class="tcd__in">
-<p class="tcd__kq"><span class="tag tag--plain">Không tìm thấy điều khoản, không xác nhận</span></p>
-<p>Luật Đất đai số 31/2024/QH15 chỉ có 260 điều, nên không có Điều 300. Văn bản thì có trong kho, còn điều luật thì không. Đây là kiểu sai mà AI hay mắc: ghép một tên luật có thật với một số điều không có.</p>
-</div>
-</details>
+        <div class="hero-board__pillars">
+          <div class="hb-pill">
+            <strong>1. Rõ hạn xử lý</strong>
+            <span>Hỗ trợ đếm ngày làm việc và nêu căn cứ tính thời hạn thụ lý.</span>
+          </div>
+          <div class="hb-pill hb-pill--gold">
+            <strong>2. Rõ người phụ trách</strong>
+            <span>Theo dõi hồ sơ đang ở bước nào và thuộc vai trò của ai.</span>
+          </div>
+          <div class="hb-pill hb-pill--ok">
+            <strong>3. Rõ căn cứ viện dẫn</strong>
+            <span>Hỗ trợ đối chiếu trích dẫn với kho thử trước khi trình ký.</span>
+          </div>
+        </div>
 
-<details class="tcd">
-<summary>Điều 27 Luật Khiếu nại số 02/2011/QH13: thụ lý trong 10 ngày</summary>
-<div class="tcd__in">
-<p class="tcd__kq"><span class="tag tag--warn">Nội dung thuộc phiên bản cũ</span></p>
-<p>Điều 27 có thật, nhưng con số 10 ngày (ngày lịch) là của bản trước. Từ 01/7/2026, Luật số 136/2025/QH15 sửa thành 07 ngày làm việc. Một trích dẫn đúng tên điều vẫn có thể sai nội dung nếu lấy theo bản cũ.</p>
-</div>
-</details>
-</div>
+        <div class="hero-board__foot">
+          <span>Công nghệ hỗ trợ. Người có thẩm quyền quyết định.</span>
+          <a class="zoom-inline" href="assets/img/han-thu-ly-ho-so-mau.png" data-zoom data-cap="Ảnh chụp bản thử nghiệm (21/11/2026, hồ sơ mẫu): khung thời hạn xem xét thụ lý 07 ngày làm việc. Lưu ý: ảnh chụp trước khi ứng dụng nạp ngày nghỉ 24/11/2026 nên ghi dự kiến 25/11/2026; ô thử đếm hạn bên dưới đã tính đúng 26/11/2026.">Phóng to ảnh giao diện thử nghiệm</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<p class="note">Bốn ca trên lấy từ bộ kiểm thử đã duyệt, chạy trên kho dữ liệu thử. Kho văn bản chính thức đang được nạp và xác minh, nên hiện phần mềm chưa xác nhận Điều 24 Luật Tố cáo và Điều 27 Luật Khiếu nại trên kho chính thức.</p>
-</div>
-</section>
+  <!-- =====================================================================
+       KHỐI 2 – BA LỢI ÍCH CHÍNH
+       ===================================================================== -->
+  <section id="loi-ich" class="sec sec--alt" aria-labelledby="loi-ich-h">
+    <div class="wrap">
+      <div class="sec__head">
+        <p class="eyebrow">Ba lợi ích hướng tới trong công việc hằng ngày</p>
+        <h2 id="loi-ich-h" class="h2">Đúng hạn. Đúng người. Đúng căn cứ.</h2>
+        <p class="lede">Ở cấp xã, phường, một lá đơn thường đi qua nhiều khâu: tiếp nhận, phân loại, xác minh, đối thoại, dự thảo rồi trình ký. Pháp Dẫn được thiết kế để hỗ trợ cán bộ theo dõi sát ba điểm dễ sơ suất nhất trong chuỗi việc đó.</p>
+      </div>
 
-<section id="khac-chatbot" class="sec" aria-labelledby="khac-h">
-<div class="wrap">
-<div class="sec__head">
-<h2 id="khac-h" class="h2">Ba điều Pháp Dẫn làm khác một chatbot hỏi đáp chung</h2>
-<p class="lede">So với một chatbot AI hỏi đáp chung, không gắn với kho văn bản và quy trình của cơ quan. Ba điều dưới đây chụp trên bản thử nghiệm, chạy trên kho dữ liệu thử; kho văn bản chính thức đang được nạp.</p>
-</div>
+      <div class="pillars-grid">
+        <article class="pillar-card">
+          <div class="pillar-card__vis" aria-hidden="true">
+            <svg viewBox="0 0 280 76" width="280" height="76">
+              <rect x="8" y="16" width="44" height="44" rx="8" fill="#FFFFFF" stroke="#7889A1" stroke-dasharray="4 3"/>
+              <rect x="62" y="16" width="44" height="44" rx="8" fill="#E1F3EB" stroke="#8EC6B0"/>
+              <rect x="116" y="16" width="44" height="44" rx="8" fill="#FCEAE7" stroke="#E2A69E"/>
+              <line x1="126" y1="26" x2="150" y2="50" stroke="#8A281D" stroke-width="2"/>
+              <rect x="170" y="16" width="44" height="44" rx="8" fill="#E1F3EB" stroke="#8EC6B0"/>
+              <rect x="224" y="12" width="48" height="52" rx="9" fill="#1B2A44"/>
+              <circle cx="248" cy="38" r="10" fill="#C9A227"/>
+              <path d="M244 38 l3 3 l6 -6" stroke="#111C2E" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="h3">1. Đừng để quên hạn.</h3>
+          <p class="pillar-card__q">“Hồ sơ này còn bao nhiêu ngày làm việc? Giữa kỳ có vướng ngày nghỉ lễ không?”</p>
+          <p>Thay vì phải nhẩm tay trên lịch tường, khung tính hạn hỗ trợ tách bạch ngày nhận, các ngày làm việc được tính, ngày nghỉ theo lịch đã nạp và hiển thị quy định áp dụng cho thời hạn thụ lý.</p>
+        </article>
 
-<ul class="mods">
-<li class="mod">
-<h3 class="h3">Căn cứ bịa ra bị đánh dấu chưa xác nhận</h3>
-<p>AI vẫn có thể nghĩ ra một điều luật không tồn tại. Chỗ khác là ở đây: khi cán bộ đưa một căn cứ vào Khóa trích dẫn, căn cứ không có trong kho bị ghi "chưa xác nhận" thay vì được coi là đúng. Khi hồ sơ chưa có văn bản khớp, khối căn cứ để trống thay vì tự điền. Công cụ chưa gắn vào bước thẩm tra, nên chưa tự chặn một dự thảo có căn cứ chưa xác nhận.</p>
-<figure class="mod__fig"><img src="assets/img/khong-bia-can-cu.png" width="900" height="265" alt="Ảnh chụp bản thử nghiệm: khối Căn cứ pháp luật liên quan báo chưa có văn bản quy phạm pháp luật liên kết trực tiếp, và một dòng nguyên tắc hiển thị trên giao diện."><figcaption>Ảnh chụp bản thử nghiệm: khối căn cứ để trống khi chưa có văn bản khớp. Dòng chữ trong ảnh là nguyên tắc ghi trên giao diện, không phải kết quả kiểm định.</figcaption></figure>
-<span class="tag tag--ok">Đã có trên bản thử nghiệm</span>
-</li>
-<li class="mod">
-<h3 class="h3">Ghi rõ thứ nào lấy từ đâu</h3>
-<p>Mỗi lần đổi trạng thái hồ sơ đều ghi người đổi, giờ đổi và căn cứ. Mỗi lần kiểm một trích dẫn đều ghi rõ có trong kho hay ngoài kho. Ngoài ra, bảng truy xuất nguồn gốc xếp bốn hạng mục của hồ sơ (thông tin tiếp nhận và thụ lý, tài liệu và hồ sơ đính kèm, đề xuất hành động nghiệp vụ tiếp theo, cơ sở pháp lý liên quan), mỗi hạng mục ghi nguồn, người ghi, thời điểm và tính chất pháp lý.</p>
-<figure class="mod__fig"><img src="assets/img/truy-xuat-nguon-goc.png" width="900" height="337" alt="Ảnh chụp bản thử nghiệm: bảng truy xuất nguồn gốc dữ liệu, mỗi dòng ghi hạng mục thông tin, nguồn dữ liệu thực tế, chủ thể ghi nhận, thời điểm và tính chất pháp lý."><figcaption>Ảnh chụp bản thử nghiệm: bảng truy xuất nguồn gốc. Một số ô bị giao diện rút gọn bằng dấu ba chấm.</figcaption></figure>
-<span class="tag tag--ok">Đã có trên bản thử nghiệm</span>
-</li>
-<li class="mod">
-<h3 class="h3">Máy không tự quyết thay người</h3>
-<p>Phần mềm gợi ý việc tiếp theo và nói rõ gợi ý ấy dựa vào căn cứ nào, nhưng ghi thẳng là "hệ thống không tự ý chuyển trạng thái hoặc đưa ra kết luận pháp lý tự động". Trợ lý AI chỉ hỗ trợ tóm tắt và gợi ý phân loại, không có giá trị pháp lý tự động; cán bộ thụ lý chịu trách nhiệm về kết quả.</p>
-<figure class="mod__fig"><img src="assets/img/hanh-dong-tat-dinh.png" width="900" height="269" alt="Ảnh chụp bản thử nghiệm: khối hành động nghiệp vụ tiếp theo, mỗi gợi ý kèm một dòng căn cứ đề xuất, và câu hệ thống không tự ý chuyển trạng thái hoặc đưa ra kết luận pháp lý tự động."><figcaption>Ảnh chụp bản thử nghiệm: gợi ý việc tiếp theo, mỗi gợi ý kèm căn cứ đề xuất.</figcaption></figure>
-<span class="tag tag--ok">Đã có trên bản thử nghiệm</span>
-</li>
-</ul>
-<p class="note">Việc đặt con người ở vị trí quyết định cũng là yêu cầu của Điều 4 Luật Trí tuệ nhân tạo số 134/2025/QH15, có hiệu lực từ 01/3/2026.</p>
-</div>
-</section>
+        <article class="pillar-card">
+          <div class="pillar-card__vis" aria-hidden="true">
+            <svg viewBox="0 0 280 76" width="280" height="76">
+              <circle cx="46" cy="38" r="20" fill="#FFFFFF" stroke="#1B2A44" stroke-width="2"/>
+              <circle cx="46" cy="33" r="6" fill="#1B2A44"/>
+              <path d="M36 47 C38 41, 54 41, 56 47" stroke="#1B2A44" stroke-width="2" fill="none"/>
+              <path d="M74 38 H112" stroke="#C9A227" stroke-width="2.5"/>
+              <polygon points="110,33 118,38 110,43" fill="#C9A227"/>
+              <circle cx="144" cy="38" r="22" fill="#1B2A44"/>
+              <circle cx="144" cy="33" r="6" fill="#C9A227"/>
+              <path d="M133 48 C136 41, 152 41, 155 48" stroke="#FFFFFF" stroke-width="2" fill="none"/>
+              <path d="M174 38 H212" stroke="#7889A1" stroke-width="2" stroke-dasharray="4 4"/>
+              <circle cx="238" cy="38" r="20" fill="#FFFFFF" stroke="#7889A1" stroke-width="2"/>
+              <path d="M230 42 C235 34, 241 44, 248 35" stroke="#1B2A44" stroke-width="2" fill="none" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="h3">2. Đừng để hồ sơ không rõ ai giữ.</h3>
+          <p class="pillar-card__q">“Việc này đang thuộc trách nhiệm của ai? Đang chờ xác minh hay chờ duyệt?”</p>
+          <p>Mỗi bước trong quy trình được gắn với vai trò phụ trách và hiển thị trong hàng đợi nhiệm vụ, giúp cán bộ và lãnh đạo dễ theo dõi hồ sơ đang ở khâu nào thay vì phải hỏi dò từng bộ phận.</p>
+        </article>
 
-<section id="dang-co-gi" class="sec band--soft" aria-labelledby="co-h">
-<div class="wrap">
-<div class="sec__head">
-<h2 id="co-h" class="h2">Phần mềm hiện có gì, còn thiếu gì</h2>
-<p class="lede">Danh sách dưới đây dựa trên một lần chạy thử trọn vẹn một hồ sơ mẫu trên bản thử nghiệm ngày 21/11/2026, và một lần kiểm tra các màn hình ngày 23/11/2026. Việc gì chưa có thì ghi là chưa có.</p>
-</div>
+        <article class="pillar-card">
+          <div class="pillar-card__vis" aria-hidden="true">
+            <svg viewBox="0 0 280 76" width="280" height="76">
+              <rect x="18" y="14" width="112" height="48" rx="9" fill="#E1F3EB" stroke="#8EC6B0" stroke-width="1.5"/>
+              <circle cx="38" cy="38" r="9" fill="#155740"/>
+              <path d="M34 38 l3 3 l6 -6" stroke="#FFFFFF" stroke-width="2" fill="none" stroke-linecap="round"/>
+              <rect x="55" y="31" width="60" height="6" rx="3" fill="#155740"/>
+              <rect x="55" y="42" width="42" height="5" rx="2.5" fill="#4B7F6C"/>
+              <rect x="150" y="14" width="112" height="48" rx="9" fill="#FCEAE7" stroke="#E2A69E" stroke-width="1.5"/>
+              <circle cx="170" cy="38" r="9" fill="#8A281D"/>
+              <path d="M166 34 l8 8 M174 34 l-8 8" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+              <rect x="187" y="31" width="60" height="6" rx="3" fill="#8A281D"/>
+              <rect x="187" y="42" width="46" height="5" rx="2.5" fill="#A65B52"/>
+            </svg>
+          </div>
+          <h3 class="h3">3. Đừng để căn cứ pháp luật chỉ là phỏng đoán.</h3>
+          <p class="pillar-card__q">“Điều luật chuẩn bị đưa vào văn bản có thật và còn đúng quy định hiện hành không?”</p>
+          <p>Khi cán bộ đưa một trích dẫn vào công cụ Khóa trích dẫn để kiểm tra, phần mềm đối chiếu với kho văn bản đã nạp và đánh dấu “không xác nhận” đối với điều khoản không tìm thấy hoặc nằm ngoài kho — nhắc cán bộ tra lại văn bản gốc trước khi trình ký.</p>
+        </article>
+      </div>
 
-<dl class="states states--leg">
-<div><dt><span class="tag tag--ok">Đã có</span></dt><dd>Đã chạy được trên bản thử nghiệm.</dd></div>
-<div><dt><span class="tag tag--warn">Đang hoàn thiện</span></dt><dd>Có một phần, còn thiếu hoặc còn chạy trên dữ liệu thử.</dd></div>
-<div><dt><span class="tag tag--plain">Chưa có</span></dt><dd>Chưa làm, đang trong kế hoạch.</dd></div>
-</dl>
+      <div class="compare-strip">
+        <span class="compare-strip__label">Khác gì sổ giấy hoặc bảng tính?</span>
+        <p>Sổ theo dõi và bảng tính rất thuận tiện để ghi danh sách đơn đã nhận, nhưng khó gắn từng bước việc vào hàng đợi theo vai trò, dễ nhầm khi đếm ngày làm việc qua dịp nghỉ lễ và không có sẵn công cụ hỗ trợ đối chiếu trích dẫn ngay trong cùng một môi trường làm việc.</p>
+      </div>
+    </div>
+  </section>
 
-<ul class="rows">
-<li class="row">
-<h3 class="h3">Đếm hạn và nêu lý do từng ngày <span class="tag tag--warn">Đang hoàn thiện</span></h3>
-<p>Đếm 07 ngày làm việc, liệt kê ngày được tính và ngày không tính kèm lý do, và tự kiểm lại kết quả. Chưa nạp ngày nghỉ 24/11/2026 và lịch nghỉ lễ năm 2027, nên hạn đi qua những ngày này đang lệch.</p>
-</li>
-<li class="row">
-<h3 class="h3">Hai quy trình xử lý đơn <span class="tag tag--ok">Đã có</span></h3>
-<p>Hồ sơ mẫu đã đi trọn quy trình cho việc đã có văn bản trước đó (phần mềm gọi là Luồng 1), từ trích lục hồ sơ cũ đến đóng hồ sơ. Mỗi bước có vai trò phụ trách riêng.</p>
-</li>
-<li class="row">
-<h3 class="h3">Hàng đợi việc theo vai trò <span class="tag tag--ok">Đã có</span></h3>
-<p>Mỗi người thấy việc đang thuộc về mình, kèm bước, vai trò và trạng thái. Hàng đợi chưa hiển thị hạn phải xong.</p>
-</li>
-<li class="row">
-<h3 class="h3">Khóa trích dẫn <span class="tag tag--warn">Đang hoàn thiện</span></h3>
-<p>Chạy đúng cả ba kiểu kết quả trên kho dữ liệu thử. Kho văn bản chính thức đang được nạp. Công cụ hiện đứng riêng, chưa gắn vào bước thẩm tra của hồ sơ.</p>
-</li>
-<li class="row">
-<h3 class="h3">Che thông tin cá nhân trước khi dùng AI <span class="tag tag--warn">Đang hoàn thiện</span></h3>
-<p>Che được họ tên, số điện thoại, số căn cước, email và số tài khoản. Chưa che địa chỉ.</p>
-</li>
-<li class="row">
-<h3 class="h3">Ghi lại ai làm gì, lúc nào <span class="tag tag--warn">Đang hoàn thiện</span></h3>
-<p>Mỗi lần đổi trạng thái hồ sơ đều ghi người thực hiện, thời điểm và căn cứ. Nhật ký các bước quy trình hiện nằm ở màn hình riêng, chưa gộp chung vào lịch sử của hồ sơ, nên người xem lịch sử chưa thấy hết các bước đã làm. Vì vậy dòng này ghi "Đang hoàn thiện".</p>
-</li>
-<li class="row">
-<h3 class="h3">Nhắc việc sắp đến hạn <span class="tag tag--plain">Chưa có</span></h3>
-<p>Màn hình thông báo đã có chỗ, nhưng phần mềm chưa tự sinh lời nhắc.</p>
-</li>
-<li class="row">
-<h3 class="h3">Mẫu văn bản <span class="tag tag--warn">Đang hoàn thiện</span></h3>
-<p>Có ba mẫu: phiếu xử lý đơn, thông báo thụ lý, báo cáo xác minh; xuất được ra PDF hoặc Word. Chưa có mẫu quyết định giải quyết khiếu nại và phiếu đóng hồ sơ, là hai mẫu khác với ba mẫu trên.</p>
-</li>
-<li class="row">
-<h3 class="h3">Kho căn cứ pháp lý <span class="tag tag--warn">Đang hoàn thiện</span></h3>
-<p>Khi viết trả lời, cán bộ cần tìm đúng điều luật. Kho này để tra theo số điều và tên văn bản; Khóa trích dẫn dùng kho này để kiểm. Kho đang được nạp và xác minh từng văn bản. Hiện kết quả kiểm trên trang chỉ là kho dữ liệu thử.</p>
-</li>
-<li class="row">
-<h3 class="h3">Bản đồ địa chính <span class="tag tag--plain">Chưa có</span></h3>
-<p>Đơn đất đai thường hỏi: thửa nào, tờ nào, ranh ở đâu. Phần mềm đang làm màn hình bản đồ để xem vị trí thửa gắn với hồ sơ. Hiện bản đồ nền chưa bật, mới có 2 thửa thử, và cán bộ chưa được mở quyền xem. Chưa dùng cho hồ sơ thật. Dữ liệu địa chính thuộc cơ quan quản lý đất đai; chỉ dùng khi có sự cho phép.</p>
-</li>
-<li class="row">
-<h3 class="h3">AI học từ tình huống mẫu <span class="tag tag--plain">Chưa có</span></h3>
-<p>Dự kiến: chuyên gia soạn tình huống mẫu giả định để dạy AI. AI học cách kiểm tra căn cứ và gợi ý câu hỏi từ các tình huống đó. Cán bộ học cách tư duy logic của AI qua các gợi ý đó, rồi phản biện lại. Không dùng đơn thật của người dân. Chưa có tình huống mẫu nào được chuyên gia thẩm định, nên chưa mở.</p>
-</li>
-</ul>
+  <!-- =====================================================================
+       KHỐI 3 – TƯƠNG TÁC ĐẾM HẠN
+       ===================================================================== -->
+  <section id="thu-dem-han" class="sec" aria-labelledby="dem-h">
+    <div class="wrap">
+      <div class="sec__head">
+        <p class="eyebrow">Ô thử đếm hạn hoạt động ngay trên trình duyệt</p>
+        <h2 id="dem-h" class="h2">Một lá đơn nhận hôm nay, khi nào hết hạn thụ lý?</h2>
+        <p class="lede">Chọn một ngày nhận đơn (hoặc bấm thử các mốc sát kỳ nghỉ lễ bên dưới). Ô minh họa này sẽ đếm <strong>07 ngày làm việc</strong> để xác định ngày cuối của thời hạn thụ lý khiếu nại, bỏ qua thứ bảy, chủ nhật và các ngày nghỉ lễ đã đối chiếu.</p>
+      </div>
 
-<details class="more">
-<summary>Xem ảnh chụp bốn màn hình</summary>
-<div class="more__in">
-<figure class="shot"><img src="assets/img/che-thong-tin.png" width="900" height="232" alt="Ảnh chụp bản thử nghiệm: công cụ che thông tin, cột trái là văn bản gốc, cột phải là kết quả đã thay tên, số điện thoại, số căn cước bằng ký hiệu; địa chỉ chưa được che."><figcaption>Che thông tin cá nhân trước khi đưa nội dung cho AI đọc. Tên, số điện thoại và số căn cước trong ảnh là dữ liệu giả định; trang web đã che thêm hai dãy số ở cột trái. Địa chỉ chưa được phần mềm che.</figcaption></figure>
-<figure class="shot"><img src="assets/img/lich-su-ho-so.png" width="772" height="690" alt="Ảnh chụp bản thử nghiệm: lịch sử xử lý của hồ sơ mẫu, mỗi dòng ghi việc đã làm, thời điểm và người làm; dòng đổi trạng thái ghi thêm căn cứ."><figcaption>Dòng đổi trạng thái ghi người, giờ và căn cứ; các dòng thêm ghi chú không hiện nội dung ghi chú.</figcaption></figure>
-<figure class="shot"><img src="assets/img/hang-doi-viec.png" width="900" height="490" alt="Ảnh chụp bản thử nghiệm: hàng đợi nhiệm vụ, một dòng việc kèm bước xử lý, quy trình, vai trò phân công, người nhận và trạng thái."><figcaption>Hàng đợi việc của một cán bộ. Bảng nhiều cột, nên mở ảnh cỡ lớn để đọc.</figcaption></figure>
-<figure class="shot"><img src="assets/img/quy-trinh-hoan-tat.png" width="900" height="482" alt="Ảnh chụp bản thử nghiệm: màn hình quy trình của hồ sơ mẫu ở trạng thái hoàn tất, kèm danh sách các bước đã đi qua."><figcaption>Hồ sơ mẫu sau khi đi hết quy trình Luồng 1. Ảnh chỉ thấy phần đầu danh sách bước.</figcaption></figure>
-<p class="note">Bốn ảnh chụp bản thử nghiệm ngày 21/11/2026, dữ liệu giả định, đã che tên tài khoản.</p>
-</div>
-</details>
-</div>
-</section>
+      <div class="dem-box" data-dem>
+        <div class="dem-controls">
+          <div>
+            <label class="dem__lb" for="ngay-nhan">Chọn ngày ghi trên phiếu tiếp nhận</label>
+            <input class="dem__in" type="date" id="ngay-nhan" value="2026-11-16" min="2026-11-01" max="2027-03-04">
+          </div>
+          <div>
+            <span class="dem-presets__lb">Hoặc thử nhanh các mốc sát ngày nghỉ lễ:</span>
+            <div class="dem-presets" role="group" aria-label="Các ngày thử nhanh sát dịp nghỉ lễ">
+              <button type="button" class="preset-btn" data-chon-ngay="2026-11-16" aria-pressed="true">16/11/2026 (Qua lễ 24/11)</button>
+              <button type="button" class="preset-btn" data-chon-ngay="2026-11-23" aria-pressed="false">23/11/2026 (Sát 24/11)</button>
+              <button type="button" class="preset-btn" data-chon-ngay="2026-12-31" aria-pressed="false">31/12/2026 (Sát Tết Dương)</button>
+              <button type="button" class="preset-btn" data-chon-ngay="2027-02-03" aria-pressed="false">03/02/2027 (Sát Tết Âm)</button>
+              <button type="button" class="preset-btn" data-chon-ngay="2026-11-24" aria-pressed="false">24/11/2026 (Thử ngày nghỉ)</button>
+            </div>
+          </div>
+        </div>
 
-<section id="doc-ngay" class="sec" aria-labelledby="dn-h">
-<div class="wrap">
-<div class="sec__head">
-<h2 id="dn-h" class="h2">Cán bộ đọc ngay, không cần phần mềm</h2>
-<p class="lede">Hai trang hướng dẫn do Pháp Dẫn soạn, dùng được ngay hôm nay. Tình huống tập là giả định, không lấy từ đơn thật.</p>
-</div>
-<div class="cards">
-<div class="card">
-<h3 class="h3"><a href="sau-cau-hoi-truoc-khi-ky.html">Sáu câu hỏi trước khi ký</a></h3>
-<p>Sáu câu tự hỏi cho mỗi dự thảo trả lời. Dùng được cả khi có và không có AI.</p>
-</div>
-<div class="card">
-<h3 class="h3"><a href="don-thu-theo-linh-vuc.html">Đơn thư theo lĩnh vực</a></h3>
-<p>Kỳ này có phần đơn đất đai: phân loại đơn, hòa giải ở xã, giấy tờ cần đối chiếu. Kèm hai tình huống tập.</p>
-</div>
-</div>
-</div>
-</section>
+        <p class="note" style="margin-top:12px">Khoảng ngày đã đối chiếu lịch nghỉ lễ: <strong>01/11/2026 đến 04/03/2027</strong>. Nếu chọn ngày ngoài khoảng này hoặc chọn ngày nghỉ, ô đếm sẽ thông báo rõ và không tự quy đổi sang ngày khác. Đơn gửi vào ngày nghỉ được ghi nhận theo quy định tiếp nhận của cơ quan thụ lý.</p>
 
-<section id="vi-sao" class="sec" aria-labelledby="vs-h">
-<div class="wrap">
-<div class="sec__head">
-<h2 id="vs-h" class="h2">Vì sao là lúc này</h2>
-</div>
-<dl class="facts">
-<div>
-<dt>Hơn 261.500 lượt công dân</dt>
-<dd>được tiếp để khiếu nại, tố cáo, kiến nghị, phản ánh, theo số liệu kỳ báo cáo từ 01/8/2024 đến 31/7/2025.</dd>
-<dd class="facts__src">Theo báo cáo của Chính phủ về công tác tiếp công dân, giải quyết khiếu nại, tố cáo năm 2025.</dd>
-</div>
-<div>
-<dt>Hạn thụ lý khiếu nại còn 07 ngày làm việc</dt>
-<dd>Luật cũ quy định 10 ngày (ngày lịch); luật mới quy định 07 ngày làm việc, áp dụng từ 01/7/2026.</dd>
-<dd class="facts__src">Khoản 1 Điều 27 Luật Khiếu nại số 02/2011/QH13, sửa đổi, bổ sung bởi Luật số 136/2025/QH15.</dd>
-</div>
-<div>
-<dt>Hơn 1.300 quyết định của tòa án các nước</dt>
-<dd>có nêu trích dẫn do AI tạo ra sai hoặc không có thật, tính đến tháng 4/2026. Tác giả cho biết đây là số đếm chưa đủ, không phải toàn bộ sự việc đã xảy ra.</dd>
-<dd class="facts__src">Cơ sở dữ liệu do nhà nghiên cứu Damien Charlotin (HEC Paris) tổng hợp, địa chỉ damiencharlotin.com/hallucinations.</dd>
-</div>
-<div>
-<dt>Người phải kiểm soát và chịu trách nhiệm</dt>
-<dd>khi dùng trí tuệ nhân tạo trong công việc.</dd>
-<dd class="facts__src">Điều 4 Luật Trí tuệ nhân tạo số 134/2025/QH15, có hiệu lực từ 01/3/2026.</dd>
-</div>
-</dl>
-</div>
-</section>
+        <dl class="dem-summary" data-tom-tat aria-live="polite"></dl>
+        <p class="dem__kq" data-kq aria-live="polite"></p>
+        <div class="dem-cal-wrap">
+          <div class="dem__cal" data-cal aria-live="polite"></div>
+        </div>
 
-<section id="bang-chung" class="sec band--soft" aria-labelledby="bc-h">
-<div class="wrap proof">
-<div class="proof__text">
-<h2 id="bc-h" class="h2">Số liệu ghi nhận tại một địa phương</h2>
-<p class="lede">Từ 06/4/2026, một phường chia đơn thành hai quy trình như trên, khi chưa dùng phần mềm. Phường ghi nhận hai con số dưới đây; đây không phải phép đo hiệu quả của Pháp Dẫn.</p>
-</div>
-<div class="proof__figs">
-<dl class="proof__nums">
-<div><dt>Trước khi chia hai quy trình, 01/7 đến 31/12/2025 (6 tháng)</dt><dd>42,54%</dd></div>
-<div><dt>Sau khi áp dụng, 06/4 đến 07/9/2026 (5 tháng)</dt><dd>16,79%</dd></div>
-</dl>
-<p class="proof__def">Đây là tỉ lệ đơn trễ hạn hoặc còn tồn đọng, kể cả đơn đã giải quyết nhưng trễ hạn trong kỳ.</p>
-<p class="proof__body">Kết quả này đạt được nhờ cách tổ chức công việc của phường, khi chưa có phần mềm hỗ trợ. Pháp Dẫn được thiết kế để làm cách tổ chức ấy dễ thực hiện hơn. Hiệu quả của phần mềm sẽ được đo khi thí điểm.</p>
-<p class="note">Số liệu theo dõi đơn của chính phường, chưa có đánh giá độc lập. Hai kỳ dài ngắn khác nhau nên không so sánh trực tiếp được; kỳ sau không tính đơn liên quan dự án được xử lý bằng phiếu chuyển.</p>
-</div>
-</div>
-</section>
+        <p class="legend" aria-label="Chú giải ký hiệu trên lịch">
+          <span><i class="i-recv" aria-hidden="true"></i> Ngày nhận (không tính)</span>
+          <span><i class="i-count" aria-hidden="true"></i> Ngày làm việc được tính (01–06)</span>
+          <span><i class="i-skip" aria-hidden="true"></i> Thứ bảy, chủ nhật</span>
+          <span><i class="i-off" aria-hidden="true"></i> Ngày nghỉ lễ</span>
+          <span><i class="i-due" aria-hidden="true"></i> Ngày thứ 07 (Ngày cuối thời hạn)</span>
+        </p>
 
-<section id="video" class="sec" aria-labelledby="vid-h">
-<div class="wrap">
-<div class="sec__head sec__head--solo">
-<h2 id="vid-h" class="h2">Video giới thiệu</h2>
-</div>
-<div class="actions"><a class="btn btn--line" href="https://www.youtube.com/watch?v=8iIWoQvFxrs" target="_blank" rel="noopener noreferrer">Xem video giới thiệu (4 phút 10 giây)</a></div>
-<p class="note">Phần lớn cảnh trong video là mô phỏng thiết kế, chưa có trong phần mềm; chỉ đoạn khóa trích dẫn Điều 328 Bộ luật Dân sự 2015 là ảnh giao diện thật trên bản thử nghiệm.</p>
-<p class="note">Nút trên là một liên kết thường. Trang này không nhúng trình phát, không tải ảnh đại diện của YouTube và không gọi YouTube cho tới khi bạn bấm.</p>
-</div>
-</section>
+        <div class="dem-meta">
+          <p class="note"><strong>Căn cứ áp dụng:</strong> Khoản 1 Điều 27 Luật Khiếu nại số 02/2011/QH13, được sửa đổi, bổ sung bởi Luật số 136/2025/QH15 (hiệu lực từ 01/7/2026 — thời hạn thụ lý 07 ngày làm việc). Lịch nghỉ lễ theo Điều 112 Bộ luật Lao động số 45/2019/QH14; khoản 1 Điều 2 Nghị quyết số 28/2026/QH16 (Ngày Văn hóa Việt Nam 24/11, năm 2026 nghỉ đúng thứ ba 24/11, không hoán đổi); Thông báo số 11483/TB-BNV ngày 09/10/2026 của Bộ Nội vụ (Tết Âm lịch 2027 nghỉ từ 04/02 đến hết 10/02/2027).</p>
+          <p class="note"><strong>Phạm vi hoạt động:</strong> Ô thử đếm hạn hoạt động ngay trên trình duyệt, không gửi ngày bạn chọn lên máy chủ và chỉ dùng để minh họa cách đếm; thời hạn chính thức của từng đơn do cơ quan thụ lý xác định. Lưu ý: bộ đếm trong ứng dụng thử nghiệm hiện đang được cập nhật bổ sung ngày nghỉ 24/11/2026 và lịch lễ năm 2027 (chi tiết tại <a href="minh-bach.html#gioi-han-kiem-chung">trang Minh bạch</a>).</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<section id="nguoi-dan" class="sec band--soft" aria-labelledby="dan-h">
-<div class="wrap split">
-<div class="split__text">
-<h2 id="dan-h" class="h2">Nếu bạn là người đã gửi đơn</h2>
-</div>
-<div class="split__main">
-<p class="lede">Trang này không nhận đơn và không tra cứu được hồ sơ của bạn. Pháp Dẫn là phần mềm dành cho cán bộ, đang thử nghiệm với hồ sơ mẫu.</p>
-<p>Để hỏi về một lá đơn đã gửi, xin liên hệ bộ phận tiếp công dân của cơ quan đang giải quyết đơn, hoặc nơi đã cấp phiếu tiếp nhận cho bạn.</p>
-</div>
-</div>
-</section>
+  <!-- =====================================================================
+       KHỐI 4 – KHÓA TRÍCH DẪN
+       ===================================================================== -->
+  <section id="khoa-trich-dan" class="sec band-navy" aria-labelledby="lock-h">
+    <div class="wrap lock-layout">
+      <div class="sec__head" style="margin-bottom:4px">
+        <p class="eyebrow">Bộ tình huống minh họa có sẵn kết quả trên trang web</p>
+        <h2 id="lock-h" class="h2">Một điều luật nghe có vẻ đúng, liệu có thật không?</h2>
+        <p class="lede">Khi soạn thảo văn bản hoặc tham khảo gợi ý từ AI, rủi ro dễ gặp là những trích dẫn nghe rất hợp lý nhưng sai số điều hoặc lấy từ quy định cũ. Bốn thẻ dưới đây là <strong>tình huống tương tác minh họa với đáp án đã được xác định trước</strong> để bạn tự thử phán đoán và mở xem giải thích ngay trên trình duyệt — không phải thao tác gửi truy vấn trực tiếp vào phần mềm nghiệp vụ.</p>
+      </div>
 
-<section id="hoi-nhanh" class="sec" aria-labelledby="hoi-h">
-<div class="wrap">
-<div class="sec__head sec__head--solo">
-<h2 id="hoi-h" class="h2">Hỏi nhanh</h2>
-</div>
-<div class="hoi">
-<details>
-<summary>Pháp Dẫn có tự quyết định hồ sơ không?</summary>
-<p>Không. Phần mềm theo dõi hạn, hiển thị việc của từng người và đối chiếu căn cứ. Việc phân loại đơn, chọn quy trình, duyệt và ký đều do người có thẩm quyền làm.</p>
-</details>
-<details>
-<summary>Phần mềm đã dùng cho hồ sơ thật chưa?</summary>
-<p>Chưa. Đang chạy thử với hồ sơ mẫu và dữ liệu giả định.</p>
-</details>
-<details>
-<summary>Khóa trích dẫn khác gì một công cụ tìm kiếm?</summary>
-<p>Công cụ tìm kiếm trả về thứ gần giống. Khóa trích dẫn chỉ xác nhận khi khớp đúng văn bản và đúng số điều, khoản trong kho; không khớp thì báo không xác nhận chứ không đưa ra phương án gần đúng.</p>
-</details>
-<details>
-<summary>Vì sao có điều luật có thật mà phần mềm vẫn không xác nhận?</summary>
-<p>Vì văn bản đó chưa nằm trong kho đang dùng. Phần mềm chọn cách thà không xác nhận còn hơn xác nhận nhầm. "Không xác nhận" không có nghĩa là điều luật không tồn tại.</p>
-</details>
-<details>
-<summary>Dữ liệu của đơn vị có bị trộn lẫn không?</summary>
-<p>Theo thiết kế, dữ liệu tách theo đơn vị, quyền xem và sửa theo vai trò. Bộ che thông tin che được tên, số điện thoại, số căn cước, email và số tài khoản trước khi đưa cho AI đọc; chưa che địa chỉ. Hiện một tài khoản vẫn bấm được cả bước duyệt lẫn bước ban hành; việc chặn này đang được làm.</p>
-</details>
-<details>
-<summary>Muốn xem thử thì làm thế nào?</summary>
-<p>Gửi thư qua <a href="lien-he.html">trang Liên hệ</a>, nêu hai hoặc ba khung giờ thuận tiện. Buổi xem thử khoảng 20 phút, chạy trên hồ sơ mẫu.</p>
-</details>
-</div>
-</div>
-</section>
+      <!-- Phân biệt rõ 3 tầng: Tình huống web · Ứng dụng thử nghiệm · Kho chính thức -->
+      <div class="scope-trio" role="note" aria-label="Phân biệt rõ ba phạm vi của phần minh họa trích dẫn">
+        <div class="scope-item">
+          <strong>1. Bộ tình huống trên website này</strong>
+          <p>Bốn ví dụ tĩnh có kết quả biên soạn sẵn để minh họa các tình huống dễ nhầm khi viện dẫn điều luật.</p>
+        </div>
+        <div class="scope-item">
+          <strong>2. Khóa trích dẫn trong ứng dụng thử nghiệm</strong>
+          <p>Hiện là công cụ tra đối chiếu đứng riêng (chưa gắn bắt buộc vào bước trình ký) và đang chạy trên một <strong>kho dữ liệu thử</strong> nhỏ.</p>
+        </div>
+        <div class="scope-item">
+          <strong>3. Kho pháp luật chính thức</strong>
+          <p>Đang trong quá trình xây dựng, nạp và xác minh từng văn bản; hiện chưa vận hành xác thực tự động trên kho chính thức.</p>
+        </div>
+      </div>
 
-<section id="xem-thu" class="sec band--soft" aria-labelledby="pilot-h">
-<div class="wrap cta">
-<div class="cta__text">
-<h2 id="pilot-h" class="h2">Muốn xem thử?</h2>
-<p class="lede">Hai mươi phút, chạy trên hồ sơ mẫu, có thể xem trên máy tính hoặc điện thoại. Buổi xem thử dành cho cán bộ xã, phường; không phải nơi nộp hay hỏi về đơn.</p>
-</div>
-<div class="biet">
-<p class="biet__h">Xin biết trước</p>
-<ul>
-<li>Buổi xem thử chạy trên hồ sơ mẫu với dữ liệu giả định, không phải hồ sơ thật.</li>
-<li>Phần thống kê đang sửa lỗi nên sẽ không mở trong buổi xem.</li>
-<li>Kho văn bản chính thức đang được nạp, nên Khóa trích dẫn chạy trên kho dữ liệu thử.</li>
-<li>Một số việc trong danh sách trên còn ở mức đang hoàn thiện hoặc chưa có.</li>
-</ul>
-</div>
-<div class="actions">
-<a class="btn btn--primary" href="lien-he.html">Đặt lịch qua trang Liên hệ</a>
-</div>
-</div>
-</section>
+      <div class="cite-grid">
+        <!-- Tình huống 1 -->
+        <article class="cite-card" data-cite-card data-answer="ok">
+          <span class="cite-card__num">Tình huống minh họa 01</span>
+          <h3 class="cite-card__title">Điều 24 Luật Tố cáo số 25/2018/QH14</h3>
+          <p class="cite-card__context">Dự thảo viện dẫn quy định xử lý ban đầu thông tin tố cáo trong thời hạn 07 ngày làm việc kể từ ngày nhận được tố cáo.</p>
+          <div class="cite-guess" role="group" aria-label="Chọn dự đoán minh họa cho Điều 24 Luật Tố cáo">
+            <button type="button" class="guess-btn" data-guess="ok" aria-pressed="false">Chọn thử: Có trong kho thử</button>
+            <button type="button" class="guess-btn" data-guess="warn" aria-pressed="false">Chọn thử: Không xác nhận / cần rà lại</button>
+          </div>
+          <details class="cite-reveal">
+            <summary>Mở kết quả định sẵn &amp; giải thích</summary>
+            <div class="cite-reveal__body">
+              <p class="cite-feedback" data-cite-fb hidden></p>
+              <p><span class="badge badge--ok">✓ Có trong kho thử · Đã khóa căn cứ (trên kho thử)</span></p>
+              <p>Điều khoản này có thật và đã được nạp trong kho dữ liệu thử nên lần chạy thử nghiệm ghi nhận khớp. Điều 24 Luật Tố cáo số 25/2018/QH14 cũng quy định trường hợp phải kiểm tra, xác minh tại nhiều địa điểm thì có thể kéo dài hơn nhưng không quá 10 ngày làm việc.</p>
+            </div>
+          </details>
+        </article>
+
+        <!-- Tình huống 2 -->
+        <article class="cite-card" data-cite-card data-answer="warn">
+          <span class="cite-card__num">Tình huống minh họa 02</span>
+          <h3 class="cite-card__title">Điều 328 Bộ luật Dân sự số 91/2015/QH13</h3>
+          <p class="cite-card__context">Người gửi đơn hoặc bản nháp nhắc tới quy định về “Đặt cọc” trong giao dịch dân sự khi trình bày vụ việc tại xã.</p>
+          <div class="cite-guess" role="group" aria-label="Chọn dự đoán minh họa cho Điều 328 Bộ luật Dân sự">
+            <button type="button" class="guess-btn" data-guess="ok" aria-pressed="false">Chọn thử: Có trong kho thử</button>
+            <button type="button" class="guess-btn" data-guess="warn" aria-pressed="false">Chọn thử: Không xác nhận / cần rà lại</button>
+          </div>
+          <details class="cite-reveal">
+            <summary>Mở kết quả định sẵn &amp; giải thích</summary>
+            <div class="cite-reveal__body">
+              <p class="cite-feedback" data-cite-fb hidden></p>
+              <p><span class="badge badge--out">! Có thật nhưng ngoài kho · Không xác nhận</span></p>
+              <p>Điều 328 Bộ luật Dân sự có thật ngoài đời. Tuy nhiên, văn bản này chưa nằm trong kho dữ liệu thử đang nạp cho nghiệp vụ đơn thư hành chính, nên công cụ thử nghiệm báo “ngoài kho căn cứ, không xác nhận”. Báo không xác nhận là để cán bộ tự tra văn bản gốc, không có nghĩa điều luật không tồn tại.</p>
+            </div>
+          </details>
+        </article>
+
+        <!-- Tình huống 3 -->
+        <article class="cite-card" data-cite-card data-answer="warn">
+          <span class="cite-card__num">Tình huống minh họa 03</span>
+          <h3 class="cite-card__title">Điều 300 Luật Đất đai số 31/2024/QH15</h3>
+          <p class="cite-card__context">Một công cụ AI hỏi đáp thông thường gợi ý viện dẫn “Điều 300 Luật Đất đai 2024” nghe rất trang trọng và trôi chảy.</p>
+          <div class="cite-guess" role="group" aria-label="Chọn dự đoán minh họa cho Điều 300 Luật Đất đai 2024">
+            <button type="button" class="guess-btn" data-guess="ok" aria-pressed="false">Chọn thử: Có trong kho thử</button>
+            <button type="button" class="guess-btn" data-guess="warn" aria-pressed="false">Chọn thử: Không xác nhận / cần rà lại</button>
+          </div>
+          <details class="cite-reveal">
+            <summary>Mở kết quả định sẵn &amp; giải thích</summary>
+            <div class="cite-reveal__body">
+              <p class="cite-feedback" data-cite-fb hidden></p>
+              <p><span class="badge badge--out">✕ Không tồn tại · Không tìm thấy điều khoản</span></p>
+              <p>Luật Đất đai số 31/2024/QH15 chỉ có 260 điều — không có Điều 300. Đây là kiểu lỗi hay gặp khi dùng AI đại trà: ghép tên một đạo luật có thật với số điều tự sinh. Trong ca thử trên kho dữ liệu thử, công cụ báo “không tìm thấy điều khoản” để nhắc cán bộ kiểm tra lại văn bản gốc.</p>
+            </div>
+          </details>
+        </article>
+
+        <!-- Tình huống 4 -->
+        <article class="cite-card" data-cite-card data-answer="warn">
+          <span class="cite-card__num">Tình huống minh họa 04</span>
+          <h3 class="cite-card__title">Điều 27 Luật Khiếu nại (phiên bản cũ: thụ lý 10 ngày)</h3>
+          <p class="cite-card__context">Bản thảo chép lại mẫu cũ ghi thời hạn thụ lý giải quyết khiếu nại là “10 ngày” kể từ ngày nhận được khiếu nại.</p>
+          <div class="cite-guess" role="group" aria-label="Chọn dự đoán minh họa cho Điều 27 Luật Khiếu nại bản cũ">
+            <button type="button" class="guess-btn" data-guess="ok" aria-pressed="false">Chọn thử: Có trong kho thử</button>
+            <button type="button" class="guess-btn" data-guess="warn" aria-pressed="false">Chọn thử: Không xác nhận / cần rà lại</button>
+          </div>
+          <details class="cite-reveal">
+            <summary>Mở kết quả định sẵn &amp; giải thích</summary>
+            <div class="cite-reveal__body">
+              <p class="cite-feedback" data-cite-fb hidden></p>
+              <p><span class="badge badge--warn">⚠ Nội dung đã sửa đổi · Cần đối chiếu bản hiện hành</span></p>
+              <p>Tên điều luật có thật, nhưng con số “10 ngày” (ngày lịch) thuộc quy định cũ. Từ ngày 01/7/2026, Luật số 136/2025/QH15 đã sửa khoản 1 Điều 27 thành <strong>07 ngày làm việc</strong>. Tình huống này minh họa vì sao cán bộ vẫn phải kiểm tra hiệu lực và nội dung sửa đổi, không chỉ nhìn tên điều luật.</p>
+            </div>
+          </details>
+        </article>
+      </div>
+
+      <figure class="shot-card">
+        <a class="shot-card__link" href="assets/img/khoa-trich-dan-ba-ca.png" data-zoom data-cap="Ảnh chụp màn hình ứng dụng thử nghiệm (21/11/2026) chạy trên kho dữ liệu thử với 3 ca: Điều 24 Luật Tố cáo (Đã khóa căn cứ), Điều 328 BLDS (Ngoài kho căn cứ) và Điều 300 Luật Đất đai 2024 (Không tìm thấy điều khoản).">
+          <img src="assets/img/khoa-trich-dan-ba-ca.png" width="900" height="550" alt="Ảnh chụp bản thử nghiệm Khóa trích dẫn với ba kết quả: Điều 24 Luật Tố cáo 2018 được khóa căn cứ, Điều 328 Bộ luật Dân sự 2015 báo ngoài kho căn cứ, Điều 300 Luật Đất đai 2024 báo không tìm thấy điều khoản.">
+        </a>
+        <figcaption>Ảnh chụp màn hình công cụ Khóa trích dẫn trên <strong>ứng dụng thử nghiệm</strong> (ngày 21/11/2026, chạy 3 ca đầu trên kho dữ liệu thử). Công cụ hiện chưa tự động chặn dự thảo trước khi ký và chưa thay thế việc cán bộ kiểm tra văn bản quy phạm pháp luật chính thức (xem chi tiết tại <a href="minh-bach.html#bang-14-chuc-nang">trang Minh bạch</a>). Nhấn vào ảnh để phóng to.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       KHỐI 5 – CÂU CHUYỆN MỘT LÁ ĐƠN
+       ===================================================================== -->
+  <section id="mot-ho-so" class="sec" aria-labelledby="story-h">
+    <div class="wrap">
+      <div class="sec__head">
+        <p class="eyebrow">Câu chuyện minh họa bằng hồ sơ mẫu · Nhân vật giả định</p>
+        <h2 id="story-h" class="h2">Khi một lá đơn đến xã, chuyện gì diễn ra tiếp theo?</h2>
+        <p class="lede">Giả định <strong>ông Minh</strong> không đồng ý với một quyết định hành chính cụ thể do Chủ tịch Ủy ban nhân dân phường ban hành và gửi đơn khiếu nại lần đầu. <strong>Chị Lan</strong> là công chức tiếp nhận và tham mưu theo dõi hồ sơ. Hai nhân vật và tình huống dưới đây đều là giả định để hình dung luồng công việc trên hồ sơ mẫu.</p>
+      </div>
+
+      <ol class="story-timeline">
+        <li class="story-step">
+          <div class="story-step__head">
+            <span class="story-step__num">1</span>
+            <h3 class="h3">Tiếp nhận</h3>
+          </div>
+          <div class="story-step__vis" aria-hidden="true">
+            <svg viewBox="0 0 280 84" width="280" height="84">
+              <rect x="16" y="14" width="84" height="56" rx="8" fill="#FFFFFF" stroke="#1B2A44" stroke-width="2"/>
+              <rect x="28" y="26" width="40" height="6" rx="3" fill="#C9A227"/>
+              <rect x="28" y="38" width="58" height="5" rx="2.5" fill="#7889A1"/>
+              <rect x="28" y="49" width="48" height="5" rx="2.5" fill="#7889A1"/>
+              <path d="M112 42 H152" stroke="#C9A227" stroke-width="2.5"/>
+              <polygon points="150,37 159,42 150,47" fill="#C9A227"/>
+              <rect x="166" y="14" width="98" height="56" rx="8" fill="#1B2A44"/>
+              <rect x="180" y="27" width="70" height="8" rx="4" fill="#C9A227"/>
+              <rect x="180" y="43" width="54" height="6" rx="3" fill="#D4DFEC"/>
+            </svg>
+          </div>
+          <p>Chị Lan ghi nhận đơn khiếu nại quyết định hành chính, phần mềm cấp mã hồ sơ để tra tìm về sau. Sau khi đọc kỹ nội dung đơn và đối chiếu hồ sơ lưu của đơn vị, chị Lan tự chọn quy trình xử lý phù hợp theo quy chế cơ quan.</p>
+          <p class="story-step__role"><strong>Nguyên tắc:</strong> Cán bộ đọc đơn, xác định đúng loại việc khiếu nại hành chính và chọn quy trình; phần mềm không tự phân loại thay.</p>
+        </li>
+
+        <li class="story-step">
+          <div class="story-step__head">
+            <span class="story-step__num">2</span>
+            <h3 class="h3">Theo dõi</h3>
+          </div>
+          <div class="story-step__vis" aria-hidden="true">
+            <svg viewBox="0 0 280 84" width="280" height="84">
+              <rect x="16" y="18" width="248" height="48" rx="10" fill="#FFFFFF" stroke="#7889A1" stroke-width="1.5"/>
+              <circle cx="48" cy="42" r="10" fill="#155740"/>
+              <path d="M44 42 l3 3 l6 -6" stroke="#FFFFFF" stroke-width="2" fill="none" stroke-linecap="round"/>
+              <line x1="62" y1="42" x2="126" y2="42" stroke="#155740" stroke-width="3"/>
+              <circle cx="140" cy="42" r="11" fill="#C9A227"/>
+              <circle cx="140" cy="42" r="4" fill="#111C2E"/>
+              <line x1="155" y1="42" x2="220" y2="42" stroke="#D5E1EC" stroke-width="3" stroke-dasharray="5 4"/>
+              <circle cx="232" cy="42" r="10" fill="#EEF5FA" stroke="#7889A1" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <p>Khung thời hạn hiển thị mốc dự kiến 07 ngày làm việc cho bước xem xét thụ lý. Từng nhiệm vụ tiếp theo (trích lục hồ sơ cũ, thẩm tra, xác minh, đối thoại khi cần, lập dự thảo) được giao theo vai trò trong hàng đợi nhiệm vụ.</p>
+          <p class="story-step__role"><strong>Nguyên tắc:</strong> Tổ chức nhiệm vụ theo vai trò giúp cán bộ và lãnh đạo dễ nhìn thấy hồ sơ đang ở bước nào để chủ động phối hợp, đôn đốc.</p>
+        </li>
+
+        <li class="story-step">
+          <div class="story-step__head">
+            <span class="story-step__num">3</span>
+            <h3 class="h3">Kiểm tra trước khi ký</h3>
+          </div>
+          <div class="story-step__vis" aria-hidden="true">
+            <svg viewBox="0 0 280 84" width="280" height="84">
+              <rect x="22" y="12" width="110" height="60" rx="9" fill="#FFFFFF" stroke="#1B2A44" stroke-width="1.8"/>
+              <rect x="36" y="25" width="64" height="6" rx="3" fill="#1B2A44"/>
+              <rect x="36" y="37" width="80" height="5" rx="2.5" fill="#7889A1"/>
+              <rect x="36" y="49" width="52" height="10" rx="4" fill="#E1F3EB" stroke="#8EC6B0"/>
+              <path d="M144 42 H174" stroke="#C9A227" stroke-width="2.5"/>
+              <polygon points="172,37 181,42 172,47" fill="#C9A227"/>
+              <rect x="188" y="16" width="72" height="52" rx="9" fill="#1B2A44"/>
+              <path d="M204 49 C212 37, 220 51, 232 38 C237 33, 241 44, 246 41" stroke="#C9A227" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <p>Khi chuẩn bị bản thảo (như thông báo thụ lý hoặc báo cáo xác minh), cán bộ có thể chủ động ẩn các thông tin định danh cơ bản trước khi tóm tắt, tra lại điều khoản trên Khóa trích dẫn, tự rà theo <a href="sau-cau-hoi-truoc-khi-ky.html">sáu câu hỏi trước khi ký</a> rồi trình kiểm soát và người có thẩm quyền ký.</p>
+          <p class="story-step__role"><strong>Nguyên tắc:</strong> Phần mềm ghi nhận người đổi trạng thái hồ sơ, thời điểm và căn cứ; việc thẩm tra nội dung và ký ban hành thuộc trách nhiệm của người có thẩm quyền.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       KHỐI 6 – KHÁM PHÁ CHỨC NĂNG (6 nhóm · 14 chức năng)
+       ===================================================================== -->
+  <section id="chuc-nang" class="sec sec--alt" aria-labelledby="feat-h">
+    <div class="wrap">
+      <div class="sec__head">
+        <p class="eyebrow">Kiến trúc sản phẩm đang phát triển · 6 nhóm · 14 chức năng</p>
+        <h2 id="feat-h" class="h2">Từ bàn tiếp nhận đến bàn lãnh đạo – công việc được kết nối.</h2>
+        <p class="lede">Chọn từng nhóm bên dưới để xem mỗi chức năng được thiết kế nhằm hỗ trợ cán bộ việc gì và hướng tới lợi ích gì cho người dân khi cơ quan tổ chức công việc tốt hơn. Mức độ hoàn thiện thực tế của từng mục được công bố đầy đủ tại <a href="minh-bach.html#bang-14-chuc-nang">trang Minh bạch</a>.</p>
+      </div>
+
+      <div class="feat-tabs" role="tablist" aria-label="Sáu nhóm chức năng của Pháp Dẫn">
+        <button type="button" class="feat-tab" role="tab" id="tab-a" aria-selected="true" aria-controls="panel-a" tabindex="0">A. Điều hành hằng ngày <span class="feat-tab__count">(3)</span></button>
+        <button type="button" class="feat-tab" role="tab" id="tab-b" aria-selected="false" aria-controls="panel-b" tabindex="-1">B. Quản lý hồ sơ <span class="feat-tab__count">(3)</span></button>
+        <button type="button" class="feat-tab" role="tab" id="tab-c" aria-selected="false" aria-controls="panel-c" tabindex="-1">C. Kho căn cứ &amp; quy trình <span class="feat-tab__count">(3)</span></button>
+        <button type="button" class="feat-tab" role="tab" id="tab-d" aria-selected="false" aria-controls="panel-d" tabindex="-1">D. Trợ lý &amp; văn bản <span class="feat-tab__count">(2)</span></button>
+        <button type="button" class="feat-tab" role="tab" id="tab-e" aria-selected="false" aria-controls="panel-e" tabindex="-1">E. Thống kê &amp; phân tích <span class="feat-tab__count">(2)</span></button>
+        <button type="button" class="feat-tab" role="tab" id="tab-f" aria-selected="false" aria-controls="panel-f" tabindex="-1">F. Bảo vệ dữ liệu <span class="feat-tab__count">(1)</span></button>
+      </div>
+
+      <!-- NHÓM A -->
+      <div class="feat-panel" role="tabpanel" id="panel-a" aria-labelledby="tab-a">
+        <div class="feat-panel__grid">
+          <div>
+            <h3 class="feat-group-title">A. Điều hành hằng ngày</h3>
+            <p class="feat-group-sub">Hỗ trợ nắm đầu việc đang mở và vai trò người nhận nhiệm vụ.</p>
+            <div class="feat-acc">
+              <details class="feat-item" open>
+                <summary>1. Bảng tổng quan</summary>
+                <div class="feat-item__body">
+                  <div class="feat-qa">
+                    <strong>Giúp cán bộ làm gì?</strong>
+                    <p>Đang được hoàn thiện nhằm cung cấp góc nhìn nhanh đầu ngày cho lãnh đạo và văn phòng về số hồ sơ đang mở, các mốc cần theo dõi và khối lượng công việc giữa các bộ phận.</p>
+                  </div>
+                  <div class="feat-qa">
+                    <strong>Người dân được hưởng lợi như thế nào?</strong>
+                    <p>Khi lãnh đạo cơ sở có công cụ nhìn tổng thể để đôn đốc nội bộ, kỳ vọng sẽ giảm nguy cơ đơn thư bị chậm trễ do sót việc.</p>
+                  </div>
+                </div>
+              </details>
+
+              <details class="feat-item">
+                <summary>2. Thông báo công việc</summary>
+                <div class="feat-item__body">
+                  <div class="feat-qa">
+                    <strong>Giúp cán bộ làm gì?</strong>
+                    <p>Đặt mục tiêu phát triển cơ chế báo tin khi có nhiệm vụ mới chuyển tới hoặc khi cần lưu ý mốc hạn để bớt phụ thuộc vào nhắc miệng rời rạc (hiện mới có khung màn hình, chưa tự sinh lời nhắc).</p>
+                  </div>
+                  <div class="feat-qa">
+                    <strong>Người dân được hưởng lợi như thế nào?</strong>
+                    <p>Khi tính năng nhắc việc được hoàn thiện, các khâu xử lý nội bộ kỳ vọng sẽ nắm thông tin bàn giao kịp thời hơn.</p>
+                  </div>
+                </div>
+              </details>
+
+              <details class="feat-item">
+                <summary>3. Hàng đợi nhiệm vụ</summary>
+                <div class="feat-item__body">
+                  <div class="feat-qa">
+                    <strong>Giúp cán bộ làm gì?</strong>
+                    <p>Hiển thị trên bản thử nghiệm danh sách nhiệm vụ đang thuộc vai trò của từng cán bộ kèm bước xử lý, quy trình áp dụng và trạng thái (cột hiển thị ngày hết hạn ngay trên bảng hàng đợi đang được bổ sung).</p>
+                  </div>
+                  <div class="feat-qa">
+                    <strong>Người dân được hưởng lợi như thế nào?</strong>
+                    <p>Việc gắn rõ vai trò nhận việc ở từng bước hỗ trợ cơ quan quản lý đầu mối trách nhiệm rõ ràng hơn khi giải quyết đơn.</p>
+                  </div>
+                </div>
+              </details>
+            </div>
+          </div>
+
+          <figure class="shot-card">
+            <a class="shot-card__link" href="assets/img/hang-doi-viec.png" data-zoom data-cap="Ảnh chụp bản thử nghiệm (21/11/2026): màn hình Hàng đợi nhiệm vụ theo vai trò của cán bộ xử lý (dữ liệu giả định; chưa hiển thị cột hạn hoàn thành).">
+              <img src="assets/img/hang-doi-viec.png" width="900" height="490" alt="Ảnh chụp bản thử nghiệm màn hình Hàng đợi nhiệm vụ hiển thị dòng công việc, bước xử lý, quy trình, vai trò phân công và trạng thái.">
+            </a>
+            <figcaption>Minh họa Nhóm A — Ảnh chụp màn hình Hàng đợi nhiệm vụ trên bản thử nghiệm (dữ liệu giả định). Nhấn vào ảnh để phóng to.</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <!-- NHÓM B -->
+      <div class="feat-panel" role="tabpanel" id="panel-b" aria-labelledby="tab-b" hidden>
+        <div class="feat-panel__grid">
+          <div>
+            <h3 class="feat-group-title">B. Quản lý hồ sơ</h3>
+            <p class="feat-group-sub">Gom thông tin tiếp nhận, mốc thời hạn và ghi chú xử lý về cùng một hồ sơ.</p>
+            <div class="feat-acc">
+              <details class="feat-item" open>
+                <summary>4. Danh sách hồ sơ và tạo mới</summary>
+                <div class="feat-item__body">
+                  <div class="feat-qa">
+                    <strong>Giúp cán bộ làm gì?</strong>
+                    <p>Hỗ trợ ghi nhận đơn mẫu, tự cấp mã theo dõi, hiển thị khung tính 07 ngày làm việc cho bước xem xét thụ lý (đang cập nhật thêm lịch lễ 24/11/2026 và năm 2027 trong ứng dụng) và lưu chung ghi chú, lịch sử trạng thái.</p>
+                  </div>
+                  <div class="feat-qa">
+                    <strong>Người dân được hưởng lợi như thế nào?</strong>
+                    <p>Hướng tới việc khi người dân liên hệ bộ phận tiếp công dân để hỏi tiến độ, cán bộ dễ tra lại thông tin hồ sơ tại một nơi thay vì tìm trong nhiều sổ rời.</p>
+                  </div>
+                </div>
+              </details>
+
+              <details class="feat-item">
+                <summary>5. Thẩm tra thủ tục hành chính</summary>
+                <div class="feat-item__body">
+                  <div class="feat-qa">
+                    <strong>Giúp cán bộ làm gì?</strong>
+                    <p>Đang phát triển công cụ hỗ trợ cán bộ đối chiếu thành phần hồ sơ, điều kiện thụ lý và thẩm quyền giải quyết theo danh mục kiểm tra chuẩn hóa trước khi đi vào nội dung.</p>
+                  </div>
+                  <div class="feat-qa">
+                    <strong>Người dân được hưởng lợi như thế nào?</strong>
+                    <p>Mục tiêu là hỗ trợ cán bộ hướng dẫn bổ sung giấy tờ hoặc chỉ dẫn đúng cơ quan có thẩm quyền rõ ràng, nhất quán hơn ngay từ khâu tiếp nhận.</p>
+                  </div>
+                </div>
+              </details>
+
+              <details class="feat-item">
+                <summary>6. Bản đồ địa chính</summary>
+                <div class="feat-item__body">
+                  <div class="feat-qa">
+                    <strong>Giúp cán bộ làm gì?</strong>
+                    <p>Mới ở mức định hướng phát triển màn hình xem vị trí thửa đất gắn với hồ sơ đơn đất đai; hiện chưa bật cho nghiệp vụ và chỉ thực hiện khi được cơ quan quản lý đất đai cho phép sử dụng dữ liệu.</p>
+                  </div>
+                  <div class="feat-qa">
+                    <strong>Người dân được hưởng lợi như thế nào?</strong>
+                    <p>Nếu đủ điều kiện triển khai về sau, tính năng này kỳ vọng hỗ trợ cán bộ đối chiếu thông tin số tờ, số thửa thuận tiện hơn khi xem xét phản ánh về đất đai.</p>
+                  </div>
+                </div>
+              </details>
+            </div>
+          </div>
+
+          <figure class="shot-card">
+            <a class="shot-card__link" href="assets/img/han-thu-ly-ho-so-mau.png" data-zoom data-cap="Ảnh chụp bản thử nghiệm (21/11/2026): khung tính thời hạn xem xét thụ lý trong chi tiết hồ sơ mẫu (lưu ý thời điểm chụp ứng dụng chưa nạp ngày lễ 24/11/2026; chi tiết xem tại trang Minh bạch).">
+              <img src="assets/img/han-thu-ly-ho-so-mau.png" width="900" height="410" alt="Ảnh chụp bản thử nghiệm khung thời hạn thụ lý của hồ sơ mẫu kèm danh sách các ngày làm việc được tính và ngày cuối tuần không tính.">
+            </a>
+            <figcaption>Minh họa Nhóm B — Khung thời hạn thụ lý dự kiến trong hồ sơ mẫu trên bản thử nghiệm. Nhấn vào ảnh để phóng to.</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <!-- NHÓM C -->
+      <div class="feat-panel" role="tabpanel" id="panel-c" aria-labelledby="tab-c" hidden>
+        <div class="feat-panel__grid">
+          <div>
+            <h3 class="feat-group-title">C. Kho căn cứ và quy trình</h3>
+            <p class="feat-group-sub">Hỗ trợ tổ chức luồng việc theo quy chế đơn vị và đối chiếu trích dẫn pháp luật.</p>
+            <div class="feat-acc">
+              <details class="feat-item" open>
+                <summary>7. Kho căn cứ pháp lý</summary>
+                <div class="feat-item__body">
+                  <div class="feat-qa">
+                    <strong>Giúp cán bộ làm gì?</strong>
+                    <p>Hỗ trợ tra cứu điều khoản đã nạp và dùng Khóa trích dẫn (hiện đứng riêng, chạy trên kho dữ liệu thử) để kiểm tra xem trích dẫn dự kiến dùng có khớp kho hay chưa được xác nhận; kho chính thức đang được xây dựng.</p>
+                  </div>
+                  <div class="feat-qa">
+                    <strong>Người dân được hưởng lợi như thế nào?</strong>
+                    <p>Thêm một bước hỗ trợ cán bộ kiểm tra lại căn cứ pháp luật trước khi trình ký văn bản trả lời công dân.</p>
+                  </div>
+                </div>
+              </details>
+
+              <details class="feat-item">
+                <summary>8. Thiết kế, thực thi quy trình</summary>
+                <div class="feat-item__body">
+                  <div class="feat-qa">
+                    <strong>Giúp cán bộ làm gì?</strong>
+                    <p>Cho phép thiết lập các bước xử lý đơn theo vai trò dựa trên quy chế đơn vị trên bản thử nghiệm (đang tiếp tục hoàn thiện việc tách riêng hai lớp kiểm soát trước khi ký và đồng bộ đóng hồ sơ).</p>
+                  </div>
+                  <div class="feat-qa">
+                    <strong>Người dân được hưởng lợi như thế nào?</strong>
+                    <p>Hỗ trợ cơ quan theo dõi tiến trình xử lý từng bước rõ ràng hơn, giảm nguy cơ bỏ sót khâu phối hợp nội bộ.</p>
+                  </div>
+                </div>
+              </details>
+
+              <details class="feat-item">
+                <summary>9. Trung tâm Huấn luyện AI</summary>
+                <div class="feat-item__body">
+                  <div class="feat-qa">
+                    <strong>Giúp cán bộ làm gì?</strong>
+                    <p>Định hướng để chuyên gia pháp lý biên soạn các tình huống giả định (cam kết không dùng đơn thật của người dân) nhằm rèn cách AI gợi ý câu hỏi và giúp cán bộ tập phản biện lại gợi ý của máy; hiện chưa mở vận hành.</p>
+                  </div>
+                  <div class="feat-qa">
+                    <strong>Người dân được hưởng lợi như thế nào?</strong>
+                    <p>Giữ nguyên tắc bảo vệ quyền riêng tư của đơn thư thật và hướng tới củng cố thói quen kiểm chứng cẩn trọng của cán bộ.</p>
+                  </div>
+                </div>
+              </details>
+            </div>
+          </div>
+
+          <figure class="shot-card">
+            <a class="shot-card__link" href="assets/img/quy-trinh-hoan-tat.png" data-zoom data-cap="Ảnh chụp bản thử nghiệm (21/11/2026): màn hình thực thi quy trình của hồ sơ mẫu sau khi đi qua các bước theo vai trò.">
+              <img src="assets/img/quy-trinh-hoan-tat.png" width="900" height="482" alt="Ảnh chụp bản thử nghiệm màn hình quy trình xử lý đơn của hồ sơ mẫu hiển thị chuỗi bước đã hoàn thành.">
+            </a>
+            <figcaption>Minh họa Nhóm C — Màn hình thực thi quy trình xử lý hồ sơ mẫu trên bản thử nghiệm. Nhấn vào ảnh để phóng to.</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <!-- NHÓM D -->
+      <div class="feat-panel" role="tabpanel" id="panel-d" aria-labelledby="tab-d" hidden>
+        <div class="feat-panel__grid">
+          <div>
+            <h3 class="feat-group-title">D. Trợ lý và văn bản</h3>
+            <p class="feat-group-sub">Hỗ trợ dựng khung nháp ban đầu và ẩn bớt thông tin định danh cơ bản trước khi tóm tắt.</p>
+            <div class="feat-acc">
+              <details class="feat-item" open>
+                <summary>10. Dự thảo văn bản</summary>
+                <div class="feat-item__body">
+                  <div class="feat-qa">
+                    <strong>Giúp cán bộ làm gì?</strong>
+                    <p>Hỗ trợ tạo khung nháp từ dữ liệu hồ sơ mẫu cho 3 biểu mẫu hiện có (phiếu xử lý đơn, thông báo thụ lý, báo cáo xác minh; các mẫu khác đang bổ sung) và xuất tệp Word/PDF để cán bộ tự biên tập, hoàn thiện.</p>
+                  </div>
+                  <div class="feat-qa">
+                    <strong>Người dân được hưởng lợi như thế nào?</strong>
+                    <p>Kỳ vọng giúp cán bộ bớt thời gian gõ lại phần hành chính lặp lại để dành thêm thời gian rà soát nội dung vụ việc của người gửi đơn.</p>
+                  </div>
+                </div>
+              </details>
+
+              <details class="feat-item">
+                <summary>11. Công cụ che thông tin cá nhân</summary>
+                <div class="feat-item__body">
+                  <div class="feat-qa">
+                    <strong>Giúp cán bộ làm gì?</strong>
+                    <p>Hỗ trợ thay thế họ tên, số điện thoại, số căn cước, email và số tài khoản bằng ký hiệu ẩn danh trước khi đưa văn bản cho công cụ AI tóm tắt (hiện chưa tự động che địa chỉ nên cán bộ vẫn phải rà lại).</p>
+                  </div>
+                  <div class="feat-qa">
+                    <strong>Người dân được hưởng lợi như thế nào?</strong>
+                    <p>Góp phần hạn chế nguy cơ đưa nguyên văn các thông tin định danh cơ bản của công dân vào công cụ hỗ trợ tóm tắt.</p>
+                  </div>
+                </div>
+              </details>
+            </div>
+          </div>
+
+          <figure class="shot-card">
+            <a class="shot-card__link" href="assets/img/che-thong-tin.png" data-zoom data-cap="Ảnh chụp bản thử nghiệm (21/11/2026): công cụ che thông tin cá nhân thay tên, số điện thoại, số căn cước giả định bằng ký hiệu trước khi dùng AI; phần địa chỉ hiện chưa tự động che.">
+              <img src="assets/img/che-thong-tin.png" width="900" height="232" alt="Ảnh chụp bản thử nghiệm công cụ che thông tin cá nhân gồm cột văn bản gốc giả định bên trái và kết quả đã ẩn tên, số điện thoại, số căn cước bên phải.">
+            </a>
+            <figcaption>Minh họa Nhóm D — Công cụ che thông tin cá nhân trên dữ liệu giả định của bản thử nghiệm. Nhấn vào ảnh để phóng to.</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <!-- NHÓM E -->
+      <div class="feat-panel" role="tabpanel" id="panel-e" aria-labelledby="tab-e" hidden>
+        <div class="feat-panel__grid">
+          <div>
+            <h3 class="feat-group-title">E. Thống kê và phân tích</h3>
+            <p class="feat-group-sub">Hướng tới tổng hợp dữ liệu theo dõi và gợi ý bước nghiệp vụ có kiểm soát.</p>
+            <div class="feat-acc">
+              <details class="feat-item" open>
+                <summary>12. Thống kê theo địa bàn, lĩnh vực</summary>
+                <div class="feat-item__body">
+                  <div class="feat-qa">
+                    <strong>Giúp cán bộ làm gì?</strong>
+                    <p>Đặt mục tiêu tổng hợp số lượng đơn thư theo khu vực và lĩnh vực để phục vụ theo dõi định kỳ thay cho việc cộng sổ thủ công (mô-đun hiện đang được sửa lỗi kỹ thuật, chưa mở trong buổi xem thử).</p>
+                  </div>
+                  <div class="feat-qa">
+                    <strong>Người dân được hưởng lợi như thế nào?</strong>
+                    <p>Khi hoàn thiện, công cụ kỳ vọng giúp đơn vị dễ nhận ra những nhóm vướng mắc lặp lại trên địa bàn để chủ động rà soát, giải thích chính sách.</p>
+                  </div>
+                </div>
+              </details>
+
+              <details class="feat-item">
+                <summary>13. Phân tích, gợi ý tham khảo</summary>
+                <div class="feat-item__body">
+                  <div class="feat-qa">
+                    <strong>Giúp cán bộ làm gì?</strong>
+                    <p>Hiển thị trên bản thử nghiệm các gợi ý bước nghiệp vụ tiếp theo kèm dòng lý do tham khảo, để trống khối căn cứ khi chưa có văn bản khớp và giữ nguyên tắc không tự chuyển trạng thái hay kết luận thay người.</p>
+                  </div>
+                  <div class="feat-qa">
+                    <strong>Người dân được hưởng lợi như thế nào?</strong>
+                    <p>Giữ rõ ranh giới để mọi hồ sơ đều do cán bộ và người có thẩm quyền xem xét, quyết định thay vì xử lý tự động bằng máy.</p>
+                  </div>
+                </div>
+              </details>
+            </div>
+          </div>
+
+          <figure class="shot-card">
+            <a class="shot-card__link" href="assets/img/hanh-dong-tat-dinh.png" data-zoom data-cap="Ảnh chụp bản thử nghiệm (21/11/2026): khối gợi ý hành động nghiệp vụ tiếp theo kèm căn cứ đề xuất và nguyên tắc hệ thống không tự ý chuyển trạng thái hay kết luận tự động.">
+              <img src="assets/img/hanh-dong-tat-dinh.png" width="900" height="269" alt="Ảnh chụp bản thử nghiệm khối gợi ý hành động nghiệp vụ tiếp theo kèm dòng nguyên tắc hệ thống không tự ý chuyển trạng thái hoặc đưa ra kết luận pháp lý tự động.">
+            </a>
+            <figcaption>Minh họa Nhóm E — Khối gợi ý hành động nghiệp vụ tham khảo trên bản thử nghiệm. Nhấn vào ảnh để phóng to.</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <!-- NHÓM F -->
+      <div class="feat-panel" role="tabpanel" id="panel-f" aria-labelledby="tab-f" hidden>
+        <div class="feat-panel__grid">
+          <div>
+            <h3 class="feat-group-title">F. Bảo vệ dữ liệu</h3>
+            <p class="feat-group-sub">Thiết kế phân quyền theo đơn vị và lưu vết thao tác để phục vụ đối chiếu.</p>
+            <div class="feat-acc">
+              <details class="feat-item" open>
+                <summary>14. Phân quyền và nhật ký xử lý</summary>
+                <div class="feat-item__body">
+                  <div class="feat-qa">
+                    <strong>Giúp cán bộ làm gì?</strong>
+                    <p>Thiết kế tách dữ liệu theo đơn vị, lưu lại lịch sử đổi trạng thái hồ sơ (người thực hiện, thời điểm, căn cứ) và bảng truy xuất nguồn gốc 4 hạng mục; việc gộp chung nhật ký quy trình và tách chặt vai người duyệt – người ký đang được hoàn thiện.</p>
+                  </div>
+                  <div class="feat-qa">
+                    <strong>Người dân được hưởng lợi như thế nào?</strong>
+                    <p>Hỗ trợ cơ quan lưu vết trách nhiệm nội bộ rõ ràng hơn khi cần rà soát lại quá trình tiếp nhận và tham mưu xử lý hồ sơ.</p>
+                  </div>
+                </div>
+              </details>
+            </div>
+          </div>
+
+          <figure class="shot-card">
+            <a class="shot-card__link" href="assets/img/truy-xuat-nguon-goc.png" data-zoom data-cap="Ảnh chụp bản thử nghiệm (21/11/2026): bảng truy xuất nguồn gốc dữ liệu bốn hạng mục của hồ sơ mẫu.">
+              <img src="assets/img/truy-xuat-nguon-goc.png" width="900" height="337" alt="Ảnh chụp bản thử nghiệm bảng truy xuất nguồn gốc dữ liệu gồm hạng mục thông tin, nguồn dữ liệu, chủ thể ghi nhận, thời điểm và tính chất pháp lý.">
+            </a>
+            <figcaption>Minh họa Nhóm F — Bảng truy xuất nguồn gốc thông tin trên bản thử nghiệm. Nhấn vào ảnh để phóng to.</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <!-- Thanh liên kết xuyên suốt tới trang Minh bạch (giữ neo #dang-co-gi tương thích toàn bộ trang con) -->
+      <div id="dang-co-gi" class="transparency-bar">
+        <p><strong>Quảng bá có trách nhiệm:</strong> Chúng tôi công bố riêng trang Minh bạch trả lời thẳng 3 câu hỏi — Pháp Dẫn đã thử được những gì, những gì đang hoàn thiện và những gì chưa triển khai — kèm bảng đối chiếu đầy đủ 14 chức năng.</p>
+        <a class="btn btn--secondary btn--sm" href="minh-bach.html">Xem trang Minh bạch sản phẩm →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       KHỐI 7 – CÂU CHUYỆN THỰC TIỄN
+       ===================================================================== -->
+  <section id="thuc-tien" class="sec" aria-labelledby="practice-h">
+    <div class="wrap">
+      <div class="practice-grid">
+        <div>
+          <p class="eyebrow">Bài học từ cách sắp xếp luồng việc</p>
+          <h2 id="practice-h" class="h2">Đôi khi, thay đổi bắt đầu từ cách tổ chức công việc.</h2>
+          <p class="lede" style="margin-top:14px">Từ tháng 4/2026, một phường đã thử chia rõ đơn thư thành hai luồng xử lý ngay từ khâu tiếp nhận (việc mới phát sinh và việc đã có văn bản giải quyết trước đó), phân công rõ người chủ trì và các lớp kiểm tra nội dung — <strong>khi chưa hề sử dụng phần mềm</strong>.</p>
+          <p class="small" style="margin-top:14px;color:var(--ink-2)">Thực tế đó gợi ra định hướng cho dự án: công nghệ không thay thế kỷ luật công vụ, nhưng Pháp Dẫn được thiết kế với mục tiêu giúp cách tổ chức công việc rõ đầu mối ấy dễ thực hiện và dễ theo dõi hơn. Hiệu quả thực tế của phần mềm sẽ chỉ được đánh giá khi triển khai thí điểm có kiểm chứng.</p>
+        </div>
+
+        <div>
+          <div class="stat-pair" aria-label="Hai số liệu ghi nhận từ sổ theo dõi đơn nội bộ của một phường khi chưa có phần mềm">
+            <div class="stat-card">
+              <p class="stat-card__period">Kỳ 01/7 – 31/12/2025 (6 tháng)<br>Trước khi tách hai luồng xử lý</p>
+              <p class="stat-card__num">42,54%</p>
+              <p class="stat-card__desc">Tỷ lệ đơn trễ hạn hoặc còn tồn đọng trong kỳ ghi nhận.</p>
+            </div>
+            <div class="stat-card">
+              <p class="stat-card__period">Kỳ 06/4 – 07/9/2026 (5 tháng)<br>Sau khi tổ chức lại cách phân luồng</p>
+              <p class="stat-card__num">16,79%</p>
+              <p class="stat-card__desc">Tỷ lệ đơn trễ hạn hoặc còn tồn đọng theo sổ theo dõi nội bộ.</p>
+            </div>
+          </div>
+
+          <p class="note" style="margin-top:14px"><strong>Chú thích trung thực:</strong> Hai con số trên là ghi nhận từ sổ theo dõi nội bộ của chính phường khi áp dụng cách tổ chức công việc mới, <strong>không phải hiệu quả của phần mềm Pháp Dẫn</strong> và chưa qua đánh giá độc lập. Hai kỳ đo có độ dài khác nhau (6 tháng và 5 tháng), đồng thời kỳ sau không tính nhóm đơn liên quan dự án được xử lý bằng phiếu chuyển, nên không dùng để so sánh trực tiếp như phép đo trước – sau.</p>
+        </div>
+      </div>
+
+      <div class="guide-cards" aria-label="Tài liệu nghiệp vụ đọc ngay cho cán bộ">
+        <article class="guide-card">
+          <p class="note" style="font-weight:600;color:var(--gold-ink)">Cẩm nang dùng ngay không cần phần mềm</p>
+          <h3 class="h3"><a href="sau-cau-hoi-truoc-khi-ky.html">Sáu câu hỏi trước khi ký một dự thảo trả lời đơn →</a></h3>
+          <p class="small" style="color:var(--ink-2)">Sáu chốt tự kiểm về thẩm quyền, thời hạn, hiệu lực căn cứ và trách nhiệm kiểm soát — áp dụng được ngay trên bàn làm việc dù có dùng AI hay không.</p>
+        </article>
+        <article class="guide-card">
+          <p class="note" style="font-weight:600;color:var(--gold-ink)">Tài liệu theo nhóm vụ việc ở xã, phường</p>
+          <h3 class="h3"><a href="don-thu-theo-linh-vuc.html">Đơn thư theo lĩnh vực: Phân loại &amp; xử lý đơn đất đai →</a></h3>
+          <p class="small" style="color:var(--ink-2)">Phân biệt tranh chấp đất đai với khiếu nại hành chính, quy trình hòa giải ở cơ sở, hồ sơ cần đối chiếu và hai tình huống tập giả định.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       KHỐI 8 – VÌ SAO CẦN CÁCH LÀM MỚI?
+       ===================================================================== -->
+  <section id="vi-sao" class="sec sec--alt" aria-labelledby="why-h">
+    <div class="wrap">
+      <div class="sec__head">
+        <p class="eyebrow">Bối cảnh thực tế của công chức cơ sở</p>
+        <h2 id="why-h" class="h2">Vì sao công việc đơn thư cần một cách hỗ trợ mới?</h2>
+        <p class="lede">Ba áp lực dưới đây đang diễn ra đồng thời tại bộ phận tiếp công dân và văn phòng Ủy ban nhân dân cấp xã, phường.</p>
+      </div>
+
+      <div class="why-grid">
+        <article class="why-card">
+          <span class="why-card__idx">01</span>
+          <h3 class="h3">Khối lượng và độ phức tạp của đơn thư</h3>
+          <p>Một lá đơn gửi đến xã hiếm khi chỉ nằm gọn ở một khâu: có đơn hỏi chính sách, có đơn tranh chấp cần hòa giải, có đơn khiếu nại quyết định hành chính cần xác minh nhiều nguồn. Theo dõi bằng trí nhớ hoặc bảng rời dễ sót mốc việc khi cán bộ kiêm nhiệm nhiều đầu việc.</p>
+          <p class="why-card__cite">Bối cảnh chung: Báo cáo của Chính phủ năm 2025 ghi nhận hơn 261.500 lượt công dân được tiếp để khiếu nại, tố cáo, kiến nghị, phản ánh (kỳ 01/8/2024 – 31/7/2025).</p>
+        </article>
+
+        <article class="why-card">
+          <span class="why-card__idx">02</span>
+          <h3 class="h3">Yêu cầu cập nhật đúng quy định mới</h3>
+          <p>Pháp luật về thẩm quyền địa phương, đất đai và giải quyết khiếu nại có nhiều điểm sửa đổi quan trọng. Chẳng hạn, thời hạn thụ lý khiếu nại nay tính theo <strong>07 ngày làm việc</strong> thay vì 10 ngày lịch trước đây; chỉ cần dùng lại biểu mẫu cũ hoặc quên lịch nghỉ lễ mới là lệch hạn.</p>
+          <p class="why-card__cite">Căn cứ: Khoản 1 Điều 27 Luật Khiếu nại số 02/2011/QH13, sửa đổi, bổ sung bởi Luật số 136/2025/QH15 (hiệu lực từ 01/7/2026).</p>
+        </article>
+
+        <article class="why-card">
+          <span class="why-card__idx">03</span>
+          <h3 class="h3">Cơ hội và rủi ro khi dùng AI trong công vụ</h3>
+          <p>AI có thể giúp tóm tắt văn bản dài nhanh chóng, nhưng đã có hơn 1.300 quyết định của tòa án các nước nêu việc trích dẫn do AI tạo ra sai hoặc không có thật (tính đến tháng 4/2026, số đếm chưa đầy đủ). Pháp luật Việt Nam cũng đặt ra nguyên tắc con người phải kiểm soát và chịu trách nhiệm khi dùng AI.</p>
+          <p class="why-card__cite">Nguồn: Điều 4 Luật Trí tuệ nhân tạo số 134/2025/QH15 (hiệu lực 01/3/2026); CSDL của nhà nghiên cứu Damien Charlotin (HEC Paris, damiencharlotin.com/hallucinations).</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       KHỐI 9 – PHIM GIỚI THIỆU TẦM NHÌN DỰ ÁN (Poster tĩnh nội bộ, mở YouTube khi bấm)
+       ===================================================================== -->
+  <section id="video" class="sec" aria-labelledby="video-h">
+    <div class="wrap video-showcase">
+      <div>
+        <p class="eyebrow">Phim giới thiệu tầm nhìn dự án</p>
+        <h2 id="video-h" class="h2">Một lá đơn – Một trách nhiệm.</h2>
+        <div class="video-intro">
+          <p>Mỗi lá đơn của người dân đều có một câu chuyện phía sau.</p>
+          <p>Mỗi cán bộ tiếp nhận, xử lý lại mang một trách nhiệm cần được thực hiện đúng quy định.</p>
+          <p>Pháp Dẫn được phát triển từ mong muốn kết nối những công việc ấy bằng công nghệ.</p>
+          <p>Hãy cùng khám phá tầm nhìn về một cách theo dõi đơn thư rõ hạn, rõ người và rõ căn cứ hơn.</p>
+        </div>
+        <div class="actions" style="margin-top:22px">
+          <a class="btn btn--primary" href="https://www.youtube.com/watch?v=fXCPCmeHa90" target="_blank" rel="noopener noreferrer">Xem phim giới thiệu Pháp Dẫn</a>
+        </div>
+        <p class="note" style="margin-top:16px">Phim sử dụng hình ảnh minh họa và mô phỏng tầm nhìn dự án. Pháp Dẫn đang thử nghiệm với hồ sơ mẫu, chưa xử lý hồ sơ thật.</p>
+        <p class="note" style="margin-top:8px">Để hạn chế yêu cầu mạng bên thứ ba, trang này dùng khung poster tĩnh lưu nội bộ và không nhúng trình phát YouTube; trình duyệt chỉ mở YouTube khi bạn chủ động bấm xem (xem <a href="chinh-sach-du-lieu.html">Chính sách dữ liệu</a>).</p>
+      </div>
+
+      <div>
+        <a class="poster-link" href="https://www.youtube.com/watch?v=fXCPCmeHa90" target="_blank" rel="noopener noreferrer" aria-label="Xem phim giới thiệu Pháp Dẫn (LegalFlow) – Một lá đơn, một trách nhiệm | Tầm nhìn dự án trên YouTube trong tab mới">
+          <div class="poster-art">
+            <div class="poster-top">
+              <span>PHIM TẦM NHÌN DỰ ÁN</span>
+              <span>MỞ XEM TRÊN YOUTUBE ↗</span>
+            </div>
+
+            <div class="poster-thumb">
+              <img src="assets/img/poster-phim-tam-nhin.jpg" width="1280" height="720" loading="eager" alt="Hình đại diện chính thức của phim Pháp Dẫn (LegalFlow) – Một lá đơn, một trách nhiệm | Tầm nhìn dự án">
+            </div>
+
+            <div class="poster-meta">
+              <p class="poster-film">Pháp Dẫn (LegalFlow) – Một lá đơn, một trách nhiệm | Tầm nhìn dự án</p>
+              <span class="poster-play">▶ Xem phim giới thiệu Pháp Dẫn</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       KHỐI 10 – ĐĂNG KÝ XEM THỬ
+       ===================================================================== -->
+  <section id="xem-thu" class="sec sec--alt" aria-labelledby="demo-h">
+    <div class="wrap">
+      <div class="demo-box">
+        <p class="eyebrow">Buổi giới thiệu dành cho cán bộ xã, phường</p>
+        <h2 id="demo-h" class="h2">20 phút để hiểu Pháp Dẫn có thể hỗ trợ công việc của bạn ra sao.</h2>
+        <p class="lede" style="margin-top:12px">Buổi xem thử chạy trực tiếp trên <strong>hồ sơ mẫu giả định</strong> qua máy tính hoặc điện thoại, giúp người xem thấy rõ cả những điểm phần mềm đã chạy thử được và những điểm còn đang hoàn thiện.</p>
+
+        <ol class="demo-stages">
+          <li class="demo-stage">
+            <span class="demo-stage__time">Chặng 1 · Phút 01 – 05</span>
+            <h3 class="h3">Tiếp nhận &amp; đếm hạn</h3>
+            <p>Xem cách tạo một hồ sơ mẫu, cấp mã theo dõi và đối chiếu cách tính hạn thụ lý 07 ngày làm việc qua các ngày nghỉ.</p>
+          </li>
+          <li class="demo-stage">
+            <span class="demo-stage__time">Chặng 2 · Phút 06 – 10</span>
+            <h3 class="h3">Luồng việc &amp; hàng đợi</h3>
+            <p>Quan sát cách hồ sơ mẫu đi qua các bước theo vai trò trong hàng đợi nhiệm vụ, từ tiếp nhận đến bước kiểm soát trước khi trình ký.</p>
+          </li>
+          <li class="demo-stage">
+            <span class="demo-stage__time">Chặng 3 · Phút 11 – 15</span>
+            <h3 class="h3">Khóa trích dẫn &amp; ẩn danh</h3>
+            <p>Xem thử công cụ đối chiếu điều luật trên kho dữ liệu thử và công cụ che thông tin định danh cơ bản (tên, SĐT, số căn cước) trước khi tạo nháp.</p>
+          </li>
+          <li class="demo-stage">
+            <span class="demo-stage__time">Chặng 4 · Phút 16 – 20</span>
+            <h3 class="h3">Đối chiếu thực tế đơn vị</h3>
+            <p>Trao đổi thẳng thắn về các giới hạn hiện tại (như phần thống kê đang sửa lỗi, kho chính thức đang nạp) và lắng nghe góp ý nghiệp vụ từ cơ sở.</p>
+          </li>
+        </ol>
+
+        <div class="demo-foot">
+          <p class="note" style="max-width:44em">Trang chủ không thu thập biểu mẫu dữ liệu cá nhân. Để hẹn lịch xem thử, vui lòng gửi thư qua trang Liên hệ và nêu 2–3 khung giờ thuận tiện (không gửi hồ sơ thật của công dân). Xem trước giới hạn bản thử tại <a href="minh-bach.html">trang Minh bạch</a>.</p>
+          <a class="btn btn--primary" href="lien-he.html">Đăng ký xem thử</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       KHỐI 11 – HỎI NHANH (FAQ Accordion)
+       ===================================================================== -->
+  <section id="hoi-nhanh" class="sec" aria-labelledby="faq-h">
+    <div class="wrap">
+      <div class="sec__head">
+        <p class="eyebrow">Câu hỏi thường gặp</p>
+        <h2 id="faq-h" class="h2">Hỏi nhanh</h2>
+        <p class="lede">Bảy câu trả lời ngắn giúp làm rõ vai trò, phạm vi thử nghiệm và cách tiếp cận dự án Pháp Dẫn.</p>
+      </div>
+
+      <div class="faq-list">
+        <details class="faq-item" open>
+          <summary>Pháp Dẫn dùng để làm gì?</summary>
+          <div class="faq-item__ans">
+            <p>Pháp Dẫn là phần mềm đang được phát triển nhằm hỗ trợ cán bộ cấp xã, phường quản lý đơn thư trên cùng một nơi: theo dõi thời hạn xử lý, biết hồ sơ đang thuộc vai trò của ai và hỗ trợ kiểm tra căn cứ pháp luật trước khi trình ký.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Có thay cán bộ ra quyết định không?</summary>
+          <div class="faq-item__ans">
+            <p>Không. Phần mềm chỉ hỗ trợ tổ chức thông tin theo dõi hạn, hiển thị việc theo vai trò và đối chiếu trích dẫn tham khảo. Việc phân loại đơn, chọn quy trình, thẩm tra nội dung và ký ban hành văn bản đều do cán bộ và người có thẩm quyền quyết định, chịu trách nhiệm theo quy định.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Người dân có nộp đơn qua website không?</summary>
+          <div class="faq-item__ans">
+            <p>Không. Website <strong>phapdan.vn</strong> chỉ giới thiệu dự án, hoàn toàn không nhận đơn thư và không tra cứu được hồ sơ của công dân. Để nộp đơn hoặc hỏi về đơn đã gửi, người dân vui lòng liên hệ trực tiếp bộ phận tiếp công dân của cơ quan có thẩm quyền.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Pháp Dẫn khác gì chatbot AI thông thường?</summary>
+          <div class="faq-item__ans">
+            <p>Chatbot hỏi đáp chung không gắn với luồng giao việc nội bộ của cơ quan và có thể tự sinh ra điều khoản không tồn tại. Pháp Dẫn được thiết kế xoay quanh quy trình quản lý hồ sơ: theo dõi hạn theo ngày làm việc, gắn nhiệm vụ theo vai trò, lưu vết nguồn gốc thông tin và có công cụ đối chiếu để đánh dấu “không xác nhận” với trích dẫn chưa khớp kho dữ liệu đang nạp.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Vì sao có điều luật thật nhưng chưa được xác nhận?</summary>
+          <div class="faq-item__ans">
+            <p>Vì công cụ Khóa trích dẫn chỉ xác nhận những điều khoản nằm trong kho văn bản đã được nạp. Nếu một điều luật có thật ngoài đời nhưng văn bản đó chưa đưa vào kho (hiện đang chạy trên kho dữ liệu thử), phần mềm báo “ngoài kho căn cứ, không xác nhận” để nhắc cán bộ kiểm tra văn bản gốc thay vì xác nhận nhầm.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Sản phẩm đã dùng hồ sơ thật chưa?</summary>
+          <div class="faq-item__ans">
+            <p>Chưa. Hiện nay Pháp Dẫn đang thử nghiệm với hồ sơ mẫu và dữ liệu giả định, chưa sử dụng để giải quyết hồ sơ thật của người dân. Chi tiết những gì đã thử được, đang hoàn thiện và chưa triển khai được công bố tại <a href="minh-bach.html">trang Minh bạch</a>.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Muốn xem thử thì làm thế nào?</summary>
+          <div class="faq-item__ans">
+            <p>Bạn có thể gửi thư qua <a href="lien-he.html">trang Liên hệ</a> và nêu hai hoặc ba khung giờ thuận tiện. Buổi giới thiệu kéo dài khoảng 20 phút, trình bày trực tiếp trên hồ sơ mẫu giả định dành cho cán bộ xã, phường quan tâm tìm hiểu.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
 </main>
 
-<dialog class="lb" id="lb" aria-label="Ảnh cỡ lớn">
-<div class="lb__bar"><span>Ảnh chụp bản thử nghiệm</span><button type="button" class="btn btn--line btn--sm">Đóng</button></div>
-<p class="lb__hint">Kéo ngang để xem hết ảnh.</p>
-<div class="lb__scroll" tabindex="0" role="region" aria-label="Ảnh cỡ lớn, có thể cuộn"><img src="assets/img/han-thu-ly-ho-so-mau.png" width="900" height="410" alt="Ảnh cỡ lớn của khung thời hạn hồ sơ mẫu."></div>
+<!-- Hộp thoại phóng to ảnh chụp giao diện thử nghiệm -->
+<dialog class="lb" id="lb" aria-label="Xem ảnh giao diện cỡ lớn">
+  <div class="lb__bar">
+    <span id="lb-title">Ảnh chụp bản thử nghiệm Pháp Dẫn</span>
+    <button type="button" class="btn btn--secondary btn--sm" id="lb-close">Đóng (Esc)</button>
+  </div>
+  <p class="lb__hint" id="lb-cap">Kéo ngang hoặc dọc để xem chi tiết toàn bộ màn hình.</p>
+  <div class="lb__scroll" tabindex="0" role="region" aria-label="Vùng cuộn ảnh cỡ lớn">
+    <img id="lb-img" src="assets/img/han-thu-ly-ho-so-mau.png" width="900" height="410" alt="Ảnh cỡ lớn từ bản thử nghiệm">
+  </div>
 </dialog>
 
+<!-- =====================================================================
+     KHỐI 12 – FOOTER
+     ===================================================================== -->
 <footer class="site-foot">
-<div class="wrap site-foot__in">
-<div>
-<p class="site-foot__brand">Pháp Dẫn (LegalFlow)</p>
-<p class="site-foot__tag">Đúng luồng - Vững luật - Thấu tình</p>
-</div>
-<nav aria-label="Liên kết cuối trang">
-<a href="./">Trang chủ</a>
-<a href="bai-viet/">Bài viết</a>
-<a href="sau-cau-hoi-truoc-khi-ky.html">Sáu câu hỏi trước khi ký</a>
-<a href="don-thu-theo-linh-vuc.html">Đơn thư theo lĩnh vực</a>
-<a href="chinh-sach-du-lieu.html">Chính sách dữ liệu</a>
-<a href="lien-he.html">Liên hệ</a>
-</nav>
-<p class="site-foot__legal">© 2026 Pháp Dẫn (LegalFlow). Dự án đang thử nghiệm.</p>
-</div>
+  <div class="wrap">
+    <div class="site-foot__top">
+      <div>
+        <p class="site-foot__brand">PHÁP DẪN – ĐÚNG LUỒNG · VỮNG LUẬT · THẤU TÌNH</p>
+        <p class="site-foot__sub">Dự án đang phát triển phần mềm hỗ trợ cán bộ cấp xã, phường quản lý đơn thư: theo dõi thời hạn, phân công người phụ trách và kiểm tra căn cứ pháp luật trước khi trình ký.</p>
+      </div>
+
+      <nav class="site-foot__nav" aria-label="Liên kết cuối trang">
+        <a href="./#gioi-thieu">Giới thiệu dự án</a>
+        <a href="./#chuc-nang">Chức năng</a>
+        <a href="sau-cau-hoi-truoc-khi-ky.html">Sáu câu hỏi trước khi ký</a>
+        <a href="don-thu-theo-linh-vuc.html">Đơn thư theo lĩnh vực</a>
+        <a href="minh-bach.html">Minh bạch</a>
+        <a href="bai-viet/">Bài viết</a>
+        <a href="chinh-sach-du-lieu.html">Chính sách dữ liệu</a>
+        <a href="lien-he.html">Liên hệ</a>
+      </nav>
+    </div>
+
+    <div class="site-foot__bottom">
+      <p><strong>Thông báo quan trọng:</strong> Website phapdan.vn chỉ giới thiệu dự án, không nhận đơn khiếu nại, tố cáo, kiến nghị, phản ánh và không cung cấp dịch vụ tra cứu hồ sơ thật của công dân.</p>
+      <p>© 2026 Pháp Dẫn (LegalFlow). Phần mềm đang thử nghiệm nội bộ với hồ sơ mẫu.</p>
+    </div>
+  </div>
 </footer>
+
 <script>
-(function(){var a=document.querySelector('a[data-zoom]');if(!a||!window.HTMLDialogElement)return;
-var d=document.getElementById('lb'),b=d.querySelector('button');
-a.addEventListener('click',function(e){e.preventDefault();d.showModal();b.focus();});
-b.addEventListener('click',function(){d.close();});
-d.addEventListener('click',function(e){if(e.target===d)d.close();});
-d.addEventListener('close',function(){a.focus();});})();
-(function(){var m=document.querySelector('.mnav');if(!m)return;
-m.addEventListener('click',function(e){if(e.target.closest('nav a'))m.open=false;});
-document.addEventListener('keydown',function(e){if(e.key==='Escape'&&m.open){m.open=false;m.querySelector('summary').focus();}});})();
-(function(){
-var w=document.querySelector('[data-dem]');if(!w)return;
-var inp=w.querySelector('.dem__in'),cal=w.querySelector('[data-cal]'),kq=w.querySelector('[data-kq]');
-if(!inp||!cal||!kq)return;
-/* Ngày nghỉ: NQ 28/2026/QH16 (24/11/2026, không hoán đổi); TB 11483/TB-BNV ngày 09/10/2026 (Tết 2027); khoảng đã đối chiếu: 01/11/2026 - 15/03/2027 */
-var LE={'2026-11-24':'Ngày Văn hóa Việt Nam','2027-01-01':'Tết Dương lịch','2027-02-04':'Tết Âm lịch','2027-02-05':'Tết Âm lịch','2027-02-06':'Tết Âm lịch','2027-02-07':'Tết Âm lịch','2027-02-08':'Tết Âm lịch','2027-02-09':'Tết Âm lịch','2027-02-10':'Tết Âm lịch'};
-var THU=['chủ nhật','thứ hai','thứ ba','thứ tư','thứ năm','thứ sáu','thứ bảy'];
-function p(s){var a=s.split('-');return new Date(Date.UTC(+a[0],+a[1]-1,+a[2]));}
-function k(d){var m=d.getUTCMonth()+1,n=d.getUTCDate();return d.getUTCFullYear()+'-'+(m<10?'0':'')+m+'-'+(n<10?'0':'')+n;}
-function dmy(d){var m=d.getUTCMonth()+1,n=d.getUTCDate();return (n<10?'0':'')+n+'/'+(m<10?'0':'')+m+'/'+d.getUTCFullYear();}
-function them(d,n){return new Date(d.getTime()+n*86400000);}
-function nghi(d){var t=d.getUTCDay();return t===0||t===6||!!LE[k(d)];}
-function ve(){
- cal.textContent='';kq.textContent='';
- var s=inp.value;if(!s||!/^\d{4}-\d{2}-\d{2}$/.test(s))return;
- var g=p(s);if(isNaN(g.getTime()))return;
- if((inp.min&&s<inp.min)||(inp.max&&s>inp.max)){kq.textContent='Ngày '+dmy(g)+' nằm ngoài khoảng đã đối chiếu lịch nghỉ lễ (01/11/2026 đến 04/03/2027). Trang không tính hạn cho ngày này.';return;}
- if(nghi(g)){kq.textContent='Ngày '+dmy(g)+' là '+(LE[k(g)]?'ngày nghỉ lễ ('+LE[k(g)]+')':THU[g.getUTCDay()])+', không phải ngày làm việc. Hãy chọn đúng ngày ghi trên phiếu tiếp nhận của cơ quan; trang không tự đổi sang ngày khác.';return;}
- var r=new Date(g);
- var ds=[{d:new Date(r),t:'recv',nh:'Ngày nhận'}],cur=new Date(r),dem=0;
- while(dem<7){cur=them(cur,1);
-  var t=LE[k(cur)]?'off':(nghi(cur)?'skip':'count'),nh='';
-  if(t==='count'){dem++;nh='Ngày '+dem;}else if(t==='off'){nh='Nghỉ lễ';}else{nh='Nghỉ';}
-  ds.push({d:new Date(cur),t:t,nh:nh});}
- ds[ds.length-1].t='due';ds[ds.length-1].nh='Hạn';
- var dau=new Date(ds[0].d);while(dau.getUTCDay()!==1){dau=them(dau,-1);}
- var cuoi=new Date(ds[ds.length-1].d);while(cuoi.getUTCDay()!==0){cuoi=them(cuoi,1);}
- var map={};for(var i=0;i<ds.length;i++){map[k(ds[i].d)]=ds[i];}
- var hd=['T2','T3','T4','T5','T6','T7','CN'];
- for(var j=0;j<7;j++){var h=document.createElement('div');h.className='dem__hd';h.textContent=hd[j];cal.appendChild(h);}
- for(var d=new Date(dau);d<=cuoi;d=them(d,1)){
-  var o=map[k(d)],c=document.createElement('div');
-  if(!o){c.className='dem__d dem__d--blank';c.setAttribute('aria-hidden','true');
-   var sb=document.createElement('b');sb.textContent=d.getUTCDate();sb.style.opacity='.35';c.appendChild(sb);}
-  else{c.className='dem__d dem__d--'+o.t;
-   var b=document.createElement('b');b.textContent=d.getUTCDate();c.appendChild(b);
-   c.appendChild(document.createTextNode(o.nh));
-   c.setAttribute('aria-label',dmy(d)+', '+o.nh);}
-  cal.appendChild(c);}
- var ht=ds[ds.length-1].d;
- kq.textContent='Ngày nhận '+dmy(r)+' ('+THU[r.getUTCDay()]+'). Ngày cuối của thời hạn thụ lý: '+dmy(ht)+', '+THU[ht.getUTCDay()]+'.';}
-inp.addEventListener('change',ve);inp.addEventListener('input',ve);ve();})();
+/* 1. Đóng menu di động khi chọn mục hoặc bấm Esc */
+(function () {
+  var m = document.querySelector('.mnav');
+  if (!m) return;
+  m.addEventListener('click', function (e) {
+    if (e.target.closest('nav a')) m.open = false;
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && m.open) {
+      m.open = false;
+      m.querySelector('summary').focus();
+    }
+  });
+})();
+
+/* 2. Hộp phóng to ảnh chụp giao diện (hỗ trợ mọi ảnh có data-zoom & bàn phím) */
+(function () {
+  var links = document.querySelectorAll('a[data-zoom]');
+  var dlg = document.getElementById('lb');
+  if (!links.length || !dlg || !window.HTMLDialogElement) return;
+  var img = document.getElementById('lb-img');
+  var cap = document.getElementById('lb-cap');
+  var closeBtn = document.getElementById('lb-close');
+  var lastTrigger = null;
+
+  for (var i = 0; i < links.length; i++) {
+    links[i].addEventListener('click', function (e) {
+      e.preventDefault();
+      lastTrigger = this;
+      var href = this.getAttribute('href');
+      var innerImg = this.querySelector('img');
+      var desc = this.getAttribute('data-cap') || (innerImg ? innerImg.getAttribute('alt') : '');
+      img.setAttribute('src', href);
+      if (innerImg) {
+        img.setAttribute('alt', innerImg.getAttribute('alt') || 'Ảnh giao diện cỡ lớn');
+      }
+      if (desc) cap.textContent = desc;
+      dlg.showModal();
+      closeBtn.focus();
+    });
+  }
+  closeBtn.addEventListener('click', function () { dlg.close(); });
+  dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
+  dlg.addEventListener('close', function () { if (lastTrigger) lastTrigger.focus(); });
+})();
+
+/* 3. Ô tương tác đếm hạn thụ lý (Bảo toàn 100% quy tắc nghiệp vụ & lịch nghỉ lễ đã kiểm thử) */
+(function () {
+  var w = document.querySelector('[data-dem]');
+  if (!w) return;
+  var inp = w.querySelector('.dem__in');
+  var cal = w.querySelector('[data-cal]');
+  var kq = w.querySelector('[data-kq]');
+  var tomTat = w.querySelector('[data-tom-tat]');
+  var presets = w.querySelectorAll('[data-chon-ngay]');
+  if (!inp || !cal || !kq) return;
+
+  /* Ngày nghỉ: NQ 28/2026/QH16 (24/11/2026, không hoán đổi); TB 11483/TB-BNV ngày 09/10/2026 (Tết 2027); khoảng đã đối chiếu: 01/11/2026 - 04/03/2027 (hạn tới 15/03/2027) */
+  var LE = {
+    '2026-11-24': 'Ngày Văn hóa Việt Nam',
+    '2027-01-01': 'Tết Dương lịch',
+    '2027-02-04': 'Tết Âm lịch',
+    '2027-02-05': 'Tết Âm lịch',
+    '2027-02-06': 'Tết Âm lịch',
+    '2027-02-07': 'Tết Âm lịch',
+    '2027-02-08': 'Tết Âm lịch',
+    '2027-02-09': 'Tết Âm lịch',
+    '2027-02-10': 'Tết Âm lịch'
+  };
+  var THU = ['chủ nhật', 'thứ hai', 'thứ ba', 'thứ tư', 'thứ năm', 'thứ sáu', 'thứ bảy'];
+
+  function p(s) { var a = s.split('-'); return new Date(Date.UTC(+a[0], +a[1] - 1, +a[2])); }
+  function k(d) { var m = d.getUTCMonth() + 1, n = d.getUTCDate(); return d.getUTCFullYear() + '-' + (m < 10 ? '0' : '') + m + '-' + (n < 10 ? '0' : '') + n; }
+  function dmy(d) { var m = d.getUTCMonth() + 1, n = d.getUTCDate(); return (n < 10 ? '0' : '') + n + '/' + (m < 10 ? '0' : '') + m + '/' + d.getUTCFullYear(); }
+  function dm(d) { var m = d.getUTCMonth() + 1, n = d.getUTCDate(); return (n < 10 ? '0' : '') + n + '/' + (m < 10 ? '0' : '') + m; }
+  function them(d, n) { return new Date(d.getTime() + n * 86400000); }
+  function nghi(d) { var t = d.getUTCDay(); return t === 0 || t === 6 || !!LE[k(d)]; }
+
+  function dongBoPreset(val) {
+    for (var i = 0; i < presets.length; i++) {
+      presets[i].setAttribute('aria-pressed', presets[i].getAttribute('data-chon-ngay') === val ? 'true' : 'false');
+    }
+  }
+
+  function themO(dl, dtText, ddText, noiBat) {
+    if (!dl) return;
+    var div = document.createElement('div');
+    div.className = 'dem-stat' + (noiBat ? ' dem-stat--due' : '');
+    var dt = document.createElement('dt');
+    dt.textContent = dtText;
+    var dd = document.createElement('dd');
+    dd.textContent = ddText;
+    div.appendChild(dt);
+    div.appendChild(dd);
+    dl.appendChild(div);
+  }
+
+  function ve() {
+    cal.textContent = '';
+    kq.textContent = '';
+    if (tomTat) tomTat.textContent = '';
+    var s = inp.value;
+    dongBoPreset(s);
+    if (!s || !/^\d{4}-\d{2}-\d{2}$/.test(s)) return;
+    var g = p(s);
+    if (isNaN(g.getTime())) return;
+
+    if ((inp.min && s < inp.min) || (inp.max && s > inp.max)) {
+      kq.textContent = 'Ngày ' + dmy(g) + ' nằm ngoài khoảng đã đối chiếu lịch nghỉ lễ (01/11/2026 đến 04/03/2027). Trang không tính hạn cho ngày này.';
+      return;
+    }
+    if (nghi(g)) {
+      kq.textContent = 'Ngày ' + dmy(g) + ' là ' + (LE[k(g)] ? 'ngày nghỉ lễ (' + LE[k(g)] + ')' : THU[g.getUTCDay()]) + ', không phải ngày làm việc. Hãy chọn đúng ngày ghi trên phiếu tiếp nhận của cơ quan; trang không tự đổi sang ngày khác.';
+      return;
+    }
+
+    var r = new Date(g);
+    var ds = [{ d: new Date(r), t: 'recv', nh: 'Ngày nhận' }];
+    var cur = new Date(r), dem = 0, ngayTinh = [], soNghi = 0, tenLe = [];
+
+    while (dem < 7) {
+      cur = them(cur, 1);
+      var key = k(cur);
+      var t = LE[key] ? 'off' : (nghi(cur) ? 'skip' : 'count');
+      var nh = '';
+      if (t === 'count') {
+        dem++;
+        nh = 'Ngày ' + dem;
+        ngayTinh.push(dm(cur));
+      } else if (t === 'off') {
+        nh = 'Nghỉ lễ';
+        soNghi++;
+        if (tenLe.indexOf(LE[key]) === -1) tenLe.push(LE[key]);
+      } else {
+        nh = 'Nghỉ';
+        soNghi++;
+      }
+      ds.push({ d: new Date(cur), t: t, nh: nh });
+    }
+    ds[ds.length - 1].t = 'due';
+    ds[ds.length - 1].nh = 'Hạn';
+
+    var dau = new Date(ds[0].d);
+    while (dau.getUTCDay() !== 1) { dau = them(dau, -1); }
+    var cuoi = new Date(ds[ds.length - 1].d);
+    while (cuoi.getUTCDay() !== 0) { cuoi = them(cuoi, 1); }
+
+    var map = {};
+    for (var i = 0; i < ds.length; i++) { map[k(ds[i].d)] = ds[i]; }
+
+    var hd = ['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN'];
+    for (var j = 0; j < 7; j++) {
+      var h = document.createElement('div');
+      h.className = 'dem__hd';
+      h.textContent = hd[j];
+      cal.appendChild(h);
+    }
+
+    for (var d = new Date(dau); d <= cuoi; d = them(d, 1)) {
+      var o = map[k(d)], c = document.createElement('div');
+      if (!o) {
+        c.className = 'dem__d dem__d--blank';
+        c.setAttribute('aria-hidden', 'true');
+        var sb = document.createElement('b');
+        sb.textContent = d.getUTCDate();
+        sb.style.opacity = '.35';
+        c.appendChild(sb);
+      } else {
+        c.className = 'dem__d dem__d--' + o.t;
+        var b = document.createElement('b');
+        b.textContent = d.getUTCDate();
+        c.appendChild(b);
+        c.appendChild(document.createTextNode(o.nh));
+        c.setAttribute('aria-label', dmy(d) + ', ' + o.nh);
+      }
+      cal.appendChild(c);
+    }
+
+    var ht = ds[ds.length - 1].d;
+    if (tomTat) {
+      themO(tomTat, '1. Ngày nhận đơn', dmy(r) + ' (' + THU[r.getUTCDay()] + ', không tính)', false);
+      themO(tomTat, '2. Ngày được tính (07 ngày)', ngayTinh.join(', '), false);
+      themO(tomTat, '3. Ngày nghỉ bỏ qua', soNghi ? (soNghi + ' ngày' + (tenLe.length ? ' (gồm ' + tenLe.join(', ') + ')' : ' (thứ bảy, chủ nhật)')) : '0 ngày', false);
+      themO(tomTat, '4. Ngày cuối của thời hạn', dmy(ht) + ' (' + THU[ht.getUTCDay()] + ')', true);
+      themO(tomTat, '5. Căn cứ áp dụng', 'K1 Đ27 Luật Khiếu nại (sửa đổi bởi Luật 136/2025/QH15)', false);
+    }
+    kq.textContent = 'Ngày nhận ' + dmy(r) + ' (' + THU[r.getUTCDay()] + '). Ngày cuối của thời hạn thụ lý: ' + dmy(ht) + ', ' + THU[ht.getUTCDay()] + '.';
+  }
+
+  for (var pIdx = 0; pIdx < presets.length; pIdx++) {
+    presets[pIdx].addEventListener('click', function () {
+      inp.value = this.getAttribute('data-chon-ngay');
+      ve();
+    });
+  }
+  inp.addEventListener('change', ve);
+  inp.addEventListener('input', ve);
+  ve();
+})();
+
+/* 4. Tương tác mở kết quả định sẵn trên 4 thẻ minh họa trích dẫn (xử lý tĩnh tại trình duyệt) */
+(function () {
+  var cards = document.querySelectorAll('[data-cite-card]');
+  for (var i = 0; i < cards.length; i++) {
+    (function (card) {
+      var ans = card.getAttribute('data-answer');
+      var btns = card.querySelectorAll('[data-guess]');
+      var details = card.querySelector('details');
+      var fb = card.querySelector('[data-cite-fb]');
+      for (var j = 0; j < btns.length; j++) {
+        btns[j].addEventListener('click', function () {
+          var g = this.getAttribute('data-guess');
+          for (var m = 0; m < btns.length; m++) {
+            btns[m].setAttribute('aria-pressed', btns[m] === this ? 'true' : 'false');
+          }
+          if (fb) {
+            fb.hidden = false;
+            fb.textContent = (g === ans)
+              ? 'Trùng với đáp án định sẵn của tình huống minh họa này:'
+              : 'Khác với đáp án định sẵn — đây là điểm dễ nhầm cần lưu ý:';
+          }
+          if (details) details.open = true;
+        });
+      }
+    })(cards[i]);
+  }
+})();
+
+/* 5. Hệ thống Tab 6 nhóm chức năng (Hỗ trợ đầy đủ phím mũi tên Trái/Phải, Home, End) */
+(function () {
+  var tablist = document.querySelector('[role="tablist"]');
+  if (!tablist) return;
+  var tabs = Array.prototype.slice.call(tablist.querySelectorAll('[role="tab"]'));
+  var panels = tabs.map(function (t) { return document.getElementById(t.getAttribute('aria-controls')); });
+
+  function chonTab(idx, focusTab) {
+    for (var i = 0; i < tabs.length; i++) {
+      var active = (i === idx);
+      tabs[i].setAttribute('aria-selected', active ? 'true' : 'false');
+      tabs[i].setAttribute('tabindex', active ? '0' : '-1');
+      if (panels[i]) panels[i].hidden = !active;
+    }
+    if (focusTab) tabs[idx].focus();
+  }
+
+  tabs.forEach(function (tab, idx) {
+    tab.addEventListener('click', function () { chonTab(idx, false); });
+    tab.addEventListener('keydown', function (e) {
+      var next = null;
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') next = (idx + 1) % tabs.length;
+      else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') next = (idx - 1 + tabs.length) % tabs.length;
+      else if (e.key === 'Home') next = 0;
+      else if (e.key === 'End') next = tabs.length - 1;
+      if (next !== null) {
+        e.preventDefault();
+        chonTab(next, true);
+      }
+    });
+  });
+})();
 </script>
 </body>
 </html>
