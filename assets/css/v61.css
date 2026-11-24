@@ -214,6 +214,7 @@ a:hover {
 a:focus-visible,
 button:focus-visible,
 summary:focus-visible,
+input:focus,
 input:focus-visible,
 [role="tab"]:focus-visible,
 [tabindex]:focus-visible {
@@ -225,9 +226,10 @@ input:focus-visible,
 .skip-link {
   position: absolute;
   left: var(--edge);
-  top: -80px;
+  top: -12rem;
   z-index: 100;
   min-height: 44px;
+  max-width: calc(100vw - 2 * var(--edge));
   padding: 10px 18px;
   background: var(--btn-bg);
   color: var(--btn-ink);
@@ -404,10 +406,12 @@ input:focus-visible,
   border-bottom: 1px solid var(--border);
 }
 .site-head__in {
+  position: relative;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 12px 16px;
-  min-height: 84px;
+  gap: 10px 16px;
+  min-height: 80px;
   padding-block: 10px;
 }
 .brand {
@@ -418,6 +422,7 @@ input:focus-visible,
   margin-right: auto;
   text-decoration: none;
   min-width: 0;
+  max-width: 100%;
 }
 .brand:hover { text-decoration: none; }
 .brand img {
@@ -431,6 +436,7 @@ input:focus-visible,
   flex-wrap: wrap;
   align-items: baseline;
   gap: 0 8px;
+  min-width: 0;
 }
 .brand__name {
   font-weight: 700;
@@ -438,17 +444,18 @@ input:focus-visible,
   line-height: 1.15;
   letter-spacing: -0.015em;
   color: var(--ink);
-  white-space: nowrap;
+  overflow-wrap: break-word;
 }
 .brand__sub {
   font-weight: 500;
   font-size: 0.95rem;
   color: var(--muted);
-  white-space: nowrap;
+  overflow-wrap: break-word;
 }
 
 .nav {
   display: none;
+  flex-wrap: wrap;
   align-items: center;
   gap: 4px;
 }
@@ -456,17 +463,16 @@ input:focus-visible,
   display: inline-flex;
   align-items: center;
   min-height: 44px;
-  padding: 0 9px;
+  padding: 6px 9px;
   border-radius: var(--r-sm);
   text-decoration: none;
   font-weight: 500;
   font-size: var(--t-small);
   color: var(--ink-2);
-  white-space: nowrap;
 }
 .site-head__cta {
-  white-space: nowrap;
   flex: none;
+  max-width: 100%;
 }
 .nav a:hover {
   background: var(--bg-alt);
@@ -481,7 +487,8 @@ input:focus-visible,
   text-underline-offset: 6px;
 }
 
-.mnav { position: relative; }
+.mnav { position: static; max-width: 100%; }
+.mnav:not([open]) nav { display: none; }
 .mnav summary {
   list-style: none;
   cursor: pointer;
@@ -489,21 +496,22 @@ input:focus-visible,
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 0 14px;
+  padding: 6px 14px;
   border-radius: var(--r-md);
   border: 1.5px solid var(--border-strong);
   background: var(--surface);
   font-weight: 600;
   font-size: var(--t-small);
-  white-space: nowrap;
+  max-width: 100%;
 }
 .mnav summary::-webkit-details-marker { display: none; }
 .mnav nav {
   position: absolute;
-  right: 0;
-  top: 52px;
+  left: var(--edge);
+  right: var(--edge);
+  top: calc(100% - 2px);
   z-index: 50;
-  min-width: 248px;
+  width: auto;
   max-width: calc(100vw - 2 * var(--edge));
   display: flex;
   flex-direction: column;
@@ -512,6 +520,15 @@ input:focus-visible,
   border: 1px solid var(--border-strong);
   border-radius: var(--r-md);
   box-shadow: var(--shadow-lg);
+}
+@media (min-width: 640px) {
+  .mnav { position: relative; margin-left: auto; }
+  .mnav nav {
+    left: auto;
+    right: 0;
+    top: calc(100% + 6px);
+    width: min(280px, calc(100vw - 2 * var(--edge)));
+  }
 }
 .mnav nav a {
   display: flex;
@@ -556,12 +573,12 @@ input:focus-visible,
 
 /* ---------- 7. KHỐI 1 – HERO ---------- */
 .hero {
-  padding-block: clamp(20px, 4vw, 56px) clamp(40px, 6vw, 80px);
+  padding-block: clamp(24px, 4.2vw, 56px) clamp(44px, 6vw, 80px);
   position: relative;
 }
 .hero__grid {
   display: grid;
-  gap: clamp(26px, 4.5vw, 44px);
+  gap: clamp(28px, 4.5vw, 44px);
   align-items: start;
 }
 .hero__slogan {
@@ -569,9 +586,9 @@ input:focus-visible,
   align-items: center;
   gap: 10px;
   font-family: var(--serif);
-  font-size: clamp(0.95rem, 0.9rem + 0.28vw, 1.125rem);
+  font-size: clamp(1rem, 0.95rem + 0.28vw, 1.15rem);
   color: var(--gold-ink);
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 .hero__slogan::before {
   content: "";
@@ -586,27 +603,28 @@ input:focus-visible,
 
 .hero__copy {
   display: grid;
-  gap: 12px;
+  gap: 16px;
 }
 .hero__story {
   display: grid;
-  gap: 10px;
+  gap: 12px;
   max-width: 38em;
 }
 .hero__story p {
-  font-size: clamp(1rem, 0.96rem + 0.25vw, 1.125rem);
-  line-height: 1.56;
+  /* Không thu nhỏ chữ trên điện thoại: giữ đúng cỡ chữ nội dung chuẩn 17px (mobile) -> 18px (desktop) */
+  font-size: var(--t-body);
+  line-height: 1.62;
   color: var(--ink-2);
 }
 .hero__story p strong {
   color: var(--ink);
 }
 .hero__closing {
-  padding-left: 12px;
+  padding-left: 14px;
   border-left: 3px solid var(--gold);
   font-weight: 600;
-  font-size: var(--t-small);
-  line-height: 1.45;
+  font-size: 1rem;
+  line-height: 1.5;
   color: var(--ink);
 }
 .hero__actions {
@@ -616,21 +634,14 @@ input:focus-visible,
   display: flex;
   align-items: flex-start;
   gap: 10px;
-  padding: 10px 14px;
+  padding: 12px 14px;
   border-radius: var(--r-md);
   background: var(--surface);
   border: 1px solid var(--border);
   font-size: var(--t-note);
-  line-height: 1.5;
+  line-height: 1.55;
   color: var(--ink-2);
   max-width: 42em;
-}
-@media (max-width: 639px) {
-  .site-head__in { min-height: 66px; padding-block: 8px; }
-  .h1-hero { font-size: clamp(1.75rem, 1.2rem + 2.6vw, 2.25rem); line-height: 1.16; }
-  .hero__copy { gap: 10px; }
-  .hero__story { gap: 8px; }
-  .hero__story p { font-size: 0.96875rem; line-height: 1.5; }
 }
 
 /* Hộp phân biệt 3 tầng trong Khối 4 & Tóm tắt 3 câu hỏi trên trang Minh bạch */
@@ -913,6 +924,12 @@ input:focus-visible,
   border: 2px solid var(--ink);
   border-radius: var(--r-md);
 }
+.dem__in:focus,
+.dem__in:focus-visible,
+.dem__in:focus-within {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 3px;
+}
 .dem-presets__lb {
   display: block;
   font-size: var(--t-note);
@@ -993,11 +1010,16 @@ input:focus-visible,
   color: var(--ink);
 }
 
+.dem-cal-wrap {
+  max-width: 100%;
+  overflow-x: auto;
+  margin: 20px 0 14px;
+}
 .dem__cal {
   display: grid;
   grid-template-columns: repeat(7, minmax(0, 1fr));
+  min-width: 17.25rem;
   gap: 4px;
-  margin: 20px 0 14px;
   text-align: center;
 }
 .dem__hd {
@@ -1525,6 +1547,7 @@ html.js .feat-panel[hidden] {
 /* ---------- 14. KHỐI 8 – VÌ SAO CẦN CÁCH LÀM MỚI? ---------- */
 .why-grid {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 20px;
 }
 @media (min-width: 860px) {
@@ -1541,6 +1564,7 @@ html.js .feat-panel[hidden] {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  min-width: 0;
 }
 .why-card__idx {
   font-family: var(--serif);
@@ -1551,6 +1575,7 @@ html.js .feat-panel[hidden] {
   font-size: var(--t-small);
   line-height: 1.64;
   color: var(--ink-2);
+  overflow-wrap: break-word;
 }
 .why-card__cite {
   margin-top: auto;
@@ -1558,6 +1583,7 @@ html.js .feat-panel[hidden] {
   border-top: 1px solid var(--border);
   font-size: var(--t-note);
   color: var(--muted);
+  overflow-wrap: anywhere;
 }
 
 /* ---------- 15. KHỐI 9 – VIDEO TẦM NHÌN (Poster tĩnh nội bộ) ---------- */
